@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.69.0",
+    "@tanstack/react-query-devtools": "^5.69.0",
     "axios": "^1.8.4",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.13",
