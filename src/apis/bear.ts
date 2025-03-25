@@ -3,6 +3,7 @@ import { GetBearListResponse } from '@/types/response'
 
 import { axiosInstance } from './axiosInstance'
 
+
 export const getBearListAPI = async (request: GetBearListRequest): Promise<GetBearListResponse> => {
   const params = {
     page: request.page,

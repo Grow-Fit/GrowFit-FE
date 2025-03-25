@@ -1,5 +1,6 @@
-import { MAX_TIMEOUT_TIME } from '@/constants/api'
 import axios from 'axios'
+
+import { MAX_TIMEOUT_TIME } from '@/constants/api'
 
 export const axiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_URL,
