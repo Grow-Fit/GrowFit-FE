@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "commit": "gitmoji -c"
   },
   "engines": {
     "node": "^20.11.0",
@@ -47,6 +48,7 @@
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-storybook": "^0.11.6",
+    "gitmoji-cli": "^9.5.0",
     "playwright": "^1.51.1",
     "prettier": "^3.5.3",
     "sass": "^1.86.0",
