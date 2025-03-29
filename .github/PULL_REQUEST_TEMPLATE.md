@@ -1,5 +1,3 @@
-# Pull Request
-
 ## 개요 (Overview)
 
 <!-- PR의 목적과 동기를 간략히 설명해주세요.  -->
