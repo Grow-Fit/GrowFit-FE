@@ -1,0 +1,16 @@
+name: Enforce Branch Naming Convention
+
+on: [push, pull_request]
+
+jobs:
+  check-branch-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate Branch Name
+        run: |
+          BRANCH_NAME=$(echo "${{ github.ref }}" | sed 's/refs\/heads\///')
+          if [[ ! $BRANCH_NAME =~ ^(feature|design|bugfix|hotfix|release|docs|refactor|experiment|test|config|style|deps)\/[0-9]+-[a-z0-9-]+$ ]]; then
+            echo "❌ Invalid branch name: $BRANCH_NAME"
+            echo "🔹 Allowed formats: feature/{issue-number}-{description}, bugfix/{issue-number}-{description}, hotfix/{issue-number}-{description}, release/{version}"
+            exit 1
+          fi
