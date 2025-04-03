@@ -8,9 +8,26 @@ jobs:
     steps:
       - name: Validate Branch Name
         run: |
-          BRANCH_NAME=$(echo "${{ github.ref }}" | sed 's/refs\/heads\///')
-          if [[ ! $BRANCH_NAME =~ ^(feature|design|bugfix|hotfix|release|docs|refactor|experiment|test|config|style|deps)\/[0-9]+-[a-z0-9-]+$ ]]; then
+          GITHUB_REF="${{ github.ref }}"
+
+          # PR 브랜치인지 확인
+          if [[ "$GITHUB_REF" == refs/pull/*/merge ]]; then
+            echo "🔹 Skipping branch name check for PR merge branch ($GITHUB_REF)"
+            exit 0
+          fi
+
+          # 브랜치 이름 추출
+          BRANCH_NAME=$(echo "$GITHUB_REF" | sed 's|refs/heads/||')
+
+          # 허용된 네이밍 패턴
+          if [[ ! $BRANCH_NAME =~ ^(feature|design|bugfix|hotfix|release|docs|refactor|experiment|test|config|style|deps)\/([0-9]+-[a-zA-Z0-9-]+|[0-9]+\.[0-9]+\.[0-9]+)$ ]]; then
             echo "❌ Invalid branch name: $BRANCH_NAME"
-            echo "🔹 Allowed formats: feature/{issue-number}-{description}, bugfix/{issue-number}-{description}, hotfix/{issue-number}-{description}, release/{version}"
+            echo "🔹 Allowed formats:"
+            echo "   - feature/{issue-number}-{description}"
+            echo "   - bugfix/{issue-number}-{description}"
+            echo "   - hotfix/{issue-number}-{description}"
+            echo "   - release/{major.minor.patch}"
             exit 1
           fi
+
+          echo "✅ Branch name is valid: $BRANCH_NAME"
