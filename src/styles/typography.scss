@@ -1,71 +1,55 @@
-@mixin title {
-  font-size: 26px;
-  line-height: 43px;
-  font-weight: 800;
+@mixin font-style($weight, $size, $line-height) {
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $line-height;
 }
 
-@mixin title-10 {
-  font-size: 24px;
-  line-height: 34px;
-  font-weight: 800;
+.title {
+  @include font-style(800, 26px, 43px);
+
+  &-10 {
+    @include font-style(800, 24px, 34px);
+  }
+
+  &-20 {
+    @include font-style(800, 20px, 28px);
+  }
+
+  &-30 {
+    @include font-style(800, 18px, 26px);
+  }
+
+  &-40 {
+    @include font-style(800, 16px, 24px);
+  }
+
+  &-50 {
+    @include font-style(800, 15px, 22px);
+  }
 }
 
-@mixin title-20 {
-  font-size: 20px;
-  line-height: 28px;
-  font-weight: 800;
-}
+.body {
+  &-5 {
+    @include font-style(400, 18px, 26px);
+  }
 
-@mixin title-30 {
-  font-size: 18px;
-  line-height: 26px;
-  font-weight: 800;
-}
+  &-10 {
+    @include font-style(400, 16px, 26px);
+  }
 
-@mixin title-40 {
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 800;
-}
+  &-20 {
+    @include font-style(400, 15px, 26px);
+  }
 
-@mixin title-50 {
-  font-size: 15px;
-  line-height: 22px;
-  font-weight: 800;
-}
+  &-30 {
+    @include font-style(400, 14px, 24px);
+  }
 
-@mixin body-5 {
-  font-size: 18px;
-  line-height: 26px;
-  font-weight: 400;
-}
+  &-40 {
+    @include font-style(400, 13px, 22px);
+  }
 
-@mixin body-10 {
-  font-size: 16px;
-  line-height: 26px;
-  font-weight: 400;
-}
-
-@mixin body-20 {
-  font-size: 15px;
-  line-height: 26px;
-  font-weight: 400;
-}
-
-@mixin body-30 {
-  font-size: 14px;
-  line-height: 24px;
-  font-weight: 400;
-}
-
-@mixin body-40 {
-  font-size: 13px;
-  line-height: 22px;
-  font-weight: 400;
-}
-
-@mixin body-50 {
-  font-size: 12px;
-  line-height: 16px;
-  font-weight: 400;
+  &-50 {
+    @include font-style(400, 12px, 16px);
+  }
 }
