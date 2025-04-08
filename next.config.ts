@@ -1,5 +1,6 @@
-import type { NextConfig } from "next";
-import path from "path";
+import type { NextConfig } from "next"
+
+import path from "path"
 
 const nextConfig: NextConfig = {
   sassOptions: {
@@ -9,5 +10,16 @@ const nextConfig: NextConfig = {
       @use "typography" as *;
     `,
   },
-};
-export default nextConfig;
+  webpack(config) {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: [
+        {
+          loader: "@svgr/webpack",
+        },
+      ],
+    })
+    return config
+  },
+}
+export default nextConfig
