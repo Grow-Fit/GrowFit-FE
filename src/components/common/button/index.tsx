@@ -13,7 +13,7 @@ interface ButtonProps {
 const Button = ({ children, ...rest }: ButtonProps) => {
   return (
     <button
-      className={cx("button")}
+      className={cx("button", "title-10")}
       {...rest}
       onClick={() => {
         console.log("button clicked")
