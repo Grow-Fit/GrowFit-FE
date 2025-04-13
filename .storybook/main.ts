@@ -22,10 +22,9 @@ const config = {
         preprocessorOptions: {
           scss: {
             additionalData: `
-              @use "colors" as *;
-              @use "typography" as *;
+              @use "/src/styles/colors" as *;
+              @use "/src/styles/typography" as *;
             `,
-            includePaths: [path.resolve(__dirname, '../src/styles')],
           },
         },
       },
