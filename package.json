@@ -36,6 +36,7 @@
     "@storybook/experimental-nextjs-vite": "8.6.9",
     "@storybook/react": "^8.6.9",
     "@storybook/test": "^8.6.9",
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
