@@ -1,5 +1,6 @@
-import type { NextConfig } from "next";
-import path from "path";
+import type { NextConfig } from "next"
+
+import path from "path"
 
 const nextConfig: NextConfig = {
   sassOptions: {
@@ -21,4 +22,5 @@ const nextConfig: NextConfig = {
     return config
   },
 }
-export default nextConfig;
+export default nextConfig
+
