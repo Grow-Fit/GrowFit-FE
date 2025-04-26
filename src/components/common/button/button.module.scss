@@ -1,0 +1,56 @@
+.button {
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 13px 0 ;
+  height: 50px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+
+  &.large {
+    height: 56px;
+  }
+
+  &.medium {
+    height: 50px;
+  }
+
+  &.filled {
+    background-color: $black;
+    color: $white;
+    border: none;
+
+    &:hover, &:active {
+      background-color: $gray-blue-80;
+    }
+
+    &.disabled {
+      background-color: $gray-10;
+      color: $black;
+    }
+  }
+
+  &.ghost {
+    background-color: transparent;
+    color: $black;
+    border: 1px solid $gray-20;
+
+    &:hover, &:active {
+      background-color: $gray-10;
+    }
+
+    &.disabled {
+      color: $gray-20;
+    }
+  }
+
+  &.rounded {
+    border-radius: 100px;
+  }
+
+  &.sharp {
+    border-radius: 6px;
+  }
+}
