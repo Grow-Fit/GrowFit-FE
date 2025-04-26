@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 
-import { getBearListAPI } from '@/apis/bear'
+import { getBearListAPI } from '@/api/bear'
 
 import { GetBearListRequest } from '@/types/request'
 
