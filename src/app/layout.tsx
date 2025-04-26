@@ -27,9 +27,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={Pretendard.className}>
         <Layout>
-          <Header />
           <QueryProvider>{children}</QueryProvider>
-          <Navigation />
         </Layout>
       </body>
     </html>
