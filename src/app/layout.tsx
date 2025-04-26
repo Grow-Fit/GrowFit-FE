@@ -4,6 +4,8 @@ import QueryProvider from "@/queries/QueryProvider"
 
 import "@/styles/globals.scss"
 import Layout from "@/components/layout/Layout";
+import Header from "@/components/layout/Header";
+import Navigation from "@/components/layout/Navigation";
 
 const Pretendard = localFont({
   src: "../styles/fonts/PretendardVariable.woff2",
@@ -25,7 +27,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={Pretendard.className}>
         <Layout>
+          <Header />
           <QueryProvider>{children}</QueryProvider>
+          <Navigation />
         </Layout>
       </body>
     </html>
