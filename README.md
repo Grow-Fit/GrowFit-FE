@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GrowFit 🌱💪
 
-## Getting Started
+## Table of Contents 📑
+- [소개](#소개)
+- [기술 스택](#기술-스택)
+- [폴더 구조](#폴더-구조)
+- [기능](#기능)
+- [설치 방법](#설치-방법)
+- [사용 방법](#사용-방법)
+- [기여](#기여)
+- [라이센스](#라이센스)
 
-First, run the development server:
+## 소개 🌟
+**그로우핏(GrowFit)**
+그로우핏은 소아비만 예방 및 관리를 위한 부모와 아이가 함께 사용하는 건강 관리 서비스입니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+건강하게 자라난다는 뜻의 "Grow"와 건강을 의미하는 "Fit"의 조합이 담겨 있으며 "자신에게 꼭 맞는 건강을 찾아간다"는 의미를 내포하며, 아이들이 건강한 습관을 통해 몸과 마음의 균형을 맞추고 성장할 수 있도록 돕는 플랫폼입니다
+
+그로우핏(GrowFit)은 아이들의 체중과 건강 상태를 부모와 함께 점검하고, 맞춤형 식단과 운동 계획을 제시하여 가족 모두가 즐겁게 건강을 개선할 수 있는 환경을 제공합니다.
+건강한 성장의 시작, 그로우핏(GrowFit)과 함께하세요!
+
+## 기술 스택 🛠️
+- Next.js
+- TypeScript
+- Zustand
+- Tanstack Query
+
+## 폴더 구조 📂
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+src/
+├── app/                           # 앱의 주요 라우팅 및 페이지 관리
+│   ├── (auth)/                    # 로그인, 회원가입 등 인증 관련 라우트 그룹
+│   ├── (goal)/                    # 목표 설정과 관련된 라우트 그룹
+│   ├── (mypage)/                  # 마이페이지와 관련된 라우트 그룹
+│   ├── api/                       # 서버 API와 통신하는 라우트들
+│   ├── error.tsx                  # 전역 에러 페이지
+│   ├── favicon.ico                # 사이트 파비콘
+│   ├── layout.tsx                 # 전역 레이아웃 관리
+│   ├── loading.tsx                # 전역 로딩 페이지
+│   └── page.tsx                   # 홈페이지
+├── assets/                        # 이미지, 폰트, 아이콘 등 정적 리소스
+├── components/                    # UI 컴포넌트
+│   ├── common/                    # 공통적으로 사용되는 UI 컴포넌트
+│   │   └── button/                # 버튼 컴포넌트
+│   │       ├── button.module.scss # 버튼 스타일
+│   │       ├── button.stories.tsx # 버튼 스토리북
+│   │       └── index.tsx          # 버튼 컴포넌트
+│   ├── features/                  # 특정 기능과 관련된 컴포넌트
+│   └── layout/                    # 레이아웃 관련 컴포넌트 (헤더, 푸터 등)
+├── hooks/                         # 커스텀 훅
+├── lib/                           # 라이브러리 관련 코드
+│   ├── constants/                 # 상수 관리 (불변 값)
+│   └── utils/                     # 범용 유틸리티 함수
+├── queries/                       # React Query 쿼리 함수
+├── stores/                        # 상태 관리 (예: Zustand, Redux 등)
+├── stories/                       # 스토리북 관련 파일들
+├── styles/                        # 전역 스타일 설정 (CSS, SCSS, Tailwind 등)
+└── types/                         # 타입스크립트 타입 정의 파일들
+```
