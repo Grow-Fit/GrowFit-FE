@@ -1,0 +1,26 @@
+.navi {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 769px;
+  box-sizing: border-box;
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    border-top: 1px solid $gray-10;
+
+    &-item {
+      flex: 1;
+      padding: 6px 0;
+
+      p {
+        font-size: 13px;
+        color: $sky-blue-40;
+        margin-top: 3px;
+      }
+    }
+  }
+}

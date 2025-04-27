@@ -1,0 +1,17 @@
+.header {
+  position: fixed;
+  width: 100%;
+  max-width: 769px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 52px;
+  padding: 0 20px;
+  background-color: #fff;
+
+  &__menu {
+    display: flex;
+    gap: 8px;
+  }
+}

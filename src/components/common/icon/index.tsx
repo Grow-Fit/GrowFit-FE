@@ -1,2 +1,2 @@
 export { default as AddBtnIcon } from '@/assets/icons/add_btn.svg';
-export { default as PhotoChangeIcon } from '@/assets/icons/photo_change_btn.svg';
+export { default as PhotoChangeIcon } from '@/assets/icons/profile.svg';
