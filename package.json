@@ -37,6 +37,7 @@
     "@storybook/react": "^8.6.9",
     "@storybook/test": "^8.6.9",
     "@svgr/webpack": "^8.1.0",
+    "@types/classnames": "^2.3.4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
