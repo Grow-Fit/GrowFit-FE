@@ -1,0 +1,14 @@
+.goal {
+  min-height: 100vh;
+  background-color: #97D3F7;
+
+  &__content {
+    background-color: lightblue;
+    padding: 20px;
+  }
+
+  &__character {
+    font-size: 20px;
+    color: red;
+  }
+}
