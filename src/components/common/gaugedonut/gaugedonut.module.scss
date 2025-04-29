@@ -1,0 +1,33 @@
+.donut {
+  --percent: 75;
+  --color: #030824;
+  width: 57px;
+  height: 57px;
+  border-radius: 50%;
+  background: conic-gradient(var(--color) calc(var(--percent) * 1%), #F1F3FF 0);
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  &-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 13px;
+    color: #030824;
+    z-index: 2;
+    span {
+      font-weight: 600;
+    }
+  }
+}
