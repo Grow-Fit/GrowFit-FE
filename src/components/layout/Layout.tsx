@@ -8,8 +8,7 @@ const cx = classNames.bind(styles)
 
 const Layout = ({children}:React.ReactNode) => {
   return (
-    <div
-      className={cx("layout")}>
+    <div className={cx("layout")}>
       {children}
     </div>
   )
