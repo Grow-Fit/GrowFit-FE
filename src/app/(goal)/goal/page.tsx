@@ -7,6 +7,7 @@ import Character1 from "@/assets/character/step1.svg"
 import SmallCalendar from "@/components/common/smallcalendar/smallcalendar";
 import GaugeBar from "@/components/common/gaugebar/gaugebar";
 import GaugeDonut from "@/components/common/gaugedonut/gaugedonut";
+import Link from "next/link";
 
 
 const Page = () => {
@@ -31,8 +32,10 @@ const Page = () => {
         </div>
 
         <div className={cx("goal__box")}>
-          <h2>진행중인 목표</h2>
-          <GaugeDonut />
+          <Link href={`/goal/detail`}>
+            <h2>진행중인 목표</h2>
+            <GaugeDonut/>
+          </Link>
         </div>
 
       </div>
