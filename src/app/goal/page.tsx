@@ -9,7 +9,6 @@ import GaugeBar from "@/components/common/gaugebar/gaugebar";
 import GaugeDonut from "@/components/common/gaugedonut/gaugedonut";
 import Link from "next/link";
 
-
 const Page = () => {
   return (
     <div className={cx("goal")}>

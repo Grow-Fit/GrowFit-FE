@@ -1,0 +1,54 @@
+.step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 9px;
+    top: 30px;
+    width: 16px;
+    background-color: #D9DDF5;
+    height: calc(100% - 60px);
+    z-index: 0;
+  }
+  &__wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    &-circle {
+      position: relative;
+      z-index: 10;
+      flex-shrink: 0;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background-color: #D9DDF5;
+      border: 3px solid #fff;
+    }
+    &-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: $white;
+      padding: 16px;
+      height: 82px;
+      width: 100%;
+      border-radius: 15px;
+      h3 {
+        color: #D9DDF5;
+      }
+      button {
+        background-color: #030824;
+        border-radius: 100px;
+        color: $white;
+        font-size: 15px;
+        padding: 0 13px;
+        height: 32px;
+        line-height: 32px;
+      }
+
+    }
+  }
+}

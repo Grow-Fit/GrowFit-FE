@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
       @use "colors" as *;
       @use "typography" as *;
     `,
+    modularizeImports: {},
   },
   webpack(config) {
     config.module.rules.push({
