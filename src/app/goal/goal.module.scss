@@ -53,14 +53,15 @@
 }
 
 .goal__box {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 30px 20px 0;
-  background-color: #fff;
-  padding: 17px 28px;
-  border-radius: 15px;
-
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px 20px 0;
+    background-color: #fff;
+    padding: 17px 28px;
+    border-radius: 15px;
+  }
   h2 {
     font-size: 20px;
     font-weight: 700;
