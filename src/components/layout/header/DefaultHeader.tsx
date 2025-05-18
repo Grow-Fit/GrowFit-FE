@@ -1,12 +1,12 @@
 "use client"
 import Link from "next/link";
 import classNames from "classnames/bind"
-import styles from "./Header.module.scss"
+import styles from "./DefaultHeader.module.scss"
 import Profile from "@/assets/icons/profile.svg"
 import Alarm from "@/assets/icons/noti.svg"
 const cx = classNames.bind(styles)
 
-const Header = () => {
+const DefaultHeader = () => {
   return (
     <div className={cx("header")}>
       <h1 className={cx("header__logo title-20")}>grow fit</h1>
@@ -26,4 +26,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default DefaultHeader
