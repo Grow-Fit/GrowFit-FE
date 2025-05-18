@@ -1,0 +1,14 @@
+.step {
+  padding-top: 32px;
+  max-width: 267px;
+  line-height: 1.5;
+  h2 {
+    display: flex;
+    gap: 8px;
+    font-size: 20px;
+    font-weight: 700;
+    strong {
+      color: #105D9C;
+    }
+  }
+}

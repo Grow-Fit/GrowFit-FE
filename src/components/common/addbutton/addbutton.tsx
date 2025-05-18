@@ -1,14 +1,13 @@
 "use client"
+import Image from "next/image";
 import classNames from "classnames/bind"
 import styles from "./addbutton.module.scss"
-import Image from "next/image";
-import Addable from "@/assets/icon/btn_add.svg"
-import Added from "@/assets/icon/btn_added.svg"
+import Addable from "@/assets/icons/common/icon-add.svg"
+import Added from "@/assets/icons/common/icon-added.svg"
 
 const cx = classNames.bind(styles)
-
 interface ButtonProps {
-  disabled?: boolean;
+  disabled: boolean;
   label: string;
   onClick: () => void;
 }
@@ -20,10 +19,15 @@ const AddButton = ({
                 }: ButtonProps) => {
   return (
     <div
-      className={cx("button", {disabled})}
+      className={cx("button")}
       onClick={onClick}
     >
-      <Image src={disabled ? Added : Addable} alt={label} width={20} height={20} />
+      {disabled ? (
+        <Added />
+      ) : (
+        <Addable />
+      )}
+
     </div>
   )
 }
