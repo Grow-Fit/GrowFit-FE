@@ -14,7 +14,7 @@ const Page = () => {
   return (
     <>
       <BackHeader title={"목표추가"} />
-      <div className={cx("goal")}>
+      <div className={cx("goals")}>
         <div className={cx("goal__content")}>
           <div className={cx("goal__title")}>
             <StepBox/>

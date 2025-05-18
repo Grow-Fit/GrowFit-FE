@@ -2,8 +2,8 @@
 import Image from "next/image";
 import classNames from "classnames/bind"
 import styles from "./addbutton.module.scss"
-import Addable from "@/assets/icons/btn_add.svg"
-import Added from "@/assets/icons/btn_added.svg"
+import Addable from "@/assets/icons/common/icon-add.svg"
+import Added from "@/assets/icons/common/icon-added.svg"
 
 const cx = classNames.bind(styles)
 interface ButtonProps {

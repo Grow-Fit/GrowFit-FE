@@ -16,7 +16,7 @@ const Page = () => {
   return (
     <>
       <DefaultHeader />
-      <div className={cx("goal")}>
+      <div className={cx("goals")}>
         <div className={cx("goal__content")}>
           <div className={cx("goal__calendar")}>
             <SmallCalendar />
@@ -36,7 +36,7 @@ const Page = () => {
           </div>
 
           <div className={cx("goal__box")}>
-            {/* /goal/detail > 상세, /goal/create > 수정 */}
+            {/* /goals/detail > 상세, /goals/create > 수정 */}
             <Link href={`/goal/create`}>
               <h2>진행중인 목표</h2>
               <GaugeDonut/>
