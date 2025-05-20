@@ -1,0 +1,60 @@
+.calendar {
+  position: relative;
+  :global(.rdp-button_previous) {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  :global(.rdp-button_next) {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  :global(.rdp-month_caption) {
+    font-size: 18px;
+    line-height: 26px;
+    text-align: center;
+    font-weight: 700;
+    padding-bottom: 20px;
+  }
+
+  :global(.rdp-month_grid) {
+    width: 100%;
+  }
+
+  :global(.rdp-weekdays) {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 20px;
+    th {
+      height: 32px;
+    }
+  }
+
+  :global(.rdp-day) {
+    text-align: center;
+  }
+
+  :global(.rdp-day_button) {
+    font-size: 18px;
+    font-weight: 600;
+    color: #C0C0C0;
+    width: 34px;
+    height: 34px;
+  }
+
+  :global(.rdp-selected) {
+    background: #F4F7FF;
+  }
+
+  :global(.rdp-selected.rdp-range_start),
+  :global(.rdp-selected.rdp-range_end) {
+    button {
+      background-color: #577AE2;
+      color: $white;
+      border-radius: 50%;
+    }
+  }
+}

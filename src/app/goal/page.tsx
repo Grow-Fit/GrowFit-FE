@@ -16,7 +16,7 @@ const Page = () => {
   return (
     <>
       <DefaultHeader />
-      <div className={cx("goals")}>
+      <div className={cx("goal")}>
         <div className={cx("goal__content")}>
           <div className={cx("goal__calendar")}>
             <SmallCalendar />

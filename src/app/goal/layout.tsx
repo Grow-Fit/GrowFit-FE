@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 export default function GoalLayout ({ children }: { children: React.ReactNode }) {
   return (
       <div>
-        <main className={cx("goals")}>
+        <main className={cx("goal")}>
           {children}
         </main>
         <Navigation />
