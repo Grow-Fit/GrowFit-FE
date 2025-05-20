@@ -16,7 +16,6 @@ const Step2 = () => {
 
   return (
     <>
-      <BackHeader title={"목표추가"} />
       <div className={cx("goal")}>
         <div className={cx("goal__content")}>
           <div className={cx("goal__title")}>

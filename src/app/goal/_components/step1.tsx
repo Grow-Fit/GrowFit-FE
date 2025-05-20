@@ -1,20 +1,16 @@
 "use client";
 import classNames from "classnames/bind";
 import styles from "./step1.module.scss";
-import DefaultIcon from "@/assets/icons/goals/icon-default.svg"
 const cx = classNames.bind(styles);
 
-import BackHeader from "@/components/layout/header/BackHeader";
 import StepBox from "@/app/goal/_components/stepBox";
-import Button from "@/components/common/button/button";
-import Image from "next/image";
 import Goal1 from "@/assets/icons/sticker/compliment-sticker-1.svg"
 import AddButton from "@/components/common/addbutton/addbutton";
+import GoalResult from "@/app/goal/_components/goalresult";
 
 const Step1 = () => {
   return (
     <>
-      <BackHeader title={"목표추가"} />
       <div className={cx("goal")}>
         <div className={cx("goal__content")}>
           <div className={cx("goal__title")}>
@@ -24,12 +20,11 @@ const Step1 = () => {
             />
             <p>최대 10개까지의 목표를 추가할 수 있어요</p>
           </div>
+
           <div className={cx("goal__result")}>
-            <div className={cx("goal__result-icon")}>
-              <DefaultIcon />
-            </div>
-            <p><span>01</span> 하루 물 6컵</p>
+            <GoalResult />
           </div>
+
           <div className={cx("goal__register")}>
             <h3>
               <strong>그로우핏 추천 목표</strong>
