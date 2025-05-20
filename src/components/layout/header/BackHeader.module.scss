@@ -1,5 +1,7 @@
 .header {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   max-width: 769px;
   box-sizing: border-box;
@@ -9,4 +11,11 @@
   height: 52px;
   padding: 0 20px;
   background-color: #fff;
+  &__icon {
+
+  }
+  &__title {
+    font-size: 18px;
+    font-weight: 700;
+  }
 }
