@@ -1,10 +1,12 @@
+
 import ParentCharacter from "@/assets/character/login/img-login-parent.svg"
-import Logo from "@/assets/logo/logo-type01.svg"
+
+import styles from "../layout.module.scss";
+
 
 const Page = () => {
   return (
-    <div>
-      <Logo width={125} height={32} />
+    <div >
       <p>
         안녕하세요 여기는 <br />
         그로우핏 부모님 로그인 페이지입니다.

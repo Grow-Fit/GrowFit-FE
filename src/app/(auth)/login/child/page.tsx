@@ -1,9 +1,10 @@
-import Logo from "@/assets/logo/logo-type01.svg"
+
+import styles from "../layout.module.scss";
+
 
 const Page = () => {
   return (
     <div>
-      <Logo width={125} height={32} />
       <p>
         로그인하고 <br />
         건강한 습관을 이어가요!
