@@ -1,0 +1,14 @@
+.login__child {
+  align-items: center;
+  padding-top: 2.9rem;
+  text-align: center;
+  &__img {
+    display: block;
+    margin: 8.2rem auto 0;
+  }
+  &__desc {
+    padding-top: 0.8rem;
+    padding-bottom: 3.5rem;
+    color: $gray-80;
+  }
+}

@@ -1,13 +1,14 @@
-import LoginStartCharacter from '@/assets/character/login/img-login-start.svg'
-import LoginLogo from '@/assets/logo/logo-type01.svg'
+import LoginStartCharacter from "@/assets/character/login/img-login-start.svg"
+import LoginLogo from "@/assets/logo/logo-type01.svg"
 
-import layoutStyles from './page.module.scss'
+import layoutStyles from "../layout.module.scss"
+import styles from "./page.module.scss"
 
 const Page = () => {
   return (
-    <div className={`${layoutStyles.login__content}`}>
-    <LoginLogo width={125} height={32} />
-      <p>
+    <div className={`${layoutStyles.login__content} ${styles.login__child}`}>
+      <LoginLogo className={styles.login__content__logo} width={125} height={32} />
+      <p className={styles.login__child__desc}>
         로그인하고 <br />
         건강한 습관을 이어가요!
       </p>

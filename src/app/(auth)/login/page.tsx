@@ -1,15 +1,14 @@
-import Link from 'next/link';
+import Link from "next/link"
 
-import LoginStartCharacter from '@/assets/character/login/img-login-start.svg'
-import LoginLogo from '@/assets/logo/logo-type01.svg'
+import LoginStartCharacter from "@/assets/character/login/img-login-start.svg"
+import LoginLogo from "@/assets/logo/logo-type01.svg"
 
-import layoutStyles from './layout.module.scss'
-import styles from './page.module.scss'
+import layoutStyles from "./layout.module.scss"
+import styles from "./page.module.scss"
 
 const Page = () => {
-  
   return (
-    <div className={`${layoutStyles.login__content}`}> 
+    <div className={`${layoutStyles.login__content}`}>
       <LoginLogo width={125} height={32} />
       <p className={`${styles.start__desc}`}>
         몸도 마음도 튼튼하게 <br />
@@ -17,8 +16,12 @@ const Page = () => {
       </p>
       <LoginStartCharacter width={220} height={220} className={`${styles.start__img}`} />
       <div className={`${layoutStyles.login__content__btns}`}>
-        <Link href="/login/parent" passHref >부모 로그인</Link>
-        <Link href="/login/child" passHref>아이 로그인</Link>
+        <Link href="/login/parent" passHref>
+          부모 로그인
+        </Link>
+        <Link href="/login/child" passHref>
+          아이 로그인
+        </Link>
       </div>
     </div>
   )
