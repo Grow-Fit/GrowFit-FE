@@ -6,13 +6,13 @@ import styles from "./button.module.scss"
 
 const cx = classNames.bind(styles)
 
-interface ButtonProps {
+interface ButtonProps  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size: "large" | "medium"
   variant: 'filled' | 'ghost';
   shape: 'rounded' | 'sharp';
   label: string;
   disabled?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const Button = ({
