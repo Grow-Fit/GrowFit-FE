@@ -1,0 +1,23 @@
+.speechBubble {
+    position: relative;
+    display: inline-block;
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  
+    // 아래 화살표 부분
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px; // 말풍선 꼬리 위치 (위로 띄울거면 top: -8px)
+      left: 20px; // 꼬리 위치 조정
+      border-width: 8px;
+      border-style: solid;
+      border-color: white transparent transparent transparent;
+    }
+  }
+  
