@@ -1,0 +1,30 @@
+.goalStatus {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .speechBubble {
+    position: relative;
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    padding: 6px 10px;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  .icon {
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .message {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    border-radius: 30px;
+  }
+  
