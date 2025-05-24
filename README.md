@@ -37,7 +37,7 @@ src/
 │   ├── favicon.ico                # 사이트 파비콘
 │   ├── layout.tsx                 # 전역 레이아웃 관리
 │   ├── loading.tsx                # 전역 로딩 페이지
-│   └── page.tsx                   # 홈페이지
+│   └── default.tsx                   # 홈페이지
 ├── assets/                        # 이미지, 폰트, 아이콘 등 정적 리소스
 ├── components/                    # UI 컴포넌트
 │   ├── common/                    # 공통적으로 사용되는 UI 컴포넌트

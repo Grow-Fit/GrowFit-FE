@@ -44,3 +44,4 @@ next-env.d.ts
 
 # Storybook build output
 storybook-static/
+/src/app/goal/detail/page.tsx
