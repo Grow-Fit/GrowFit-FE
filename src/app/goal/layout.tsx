@@ -1,16 +1,16 @@
 import React from 'react';
 import Navigation from "@/components/layout/Navigation";
-import classNames from "classnames/bind";
 import styles from "./layout.module.scss";
 import DefaultHeader from "@/components/layout/header/DefaultHeader";
-const cx = classNames.bind(styles);
-
-export default function GoalLayout ({ children }: { children: React.ReactNode }) {
+interface GoalLayoutProps {
+  children: React.ReactNode;
+}
+export default function GoalLayout ({ children }: GoalLayoutProps) {
   return (
     <>
       <DefaultHeader/>
       <div>
-        <main className={cx("goal")}>
+        <main className={styles.goal}>
           {children}
         </main>
         <Navigation/>
