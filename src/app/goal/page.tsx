@@ -15,7 +15,6 @@ import DefaultHeader from "@/components/layout/header/DefaultHeader";
 const Page = () => {
   return (
     <>
-      <DefaultHeader />
       <div className={cx("goal")}>
         <div className={cx("goal__content")}>
           <div className={cx("goal__calendar")}>
