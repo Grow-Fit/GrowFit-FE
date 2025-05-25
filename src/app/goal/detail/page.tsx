@@ -12,7 +12,7 @@ import TopSheet from "@/components/common/topsheet/topsheet";
 const Page = () => {
   const router = useRouter();
   const openModal = () => {
-    router.push('/goal/detail/goal-modal');
+    router.push('/goal/detail/letter-modal');
   }
   return (
     <>

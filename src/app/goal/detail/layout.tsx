@@ -6,8 +6,8 @@ export default function DetailLayout({ children, modal }: {
 }) {
   return (
     <>
+      {children ?? <></>}
       {modal}
-      {children}
     </>
   )
 }
