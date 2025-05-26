@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { fn } from '@storybook/test';
+import { fn } from "@storybook/test"
+
 import Button from "./button"
 
 const meta = {
@@ -9,7 +10,7 @@ const meta = {
   argTypes: {
     size: {
       option: "control",
-      options: ["large", "medium"]
+      options: ["large", "medium", "small"],
     },
     variant: {
       control: "radio",
@@ -20,16 +21,16 @@ const meta = {
       options: ["rounded", "sharp"],
     },
     label: {
-      control: 'text',
+      control: "text",
     },
     disabled: {
       control: "boolean",
     },
-    args: {
-      onClick: fn(),
-    },
   },
-} satisfies Meta<typeof Button>;
+  args: {
+    onClick: fn(),
+  },
+} satisfies Meta<typeof Button>
 
 export default meta
 type Story = StoryObj<typeof Button>
@@ -42,7 +43,7 @@ export const FilledRounded: Story = {
     label: "Filled + Rounded",
     disabled: false,
   },
-};
+}
 
 export const GhostRounded: Story = {
   args: {
@@ -52,7 +53,7 @@ export const GhostRounded: Story = {
     label: "Ghost + Rounded",
     disabled: false,
   },
-};
+}
 
 export const FilledSharp: Story = {
   args: {
@@ -62,7 +63,7 @@ export const FilledSharp: Story = {
     label: "Filled + Sharp",
     disabled: false,
   },
-};
+}
 
 export const Playground: Story = {
   args: {
@@ -72,4 +73,4 @@ export const Playground: Story = {
     label: "Custom Button",
     disabled: false,
   },
-};
+}

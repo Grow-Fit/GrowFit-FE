@@ -1,9 +1,12 @@
-.button {
-  display: inline-block;
+@use "/src/styles/colors" as *;
+@use "/src/styles/typography" as *;
+
+.btn-comm {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 13px 0 ;
+  padding: 13px 0;
   height: 50px;
   font-size: 16px;
   font-weight: 800;
@@ -22,11 +25,14 @@
     color: $white;
     border: none;
 
-    &:hover, &:active {
+    &:hover,
+    &:active {
       background-color: $gray-blue-80;
     }
 
-    &.disabled {
+    &:disabled {
+      pointer-events: none;
+      cursor: none;
       background-color: $gray-10;
       color: $black;
     }
@@ -37,11 +43,14 @@
     color: $black;
     border: 1px solid $gray-20;
 
-    &:hover, &:active {
+    &:hover,
+    &:active {
       background-color: $gray-10;
     }
 
-    &.disabled {
+    &:disabled {
+      pointer-events: none;
+      cursor: none;
       color: $gray-20;
     }
   }

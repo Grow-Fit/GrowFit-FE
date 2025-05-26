@@ -1,18 +1,18 @@
 import localFont from "next/font/local"
 
+import Layout from "@/components/layout/Layout"
 import QueryProvider from "@/queries/QueryProvider"
 
 import "@/styles/globals.scss"
-import Layout from "@/components/layout/Layout";
 
 const Pretendard = localFont({
   src: "../styles/fonts/PretendardVariable.woff2",
 })
 
 export const metadata = {
-  title: '건강한 성장의 시작, 그로우핏(GrowFit)',
+  title: "건강한 성장의 시작, 그로우핏(GrowFit)",
   icons: {
-    icon: '/favicon.ico',
+    icon: "/favicon.ico",
   },
 }
 
