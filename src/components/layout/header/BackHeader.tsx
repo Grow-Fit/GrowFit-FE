@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import styles from "./BackHeader.module.scss"
 import Back from "@/assets/icons/common/icon-arrow.svg"
 
-const DefaultHeader = ({ title }: { title: string }) => {
+const DefaultHeader = ({ title }: { title?: string }) => {
   const router = useRouter();
   return (
     <div className={styles.header}>
