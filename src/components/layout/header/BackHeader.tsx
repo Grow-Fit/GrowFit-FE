@@ -1,19 +1,22 @@
 "use client"
-import classNames from "classnames/bind"
+import { useRouter } from "next/navigation";
 import styles from "./BackHeader.module.scss"
-import Image from "next/image";
-const cx = classNames.bind(styles)
+import Back from "@/assets/icons/common/icon-arrow.svg"
 
-const DefaultHeader = ({ title }: { title: string }) => {
+const DefaultHeader = ({ title }: { title?: string }) => {
+  const router = useRouter();
   return (
-    <div className={cx("header")}>
-      <h1 className={cx("header__icon")}>
-        뒤로가기
+    <div className={styles.header}>
+      <h1
+        className={styles.header__icon}
+        onClick={() => router.back()}
+      >
+        <Back />
       </h1>
-      <div className={cx("header__title")}>
+      <div className={styles.header__title}>
         {title}
       </div>
-      <div>다음으로</div>
+      <div></div>
     </div>
   )
 }

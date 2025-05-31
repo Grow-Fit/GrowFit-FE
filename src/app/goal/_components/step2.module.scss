@@ -1,0 +1,42 @@
+.goal {
+  &__content {
+    padding: 0 16px;
+  }
+  &__title {
+    > p {
+      color: #8D8D8D;
+      margin-top: 8px;
+      padding-left: 31px;
+    }
+  }
+}
+
+.goal__period {
+  margin-top: 50px;
+  h2 {
+    font-size: 18px;
+    text-align: center;
+    font-weight: 600;
+  }
+}
+
+.goal__times {
+  margin-top: 89px;
+  > h3 {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  > div {
+    margin-top: 16px;
+    span {
+      font-size: 15px;
+    }
+    input {
+      border: 1px solid #D8DADB;
+      border-radius: 6px;
+      width: 107px;
+      height: 42px;
+      margin: 0 8px;
+    }
+  }
+}

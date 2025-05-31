@@ -1,0 +1,24 @@
+.letter {
+  padding: 0 16px;
+  &__title {
+    margin-top: 14px;
+    p {
+      font-size: 18px;
+      color: #8D8D8D;
+      margin-bottom: 7px;
+    }
+    strong {
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+  &__field {
+    margin-top: 27px;
+    h3 {
+      font-size: 16px;
+    }
+    > div {
+      margin-top: 27px;
+    }
+  }
+}

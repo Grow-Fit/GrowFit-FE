@@ -1,0 +1,68 @@
+.card {
+    width: 160px;
+    height: 200px;
+    border-radius: 30px;
+    background: linear-gradient(to bottom, #15203c, #0f172a);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 24px;
+    position: relative;
+  }
+
+  .iconWrapper {
+    position: absolute;
+    top: -25px;
+    left: 45%;
+    transform: translateX(-50%);
+  }
+  
+  .circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+  
+  .titleBox {
+    margin-top: 30px;
+    background-color: white;
+    border-radius: 30px;
+    padding: 8px 16px;
+    min-width: 160px;
+    text-align: center;
+    height: 200px;
+  }
+  
+  .title {
+    font-weight: 600;
+    color: #D9DDF5;
+    font-size: 14px;
+  }
+  
+.subtitleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  .subtitle {
+    margin-right: 6px;
+    font-size: 12px;
+    color: #15203c;
+  }
+  
+  .arrowButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 4px;
+  }
+  
+  .arrowIcon {
+    width: 12px;
+    height: 12px;
+  }

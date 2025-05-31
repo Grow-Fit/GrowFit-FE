@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 import LoginStartCharacter from "@/assets/character/login/img-login-start.svg"
 import LoginLogo from "@/assets/logo/logo-type01.svg"
 import Button from "@/components/common/button/button"
@@ -36,15 +38,15 @@ const Page = () => {
         <Button label="로그인" shape="sharp" size="large" variant="filled" />
       </form>
       <div className={styles.login__util}>
-        <button type="button" className={styles.login__util__id}>
+        <Link href="/login/child" passHref className={styles.login__util__id}>
           아이디 찾기
-        </button>
-        <button type="button" className={styles.login__util__pw}>
-          비밀번호 찾기
-        </button>
-        <button type="button" className={styles.login__util__join}>
+        </Link>
+        <Link href="/login/child" passHref className={styles.login__util__pw}>
+          비밀번호 찾기 찾기
+        </Link>
+        <Link href="/join" passHref className={styles.login__util__join}>
           회원가입
-        </button>
+        </Link>
       </div>
       <LoginStartCharacter width={143} height={150} />
     </div>

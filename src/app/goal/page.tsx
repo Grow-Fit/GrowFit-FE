@@ -10,16 +10,17 @@ import SmallCalendar from "@/components/common/smallcalendar/smallcalendar";
 import GaugeBar from "@/components/common/gaugebar/gaugebar";
 import GaugeDonut from "@/components/common/gaugedonut/gaugedonut";
 import AddButton from "@/components/common/addbutton/addbutton";
-import DefaultHeader from "@/components/layout/header/DefaultHeader";
+import TopSheet from "@/components/common/topsheet/topsheet";
 
 const Page = () => {
   return (
     <>
-      <DefaultHeader />
-      <div className={cx("goals")}>
+      <div className={cx("goal")}>
         <div className={cx("goal__content")}>
           <div className={cx("goal__calendar")}>
-            <SmallCalendar />
+            <TopSheet>
+              <SmallCalendar />
+            </TopSheet>
           </div>
 
           <div className={cx("goal__character")}>
