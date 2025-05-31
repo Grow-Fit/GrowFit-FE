@@ -8,6 +8,7 @@ const cx = classNames.bind(styles)
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   type: string
+  size: "w-full"
   variant: "withLabel" | "withoutLabel"
   shape: "border" | "underline"
   label: string
@@ -17,11 +18,12 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 const Input = ({ type, size, variant, shape, label, disabled, onChange, ...props }: InputProps) => {
   return (
-    <div>
-      <label htmlFor="">{label}</label>
+    <div className={cx("comm", variant)}>
+      <label htmlFor={props.id}>{label}</label>
       <input
+        id={props.id}
         type={type}
-        className={cx("input", size, variant, shape, { disabled })}
+        className={cx("input", size, shape, { disabled })}
         disabled={disabled}
         onChange={onChange}
         {...props}

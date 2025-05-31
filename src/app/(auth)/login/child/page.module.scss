@@ -11,4 +11,27 @@
     padding-bottom: 3.5rem;
     color: $gray-80;
   }
+  [class*="input_comm"] {
+    margin-bottom: 1.4rem;
+  }
+}
+
+.login__util {
+  display: flex;
+  gap: 2.2rem;
+  margin-top: 2.9rem;
+  &__pw,
+  &__join {
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      left: -1.3rem;
+      top: 1.1rem;
+      width: 0.4rem;
+      height: 0.4rem;
+      background-color: #d8dadb;
+      border-radius: 50%;
+    }
+  }
 }

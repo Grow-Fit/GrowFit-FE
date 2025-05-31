@@ -13,6 +13,9 @@
       padding-top: 0.8rem;
     }
     &__btns {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
       margin-top: auto;
     }
   }
