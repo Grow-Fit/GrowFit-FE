@@ -20,7 +20,7 @@ const Page = () => {
         <Input
           id="childId"
           type="text"
-          size="w-full"
+          inputSize="w-full"
           variant="withoutLabel"
           shape="border"
           label="아이디"
@@ -29,7 +29,7 @@ const Page = () => {
         <Input
           id="childPw"
           type="text"
-          size="w-full"
+          inputSize="w-full"
           variant="withoutLabel"
           shape="border"
           label="비밀번호"
@@ -38,13 +38,13 @@ const Page = () => {
         <Button label="로그인" shape="sharp" size="large" variant="filled" />
       </form>
       <div className={styles.login__util}>
-        <Link href="/login/child" passHref className={styles.login__util__id}>
+        <Link href="/find/id" passHref className={styles.login__util__id}>
           아이디 찾기
         </Link>
-        <Link href="/login/child" passHref className={styles.login__util__pw}>
+        <Link href="/find/pw" passHref className={styles.login__util__pw}>
           비밀번호 찾기 찾기
         </Link>
-        <Link href="/join" passHref className={styles.login__util__join}>
+        <Link href="/join/child/1" passHref className={styles.login__util__join}>
           회원가입
         </Link>
       </div>
