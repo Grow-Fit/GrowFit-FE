@@ -1,3 +1,6 @@
-export { default as AddBtnIcon } from '@/assets/icons/add_btn.svg';
-export { default as PhotoChangeIcon } from '@/assets/icons/profile.svg';
-export { default as CloseIcon } from '@/assets/icons/close.svg'
+export { default as AddBtnIcon } from "@/assets/icons/add_btn.svg"
+export { default as PhotoChangeIcon } from "@/assets/icons/profile.svg"
+export { default as ProfileIcon } from "@/assets/icons/profile.svg"
+export { default as CloseIcon } from "@/assets/icons/close.svg"
+export { default as ArrowIcon } from "@/assets/icons/arrow-black.svg"
+export { default as GoOutIcon } from "@/assets/icons/goout.svg"

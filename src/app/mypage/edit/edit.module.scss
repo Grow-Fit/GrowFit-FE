@@ -1,0 +1,27 @@
+.edit {
+  padding: 70px 20px 0;
+  min-height: 100vh;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 72px;
+
+    h3 {
+      color: #8D8D8D;
+    }
+
+    input {
+      margin-top: 8px;
+      font-weight: 700;
+    }
+  }
+}
+
+.complete-btn {
+  padding: 0 30px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+}
