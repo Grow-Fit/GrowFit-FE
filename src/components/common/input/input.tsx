@@ -1,34 +1,70 @@
 "use client"
 
+import { forwardRef } from "react"
+
 import classNames from "classnames/bind"
+
+import ErrorIconSvg from "@/assets/icons/common/icon-error.svg"
+import SuccessIconSvg from "@/assets/icons/common/icon-success.svg"
 
 import styles from "./input.module.scss"
 
 const cx = classNames.bind(styles)
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  type: string
-  size: "w-full"
-  variant: "withLabel" | "withoutLabel"
-  shape: "border" | "underline"
-  label: string
-  disabled?: boolean
-  onChange?: () => void
+interface InputState {
+  type: "error" | "success"
+  message: string
+}
+interface CustomBtn extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  name: string
 }
 
-const Input = ({ type, size, variant, shape, label, disabled, onChange, ...props }: InputProps) => {
-  return (
-    <div className={cx("comm", variant)}>
-      <label htmlFor={props.id}>{label}</label>
-      <input
-        id={props.id}
-        type={type}
-        className={cx("input", size, shape, { disabled })}
-        disabled={disabled}
-        onChange={onChange}
-        {...props}
-      />
-    </div>
-  )
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  type: string
+  inputSize: "w-full"
+  variant: "withLabel" | "withoutLabel"
+  shape: "border" | "underline"
+  label: React.ReactNode
+  state?: InputState
+  disabled?: boolean
+  customBtn?: CustomBtn
 }
+
+const Input = forwardRef<HTMLInputElement, InputProps>(
+  (
+    { type, inputSize, variant, shape, label, disabled, onChange, state, customBtn, ...props },
+    ref
+  ) => {
+    return (
+      <div className={cx("comm", variant, state?.type)}>
+        <div className={cx("lab-comm")}>
+          <label htmlFor={props.id}>
+            {label}
+            {state?.type === "error" && <ErrorIconSvg />}
+            {state?.type === "success" && <SuccessIconSvg />}
+          </label>
+          {state?.message && <p className={cx("lab-state")}>{state?.message}</p>}
+        </div>
+        <div className={cx("inp-comm")}>
+          <input
+            ref={ref}
+            id={props.id}
+            type={type}
+            className={cx("input", inputSize, shape, { disabled })}
+            disabled={disabled}
+            onChange={onChange}
+            {...props}
+          />
+          {customBtn && (
+            <button type="button" className={cx("inp-comm-btn", "body-40")} {...customBtn}>
+              {customBtn.name}
+            </button>
+          )}
+        </div>
+      </div>
+    )
+  }
+)
+
+Input.displayName = "Input"
 export default Input

@@ -30,11 +30,13 @@
       background-color: $gray-blue-80;
     }
 
-    &:disabled {
+    &:disabled,
+    &[aria-disabled="true"] {
       pointer-events: none;
       cursor: none;
       background-color: $gray-10;
       color: $black;
+      font-weight: 400;
     }
   }
 
@@ -48,7 +50,8 @@
       background-color: $gray-10;
     }
 
-    &:disabled {
+    &:disabled,
+    &[aria-disabled="true"] {
       pointer-events: none;
       cursor: none;
       color: $gray-20;

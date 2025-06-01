@@ -6,13 +6,23 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   shape: "rounded" | "sharp"
   label: string
   disabled?: boolean
+  classNames?: string
   onClick?: () => void
 }
 
-const Button = ({ size, variant, shape, label, disabled, onClick, ...props }: ButtonProps) => {
+const Button = ({
+  size,
+  variant,
+  shape,
+  label,
+  disabled,
+  classNames,
+  onClick,
+  ...props
+}: ButtonProps) => {
   return (
     <button
-      className={`btn-comm ${size} ${variant} ${shape}`}
+      className={`btn-comm ${size} ${variant} ${shape} ${classNames}`}
       disabled={disabled}
       onClick={onClick}
       {...props}>
