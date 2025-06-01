@@ -1,0 +1,22 @@
+.login {
+  height: 100%;
+  padding: 2.6rem 3.1rem;
+  box-sizing: border-box;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 5.6rem;
+    &__desc {
+      padding-top: 0.8rem;
+    }
+    &__btns {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      margin-top: auto;
+    }
+  }
+}

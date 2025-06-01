@@ -1,7 +1,7 @@
 .header {
   position: fixed;
   top: 0;
-  left: 0;
+  left: 50%;
   width: 100%;
   max-width: 769px;
   box-sizing: border-box;
@@ -11,8 +11,8 @@
   height: 52px;
   padding: 0 20px;
   background-color: #fff;
+  transform: translateX(-50%);
   &__icon {
-
   }
   &__title {
     font-size: 18px;

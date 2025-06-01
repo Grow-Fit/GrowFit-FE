@@ -1,0 +1,22 @@
+.login__parent {
+  &__img {
+    display: block;
+    margin: 8.2rem auto 0;
+  }
+  &__desc {
+    padding-top: 3.2rem;
+    text-align: center;
+    color: $gray-70;
+    strong {
+      display: block;
+      color: $black;
+      font-weight: bold;
+    }
+  }
+}
+.btn_kakao_login {
+  background-color: #fee500;
+  .icon_kakaotalk {
+    margin-right: 0.7rem;
+  }
+}

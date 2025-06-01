@@ -1,0 +1,71 @@
+.comm {
+  .lab-comm {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.6rem;
+    label {
+      display: block;
+      font-weight: 700;
+      color: $black;
+    }
+    svg {
+      display: inline-block;
+      margin-left: 0.6rem;
+    }
+    .lab-state {
+      margin-left: auto;
+      font-size: 1.3rem;
+      line-height: 2.2rem;
+      color: $sky-blue-60;
+    }
+  }
+  .inp-comm {
+    display: flex;
+    gap: 1.6rem;
+    input {
+      padding: 1rem 1.6rem;
+      border: 1px solid $gray-20;
+      border-radius: 0.6rem;
+      outline: none;
+      &:focus {
+        border-color: $black;
+      }
+      &::placeholder {
+        color: $gray-20;
+      }
+      &.w-full {
+        width: 100%;
+      }
+    }
+    &-btn {
+      flex-shrink: 0;
+      border-radius: 0.6rem;
+      padding: 0.4rem 1.4rem;
+      background-color: $sky-blue-60;
+      color: $white;
+    }
+  }
+
+  &.withoutLabel {
+    label {
+      display: none;
+    }
+  }
+
+  // 에러 케이스
+  &.error {
+    .lab-state {
+      color: $peach-pink-60;
+    }
+    input {
+      border-color: $peach-pink-60;
+    }
+  }
+
+  // 성공 케이스
+  &.success {
+    input {
+      border-color: $sky-blue-60;
+    }
+  }
+}
