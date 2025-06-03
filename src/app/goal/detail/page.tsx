@@ -1,18 +1,16 @@
-"use client";
-import styles from "./detail.module.scss";
+"use client"
+import styles from "./detail.module.scss"
 
-import Character1 from "@/assets/character/step1.svg";
-import SmallCalendar from "@/components/common/smallcalendar/smallcalendar";
-import StepBox from "@/components/features/goal/stepbox/stepbox";
-import {useRouter} from "next/navigation";
-import TopSheet from "@/components/common/topsheet/topsheet";
-
-
+import Character1 from "@/assets/character/step1.svg"
+import SmallCalendar from "@/components/common/smallcalendar/smallcalendar"
+import StepBox from "@/components/common/stepbox/stepbox"
+import { useRouter } from "next/navigation"
+import TopSheet from "@/components/common/topsheet/topsheet"
 
 const Page = () => {
-  const router = useRouter();
+  const router = useRouter()
   const openModal = () => {
-    router.push('/goal/detail/letter-modal');
+    router.push("/goal/detail/letter-modal")
   }
   return (
     <>
@@ -25,7 +23,7 @@ const Page = () => {
           </div>
 
           <div className={styles.goal__character}>
-            <Character1/>
+            <Character1 />
           </div>
 
           <div className={styles.goal__profile} onClick={openModal}>
@@ -35,13 +33,12 @@ const Page = () => {
           </div>
 
           <div className={styles.goal__box}>
-            <StepBox/>
+            <StepBox />
           </div>
-
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Page;
+export default Page
