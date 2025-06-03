@@ -40,7 +40,6 @@ const ChildStep01 = ({ currentStep }: Props) => {
       </div>
       <Link
         href={`/join/child/${currentStep + 1}`}
-        passHref
         aria-disabled={qrValue === ""}
         className={`btn-comm large filled rounded ${pageStyles.join__content__btn}`}>
         다음

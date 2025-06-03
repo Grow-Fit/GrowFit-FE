@@ -30,7 +30,6 @@ const ChildStep03 = () => {
       />
       <Link
         href={`/`}
-        passHref
         aria-disabled={false}
         className={`btn-comm large filled rounded ${pageStyles.join__content__btn}`}>
         완료

@@ -16,10 +16,10 @@ const Page = () => {
       </p>
       <LoginStartCharacter width={220} height={220} className={`${styles.start__img}`} />
       <div className={`${layoutStyles.login__content__btns}`}>
-        <Link href="/login/parent" passHref className="btn-comm large filled rounded">
+        <Link href="/login/parent" className="btn-comm large filled rounded">
           부모 로그인
         </Link>
-        <Link href="/login/child" passHref className="btn-comm large ghost rounded">
+        <Link href="/login/child" className="btn-comm large ghost rounded">
           아이 로그인
         </Link>
       </div>

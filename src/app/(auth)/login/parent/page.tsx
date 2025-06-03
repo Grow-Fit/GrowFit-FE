@@ -1,20 +1,15 @@
 "use client"
 
-import { useRouter } from "next/router"
-
 import LoginParentCharacter from "@/assets/character/login/img-login-parent.svg"
 import KakaotalkIcon from "@/assets/icons/common/icon-kakaotalk.svg"
 import LoginLogo from "@/assets/logo/logo-type01.svg"
+import { useKakaoAuth } from "@/hooks/useKakaoAuth"
 
 import layoutStyles from "../layout.module.scss"
 import styles from "./page.module.scss"
 
 const Page = () => {
-  const router = useRouter()
-
-  const handleClickLogin = () => {
-    router.push("/join/parent/1")
-  }
+  const { handleKakaoLogin, isLoading } = useKakaoAuth()
 
   return (
     <div className={`${layoutStyles.login__content} ${styles.login__parent} `}>
@@ -35,9 +30,10 @@ const Page = () => {
         <button
           type="button"
           className={`btn-comm rounded ${styles.btn_kakao_login}`}
-          onClick={handleClickLogin}>
+          onClick={handleKakaoLogin}
+          disabled={isLoading}>
           <KakaotalkIcon className={styles.icon_kakaotalk} />
-          카카오톡으로 시작하기
+          {isLoading ? "로그인 중..." : "카카오톡으로 시작하기"}
         </button>
       </div>
     </div>

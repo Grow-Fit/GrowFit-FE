@@ -38,10 +38,7 @@ const ParentStep02 = () => {
           value={childInfo.childName}
         />
       </div>
-      <Link
-        href="/"
-        passHref
-        className={`btn-comm large filled rounded ${pageStyles.join__content__btn}`}>
+      <Link href="/" className={`btn-comm large filled rounded ${pageStyles.join__content__btn}`}>
         다음
       </Link>
     </>
