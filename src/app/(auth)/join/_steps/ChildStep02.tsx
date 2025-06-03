@@ -1,5 +1,6 @@
 import Link from "next/link"
 
+import Button from "@/components/common/button/button"
 import Input from "@/components/common/input/input"
 
 import pageStyles from "../[type]/[step]/page.module.scss"
@@ -15,6 +16,7 @@ const INPUT_STATE_MSG = {
 }
 
 const ChildStep02 = ({ currentStep }: Props) => {
+  const handleClickJoin = () => {}
   return (
     <>
       <div className={styles.box__step2}>
@@ -37,7 +39,7 @@ const ChildStep02 = ({ currentStep }: Props) => {
         <fieldset>
           <Input
             id="qrCode"
-            type="text"
+            type="password"
             inputSize="w-full"
             variant="withLabel"
             shape="border"
@@ -46,7 +48,7 @@ const ChildStep02 = ({ currentStep }: Props) => {
           />
           <Input
             id="qrCode"
-            type="text"
+            type="password"
             inputSize="w-full"
             variant="withLabel"
             shape="border"
@@ -55,13 +57,21 @@ const ChildStep02 = ({ currentStep }: Props) => {
           />
         </fieldset>
       </div>
-      <Link
+      <Button
+        label="다음"
+        shape="rounded"
+        size="large"
+        variant="filled"
+        className={pageStyles.join__content__btn}
+        onClick={handleClickJoin}
+      />
+      {/* <Link
         href={`/join/child/${currentStep + 1}`}
         passHref
         aria-disabled={false}
-        className={`btn-comm large filled rounded ${pageStyles.join__content__btn}`}>
+        className={`btn-comm large filled rounded ${}`}>
         다음
-      </Link>
+      </Link> */}
     </>
   )
 }
