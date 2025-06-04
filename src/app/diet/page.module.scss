@@ -1,0 +1,61 @@
+.diet {
+  padding-bottom: calc($nav-height + 40px);
+
+  &__content {
+    background: #EDF0F3;
+  }
+
+  &__register {
+    padding: 0 16px;
+
+    &-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 40px;
+
+      h2 {
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      p {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        font-size: 13px;
+        color: #9B9B9B;
+      }
+    }
+  }
+
+  &__items {
+    margin-top: 33px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    li {
+      background: $white;
+      border-radius: 10px;
+      padding: 16px;
+      width: calc(50% - 6px);
+      text-align: center;
+      height: 210px;
+      box-sizing: border-box;
+    }
+
+    &-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+
+      p {
+        font-size: 20px;
+        font-weight: 700;
+      }
+    }
+  }
+}
