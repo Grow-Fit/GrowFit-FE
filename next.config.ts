@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
     prependData: `
       @use "colors" as *;
       @use "typography" as *;
+      @use "variables" as *;
     `,
     modularizeImports: {},
   },
@@ -24,4 +25,3 @@ const nextConfig: NextConfig = {
   },
 }
 export default nextConfig
-
