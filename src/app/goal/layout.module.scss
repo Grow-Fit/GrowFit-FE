@@ -1,7 +1,11 @@
 .goal {
   font-size: 1.6rem;
   min-height: 100vh;
-  > div {
-    margin-top: 52px;
+  height: 100%;
+
+  > main {
+    margin-top: $header-height;
+    padding-bottom: calc($nav-height + $layout-bottom);
+    background: $white;
   }
 }

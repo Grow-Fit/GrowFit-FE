@@ -1,14 +1,21 @@
 .complete {
-  padding-top: 42px;
   margin: 0 auto;
   text-align: center;
+
   &__text {
     margin-top: 11px;
+
     h2 {
       font-size: 24px;
       font-weight: 600;
       line-height: 1.2;
     }
+
+    p {
+      color: $gray-blue-40;
+      margin-top: 5px;
+    }
+
     a {
       display: inline-block;
       margin-top: 11px;
@@ -16,6 +23,7 @@
       color: #4D4D4D;
     }
   }
+
   &__item {
     margin: 36px 75px 0 0;
   }
