@@ -8,6 +8,7 @@ import TopSheet from "@/components/common/topsheet/topsheet"
 import DietIcon from "@/assets/icons/diet/diet.svg"
 import StickerIcon from "@/assets/icons/diet/sticker.svg"
 import AddIcon from "@/assets/icons/common/icon-add-skyblue.svg"
+import { BalloonMessage } from "@/components/common/balloonmessage/balloonmessage"
 
 export default function Page() {
   return (
@@ -37,22 +38,23 @@ export default function Page() {
             </li>
             <li>
               <div className={styles["diet__items-title"]}>
-                <p>아침</p>
+                <p>점심</p>
                 <AddIcon />
               </div>
               <DietIcon />
+              <BalloonMessage />
             </li>
 
             <li>
               <div className={styles["diet__items-title"]}>
-                <p>아침</p>
+                <p>저녁</p>
                 <AddIcon />
               </div>
               <DietIcon />
             </li>
             <li>
               <div className={styles["diet__items-title"]}>
-                <p>아침</p>
+                <p>간식</p>
                 <AddIcon />
               </div>
               <DietIcon />

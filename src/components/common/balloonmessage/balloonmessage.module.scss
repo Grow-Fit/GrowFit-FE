@@ -1,0 +1,32 @@
+.balloon {
+  position: absolute;
+  bottom: 3px;
+  border: 1px solid $gray-30;
+  border-radius: 30px;
+  padding: 11px 16px;
+  background: #ffffff;
+  font-weight: 700;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -12px;
+    border-width: 12px;
+    border-style: solid;
+    border-color: transparent transparent $gray-30 transparent; // 테두리용 바깥 삼각형
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #ffffff transparent; // 내부 삼각형'
+    z-index: 1;
+  }
+}
