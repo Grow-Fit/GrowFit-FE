@@ -1,6 +1,7 @@
 .navi {
   position: fixed;
   bottom: 0;
+  z-index: 100;
   width: 100%;
   max-width: 769px;
   box-sizing: border-box;

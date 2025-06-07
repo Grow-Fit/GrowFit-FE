@@ -1,20 +1,12 @@
-import React from 'react';
-import Navigation from "@/components/layout/Navigation";
-import styles from "./layout.module.scss";
-import DefaultHeader from "@/components/layout/header/DefaultHeader";
+import React from "react"
+import Navigation from "@/components/layout/Navigation"
+import styles from "./layout.module.scss"
+import DefaultHeader from "@/components/layout/header/DefaultHeader"
+
 interface GoalLayoutProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
-export default function GoalLayout ({ children }: GoalLayoutProps) {
-  return (
-    <>
-      <DefaultHeader/>
-      <div>
-        <main className={styles.goal}>
-          {children}
-        </main>
-        <Navigation/>
-      </div>
-    </>
-  );
+
+export default function GoalLayout({ children }: GoalLayoutProps) {
+  return <div className={styles.goal}>{children}</div>
 }
