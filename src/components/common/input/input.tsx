@@ -2,14 +2,14 @@
 
 import { forwardRef } from "react"
 
-import classNames from "classnames/bind"
+import classNames from "classnames"
 
 import ErrorIconSvg from "@/assets/icons/common/icon-error.svg"
 import SuccessIconSvg from "@/assets/icons/common/icon-success.svg"
 
-import styles from "./input.module.scss"
+import "./input.scss"
 
-const cx = classNames.bind(styles)
+const cx = classNames
 
 interface InputState {
   type: "error" | "success"
@@ -36,16 +36,16 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     ref
   ) => {
     return (
-      <div className={cx("comm", variant, state?.type)}>
-        <div className={cx("lab-comm")}>
+      <div className={cx("input-comm", variant, state?.type)}>
+        <div className="lab-comm">
           <label htmlFor={props.id}>
             {label}
             {state?.type === "error" && <ErrorIconSvg />}
             {state?.type === "success" && <SuccessIconSvg />}
           </label>
-          {state?.message && <p className={cx("lab-state")}>{state?.message}</p>}
+          {state?.message && <p className="lab-state">{state?.message}</p>}
         </div>
-        <div className={cx("inp-comm")}>
+        <div className="inp-comm">
           <input
             ref={ref}
             id={props.id}
@@ -56,7 +56,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             {...props}
           />
           {customBtn && (
-            <button type="button" className={cx("inp-comm-btn", "body-40")} {...customBtn}>
+            <button type="button" className="inp-comm-btn body-40" {...customBtn}>
               {customBtn.name}
             </button>
           )}

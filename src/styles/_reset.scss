@@ -144,3 +144,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}

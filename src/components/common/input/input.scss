@@ -1,9 +1,17 @@
-.comm {
+@use "/src/styles/colors" as *;
+@use "/src/styles/typography" as *;
+
+// input 공통
+.input-comm {
+  & + .input-comm {
+    margin-top: 1.6rem;
+  }
   .lab-comm {
     display: flex;
     align-items: center;
     margin-bottom: 1.6rem;
-    label {
+    label,
+    legend {
       display: block;
       font-weight: 700;
       color: $black;
@@ -22,6 +30,7 @@
   .inp-comm {
     display: flex;
     gap: 1.6rem;
+
     input {
       padding: 1rem 1.6rem;
       border: 1px solid $gray-20;
@@ -47,6 +56,9 @@
   }
 
   &.withoutLabel {
+    .lab-comm {
+      margin-bottom: 0;
+    }
     label {
       display: none;
     }
@@ -69,3 +81,5 @@
     }
   }
 }
+
+// radio

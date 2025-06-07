@@ -1,6 +1,6 @@
 "use client"
 
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 
 import LoginParentCharacter from "@/assets/character/login/img-login-parent.svg"
 import KakaotalkIcon from "@/assets/icons/common/icon-kakaotalk.svg"
