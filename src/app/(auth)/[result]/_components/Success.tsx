@@ -26,7 +26,7 @@ const RENDER_INFO = {
     btns: [
       {
         label: "QR 생성하기",
-        link: "/qrcode",
+        link: "/join/qr/generate",
         classNames: "btn-comm large filled rounded",
       },
       {
