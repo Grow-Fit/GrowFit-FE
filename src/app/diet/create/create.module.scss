@@ -1,0 +1,49 @@
+.create {
+  &__search {
+    background: $gray-10;
+    padding: 26px 24px;
+  }
+
+  &__list {
+    padding: 34px 24px;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+
+      span {
+        display: inline-block;
+        font-size: 18px;
+        font-weight: 400;
+        margin-left: 5px;
+      }
+    }
+
+    button {
+      background: $sky-blue-40;
+      color: $sky-blue-60;
+      border-radius: 100px;
+      padding: 5px 15px;
+      height: 32px;
+    }
+  }
+
+  &__box {
+    padding-top: 143px;
+
+    p {
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 26px;
+    }
+  }
+
+
+}

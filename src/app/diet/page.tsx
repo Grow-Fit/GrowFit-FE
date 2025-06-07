@@ -9,6 +9,7 @@ import DietIcon from "@/assets/icons/diet/diet.svg"
 import StickerIcon from "@/assets/icons/diet/sticker.svg"
 import AddIcon from "@/assets/icons/common/icon-add-skyblue.svg"
 import { BalloonMessage } from "@/components/common/balloonmessage/balloonmessage"
+import Link from "next/link"
 
 export default function Page() {
   return (
@@ -31,15 +32,19 @@ export default function Page() {
           <ul className={styles["diet__items"]}>
             <li>
               <div className={styles["diet__items-title"]}>
-                <p>아침</p>
-                <AddIcon />
+                <Link href={`/diet/create`}>
+                  <p>아침</p>
+                  <AddIcon />
+                </Link>
               </div>
               <DietIcon />
             </li>
             <li>
               <div className={styles["diet__items-title"]}>
-                <p>점심</p>
-                <AddIcon />
+                <Link href={`/diet/create`}>
+                  <p>점심</p>
+                  <AddIcon />
+                </Link>
               </div>
               <DietIcon />
               <BalloonMessage />
@@ -47,15 +52,19 @@ export default function Page() {
 
             <li>
               <div className={styles["diet__items-title"]}>
-                <p>저녁</p>
-                <AddIcon />
+                <Link href={`/diet/create`}>
+                  <p>저녁</p>
+                  <AddIcon />
+                </Link>
               </div>
               <DietIcon />
             </li>
             <li>
               <div className={styles["diet__items-title"]}>
-                <p>간식</p>
-                <AddIcon />
+                <Link href={`/diet/create`}>
+                  <p>간식</p>
+                  <AddIcon />
+                </Link>
               </div>
               <DietIcon />
             </li>
