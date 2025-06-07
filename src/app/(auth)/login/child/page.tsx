@@ -35,7 +35,13 @@ const Page = () => {
           label="비밀번호"
           placeholder="비밀번호 입력"
         />
-        <Button label="로그인" shape="sharp" size="large" variant="filled" />
+        <Button
+          label="로그인"
+          shape="sharp"
+          size="large"
+          variant="filled"
+          classNames={styles.login__child__btn}
+        />
       </form>
       <div className={styles.login__util}>
         <Link href="/find/id" className={styles.login__util__id}>

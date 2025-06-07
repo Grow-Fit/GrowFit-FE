@@ -1,8 +1,10 @@
-import Link from "next/link"
+"use client"
+import { useRouter } from "next/navigation"
 
+import Button from "@/components/common/button/button"
 import Input from "@/components/common/input/input"
 
-import pageStyles from "../[type]/[step]/page.module.scss"
+import pageStyles from "../page.module.scss"
 
 const INPUT_STATE_MSG = {
   error: "이미 가입된 아이디입니다.",
@@ -10,6 +12,11 @@ const INPUT_STATE_MSG = {
 }
 
 const ChildStep03 = () => {
+  const router = useRouter()
+
+  const handleComplete = () => {
+    router.push("/success?type=child")
+  }
   return (
     <>
       <Input
@@ -28,12 +35,15 @@ const ChildStep03 = () => {
           name: "중복확인",
         }}
       />
-      <Link
-        href={`/`}
-        aria-disabled={false}
-        className={`btn-comm large filled rounded ${pageStyles.join__content__btn}`}>
-        완료
-      </Link>
+      <Button
+        type="submit"
+        label="완료"
+        shape="rounded"
+        size="large"
+        variant="filled"
+        classNames={pageStyles.join__content__btn}
+        onClick={handleComplete}
+      />
     </>
   )
 }

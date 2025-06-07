@@ -5,7 +5,7 @@ import Link from "next/link"
 
 import Input from "@/components/common/input/input"
 
-import pageStyles from "../[type]/[step]/page.module.scss"
+import pageStyles from "../page.module.scss"
 import styles from "./steps.module.scss"
 
 interface Props {
