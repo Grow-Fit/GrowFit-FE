@@ -3,44 +3,49 @@
 import { useState } from "react"
 import Link from "next/link"
 
+import CameraIcon from "@/assets/icons/common/icon-24-camera.svg"
 import Input from "@/components/common/input/input"
 
-import pageStyles from "../[type]/[step]/page.module.scss"
+import pageStyles from "../page.module.scss"
 import styles from "./steps.module.scss"
 
 interface Props {
   currentStep: number
 }
 
-const ParentStep01 = ({ currentStep }: Props) => {
-  const [nickname, setNickname] = useState("")
+const ChildStep01 = ({ currentStep }: Props) => {
+  const [qrValue, setQrValue] = useState("")
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setNickname(e.target.value)
+    setQrValue(e.target.value)
   }
   return (
     <>
       <div className={styles.box__step1}>
         <Input
-          id="parentNickname"
+          id="qrCode"
           type="text"
           inputSize="w-full"
-          variant="withLabel"
+          variant="withoutLabel"
           shape="border"
-          label="닉네임"
-          placeholder="닉네임 입력"
+          label="큐알코드"
+          placeholder="코드 입력"
           onChange={handleChange}
-          value={nickname}
+          value={qrValue}
         />
+        <button type="button" className={styles.btn_qr}>
+          QR 스캔하기
+          <CameraIcon />
+        </button>
       </div>
       <Link
-        href={`/join/parent/${currentStep + 1}`}
+        href={`/join/child/${currentStep + 1}`}
         passHref
-        aria-disabled={nickname === ""}
+        aria-disabled={qrValue === ""}
         className={`btn-comm large filled rounded ${pageStyles.join__content__btn}`}>
         다음
       </Link>
     </>
   )
 }
-export default ParentStep01
+export default ChildStep01

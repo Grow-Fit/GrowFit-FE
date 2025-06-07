@@ -1,10 +1,10 @@
 import styles from "./page.module.scss"
 
-import ChildStep01 from "../../_steps/ChildStep01"
-import ChildStep02 from "../../_steps/ChildStep02"
-import ChildStep03 from "../../_steps/ChildStep03"
-import ParentStep01 from "../../_steps/ParentStep01"
-import ParentStep02 from "../../_steps/ParentStep02"
+import ChildStep01 from "./_components/ChildStep01"
+import ChildStep02 from "./_components/ChildStep02"
+import ChildStep03 from "./_components/ChildStep03"
+import ParentStep01 from "./_components/ParentStep01"
+import ParentStep02 from "./_components/ParentStep02"
 
 const STEPS = {
   parent: [
@@ -41,11 +41,14 @@ interface Props {
   }
 }
 
-const Page = async ({ params }: Props) => {
-  const resolvedParams = await params
+const Page = ({ params }: Props) => {
+  const currentType = params.type as keyof typeof STEPS
+  const currentStep = parseInt(params.step)
 
-  const currentType = resolvedParams.type as keyof typeof STEPS
-  const currentStep = parseInt(resolvedParams.step)
+  // 안전성 검사 추가
+  if (!STEPS[currentType] || !STEPS[currentType][currentStep - 1]) {
+    return <div>페이지를 찾을 수 없습니다.?</div>
+  }
 
   return (
     <section className={styles.join__content}>
