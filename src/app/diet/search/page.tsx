@@ -4,6 +4,7 @@ import BackHeader from "@/components/layout/header/BackHeader"
 import SearchBar from "@/components/common/searchbar/searchbar"
 import { NodataIcon } from "@/components/common/icon"
 import { AddIcon } from "@/components/common/icon"
+import Link from "next/link"
 
 const Page = () => {
   const onSubmit = () => {
@@ -18,10 +19,10 @@ const Page = () => {
       <div className={styles.search__nodata}>
         <NodataIcon />
         <p>영양소 정보가 없어요</p>
-        <button onClick={() => {}}>
+        <Link href={`/diet/nutrient`}>
           <p>영양소 직접 추가하기</p>
           <AddIcon />
-        </button>
+        </Link>
       </div>
     </div>
   )
