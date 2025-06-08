@@ -3,7 +3,7 @@ import styles from "./searchbar.module.scss"
 import { DeleteIcon, SearchIcon } from "@/components/common/icon"
 import { useState } from "react"
 
-const SearchBar = ({ placeholder }) => {
+const SearchBar = ({ placeholder, onSubmit }) => {
   const [value, setValue] = useState("")
 
   const handleChange = (e) => {
@@ -15,7 +15,7 @@ const SearchBar = ({ placeholder }) => {
   }
   return (
     <div className={styles.searchbar}>
-      <SearchIcon />
+      <SearchIcon onClick={onSubmit} />
       <input placeholder={placeholder} value={value} onChange={handleChange} />
       {value && <DeleteIcon onClick={clearInput} />}
     </div>
