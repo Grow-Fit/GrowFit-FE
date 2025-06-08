@@ -1,14 +1,12 @@
 .goal {
-    &__content {
-      background: url("../../../assets/imgs/goals/bg-goaldetail.png") center / cover;
-      padding-bottom: 100px;
-    }
-    &__character {
-      position: relative;
-      text-align: center;
-      padding-top: 90px;
-      z-index: 1;
-    }
+  background: url("../../../assets/imgs/goals/bg-goaldetail.png") center / cover !important;
+
+  &__character {
+    position: relative;
+    text-align: center;
+    padding-top: 90px;
+    z-index: 1;
+  }
 }
 
 .goal__calendar {
@@ -18,24 +16,27 @@
 }
 
 .goal__profile {
-    text-align: center;
-    span {
-      color: $white;
-      display: block;
-      font-size: 18px;
-      &:nth-child(2) {
-        margin-top: 6px;
-      }
+  text-align: center;
+
+  span {
+    color: $white;
+    display: block;
+    font-size: 18px;
+
+    &:nth-child(2) {
+      margin-top: 6px;
     }
-    p {
-      display: inline-block;
-      background-color: #030824;
-      color: #ffffff;
-      margin-top: 8px;
-      border-radius: 60px;
-      padding: 9px 18px;
-      font-weight: 700;
-    }
+  }
+
+  p {
+    display: inline-block;
+    background-color: #030824;
+    color: #ffffff;
+    margin-top: 8px;
+    border-radius: 60px;
+    padding: 9px 18px;
+    font-weight: 700;
+  }
 }
 
 .goal__box {

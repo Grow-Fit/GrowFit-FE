@@ -1,98 +1,33 @@
-interface CookieOptions {
-  expires?: Date
-  maxAge?: number
-  path?: string
-  domain?: string
-  secure?: boolean
-  httpOnly?: boolean
-  sameSite?: "strict" | "lax" | "none"
-}
+// 쿠키 가져오기 (로그인 상태 확인용)
+export const getCookie = (name: string) => {
+  if (typeof document === "undefined") return null // SSR 대응
 
-// 쿠키 설정 함수
-export const setCookie = (name: string, value: string, options: CookieOptions = {}): void => {
-  let cookieString = `${name}=${encodeURIComponent(value)}`
-
-  // 기본 옵션 설정
-  const defaultOptions = {
-    path: "/",
-    secure: process.env.NODE_ENV === "production", // 프로덕션에서만 secure
-    sameSite: "lax",
-    ...options,
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) {
+    const lastPart = parts[1]
+    return lastPart ? lastPart.split(";")[0] : null
   }
-
-  if (defaultOptions.expires) {
-    cookieString += `; expires=${defaultOptions.expires.toUTCString()}`
-  }
-
-  if (defaultOptions.maxAge) {
-    cookieString += `; max-age=${defaultOptions.maxAge}`
-  }
-
-  if (defaultOptions.path) {
-    cookieString += `; path=${defaultOptions.path}`
-  }
-
-  if (defaultOptions.domain) {
-    cookieString += `; domain=${defaultOptions.domain}`
-  }
-
-  if (defaultOptions.secure) {
-    cookieString += `; secure`
-  }
-
-  if (defaultOptions.httpOnly) {
-    cookieString += `; httponly`
-  }
-
-  if (defaultOptions.sameSite) {
-    cookieString += `; samesite=${defaultOptions.sameSite}`
-  }
-
-  document.cookie = cookieString
-}
-
-// 쿠키 가져오기 함수
-export const getCookie = (name: string): string | null => {
-  if (typeof document === "undefined") {
-    return null // 서버 사이드 렌더링 대응
-  }
-
-  const cookies: string[] = document.cookie.split(";")
-
-  for (const cookie of cookies) {
-    const [cookieName, cookieValue]: string[] = cookie.trim().split("=")
-    if (cookieName === name) {
-      return decodeURIComponent(cookieValue)
-    }
-  }
-
   return null
 }
 
-// 쿠키 삭제 함수
-export const deleteCookie = (name: string, options: CookieOptions = {}): void => {
-  const deleteOptions = {
-    path: "/",
-    expires: new Date(0), // 과거 날짜로 설정하여 삭제
-    ...options,
-  }
+// 쿠키 삭제하기 (로그아웃용)
+export const deleteCookie = (name: string) => {
+  if (typeof document === "undefined") return // SSR 대응
 
-  setCookie(name, "", deleteOptions)
+  document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/`
 }
 
-// 모든 쿠키 가져오기 함수 (선택사항)
-export const getAllCookies = (): Record<string, string> => {
-  if (typeof document === "undefined") {
-    return {}
-  }
+// 로그인 상태 확인
+export const isLoggedIn = () => {
+  return !!getCookie("accessToken")
+}
 
-  const cookies: Record<string, string> = {}
-  document.cookie.split(";").forEach((cookie: string) => {
-    const [name, value]: string[] = cookie.trim().split("=")
-    if (name && value) {
-      cookies[name] = decodeURIComponent(value)
-    }
-  })
-
-  return cookies
+// 로그아웃 처리 (모든 인증 관련 쿠키 삭제)
+export const clearAuthCookies = () => {
+  deleteCookie("accessToken")
+  deleteCookie("refreshToken")
+  deleteCookie("userEmail")
+  deleteCookie("userId")
+  deleteCookie("isUser")
 }

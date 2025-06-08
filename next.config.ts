@@ -8,9 +8,10 @@ const nextConfig: NextConfig = {
     prependData: `
       @use "colors" as *;
       @use "typography" as *;
+      @use "variables" as *;
     `,
-    modularizeImports: {},
   },
+  modularizeImports: {},
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
@@ -22,6 +23,14 @@ const nextConfig: NextConfig = {
     })
     return config
   },
+  // CORS 우회를 위한 프록시 설정 추가
+  async rewrites() {
+    return [
+      {
+        source: "/api/:path*",
+        destination: "https://api.growfit.co.kr/api/:path*",
+      },
+    ]
+  },
 }
 export default nextConfig
-

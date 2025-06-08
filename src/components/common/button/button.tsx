@@ -1,4 +1,8 @@
+import classNames from "classnames"
+
 import "./button.scss"
+
+const cx = classNames
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size: "large" | "medium" | "small"
@@ -22,7 +26,7 @@ const Button = ({
 }: ButtonProps) => {
   return (
     <button
-      className={`btn-comm ${size} ${variant} ${shape} ${classNames}`}
+      className={cx("btn-comm", size, variant, shape, classNames)}
       disabled={disabled}
       onClick={onClick}
       {...props}>

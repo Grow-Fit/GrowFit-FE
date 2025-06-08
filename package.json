@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:https": "next dev --experimental-https --experimental-https-key ./localhost+2-key.pem --experimental-https-cert ./localhost+2.pem",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -23,10 +24,13 @@
     "classnames": "^2.5.1",
     "date-fns": "^4.1.0",
     "dayjs": "^1.11.13",
+    "html5-qrcode": "^2.3.8",
     "next": "15.4.0-canary.10",
     "react": "^19.0.0",
     "react-day-picker": "^9.7.0",
     "react-dom": "^19.0.0",
+    "react-mobile-picker": "^1.1.2",
+    "react-qr-code": "^2.0.15",
     "zustand": "^5.0.3"
   },
   "devDependencies": {

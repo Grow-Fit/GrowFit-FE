@@ -1,16 +1,16 @@
 import styles from "./page.module.scss"
 
-import ChildStep01 from "../../_steps/ChildStep01"
-import ChildStep02 from "../../_steps/ChildStep02"
-import ChildStep03 from "../../_steps/ChildStep03"
-import ParentStep01 from "../../_steps/ParentStep01"
-import ParentStep02 from "../../_steps/ParentStep02"
+import ChildStep01 from "./_components/ChildStep01"
+import ChildStep02 from "./_components/ChildStep02"
+import ChildStep03 from "./_components/ChildStep03"
+import ParentStep01 from "./_components/ParentStep01"
+import ParentStep02 from "./_components/ParentStep02"
 
 const STEPS = {
   parent: [
     {
       title: "그로우핏에서 사용할 닉네임을\n 입력해 주세요.",
-      component: (currentStep: number) => <ParentStep01 currentStep={currentStep} />,
+      component: () => <ParentStep01 />,
     },
     {
       title: "아이의 정보를 입력해 주세요.",
@@ -20,11 +20,11 @@ const STEPS = {
   child: [
     {
       title: "QR코드를 스캔해주시거나 \n 코드를 입력해 주세요.",
-      component: (currentStep: number) => <ChildStep01 currentStep={currentStep} />,
+      component: () => <ChildStep01 />,
     },
     {
       title: "그로우핏 계정으로 사용할 \n 아이디와 비밀번호를 입력해 주세요.",
-      component: (currentStep: number) => <ChildStep02 currentStep={currentStep} />,
+      component: () => <ChildStep02 />,
     },
 
     {
@@ -35,17 +35,16 @@ const STEPS = {
 }
 
 interface Props {
-  params: {
-    type: string
-    step: string
-  }
+  params: Promise<{
+    type: string // "parent" | "child"
+    step: string // "1" | "2" | "3"
+  }>
 }
 
 const Page = async ({ params }: Props) => {
-  const resolvedParams = await params
-
-  const currentType = resolvedParams.type as keyof typeof STEPS
-  const currentStep = parseInt(resolvedParams.step)
+  const { type, step } = await params
+  const currentType = type as keyof typeof STEPS
+  const currentStep = parseInt(step)
 
   return (
     <section className={styles.join__content}>

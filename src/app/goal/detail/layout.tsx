@@ -1,13 +1,16 @@
-import React from "react";
+import React from "react"
 
-export default function DetailLayout({ children, modal }: {
-  children: React.ReactNode,
-  modal: React.ReactNode,
+export default function DetailLayout({
+  children,
+  modal,
+}: {
+  children: React.ReactNode
+  modal: React.ReactNode
 }) {
   return (
     <>
-      {children ?? <></>}
-      {modal}
+      {children}
+      <div>{modal}</div>
     </>
   )
 }
