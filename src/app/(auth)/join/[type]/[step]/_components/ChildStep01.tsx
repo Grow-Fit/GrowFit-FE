@@ -9,11 +9,7 @@ import Input from "@/components/common/input/input"
 import pageStyles from "../page.module.scss"
 import styles from "./steps.module.scss"
 
-interface Props {
-  currentStep: number
-}
-
-const ChildStep01 = ({ currentStep }: Props) => {
+const ChildStep01 = () => {
   const [qrValue, setQrValue] = useState("")
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -39,7 +35,7 @@ const ChildStep01 = ({ currentStep }: Props) => {
         </button>
       </div>
       <Link
-        href={`/join/child/${currentStep + 1}`}
+        href="/join/child/2"
         aria-disabled={qrValue === ""}
         className={`btn-comm large filled rounded ${pageStyles.join__content__btn}`}>
         다음

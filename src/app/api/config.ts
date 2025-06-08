@@ -1,28 +1,19 @@
 import axios from "axios"
 
-import { clearAuthCookies, getCookie } from "@/lib/utils/cookie"
+import { clearAuthCookies } from "@/lib/utils/cookie"
 
-const axiosAuthConfig = {
-  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
-  withCredentials: true,
-}
-
-const authAPI = axios.create(axiosAuthConfig)
-
-authAPI.interceptors.request.use((config) => {
-  const token = getCookie("accessToken")
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`
-  }
-  return config
+// 인증이 필요한 API
+const authAPI = axios.create({
+  baseURL: "",
+  withCredentials: true, // 쿠키 자동 전송
 })
 
+// @description 쿠키 자동 전송으로 request 설정 불필요하여 제거
 authAPI.interceptors.response.use(
   (res) => {
     if (res.data.errors) {
       throw new Error(res.data.errors)
     }
-
     return res.data
   },
   async (error) => {
@@ -30,7 +21,12 @@ authAPI.interceptors.response.use(
       clearAuthCookies()
 
       if (typeof window !== "undefined") {
-        window.location.href = "/login"
+        const currentPath = window.location.pathname
+        const isLoginPage = currentPath.includes("/login") || currentPath === "/"
+
+        if (!isLoginPage) {
+          window.location.href = "/login"
+        }
       }
     }
     return Promise.reject(error)

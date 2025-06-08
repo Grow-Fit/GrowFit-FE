@@ -3,10 +3,13 @@
 import { ChangeEvent, useState } from "react"
 import Picker from "react-mobile-picker"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 import BoyIcon from "@/assets/character/comm/img-boy.svg"
 import GirlIcon from "@/assets/character/comm/img-girl.svg"
+import Button from "@/components/common/button/button"
 import Input from "@/components/common/input/input"
+import { useUserStore } from "@/stores/userStore"
 
 import pageStyles from "../page.module.scss"
 import styles from "./steps.module.scss"
@@ -20,25 +23,27 @@ function generateNumberArray(begin: number, end: number, unit: string) {
 }
 
 const ParentStep02 = () => {
+  const router = useRouter()
+  const { updateUser } = useUserStore()
   const [childInfo, setChildInfo] = useState({
     childName: "",
-    gender: "",
+    childGender: "",
   })
 
   const [pickerValues, setPickerValues] = useState<{
-    age: string
-    height: string
-    weight: string
+    childAge: string
+    childHeight: string
+    childWeight: string
   }>({
-    age: "10세",
-    height: "140cm",
-    weight: "30kg",
+    childAge: "10세",
+    childHeight: "120cm",
+    childWeight: "20kg",
   })
 
   const selections = {
-    age: generateNumberArray(8, 19, "세"),
-    height: generateNumberArray(100, 200, "cm"),
-    weight: generateNumberArray(20, 150, "kg"),
+    childAge: generateNumberArray(8, 19, "세"),
+    childHeight: generateNumberArray(100, 200, "cm"),
+    childWeight: generateNumberArray(20, 150, "kg"),
   }
 
   const handleChange = (key: string, e: ChangeEvent<HTMLInputElement>) => {
@@ -48,13 +53,22 @@ const ParentStep02 = () => {
     }))
   }
 
-  // Picker 값 변경 핸들러
   const handlePickerChange = (valueMap: Record<string, string>) => {
     setPickerValues({
-      age: valueMap.age || pickerValues.age,
-      height: valueMap.height || pickerValues.height,
-      weight: valueMap.weight || pickerValues.weight,
+      childAge: valueMap.childAge || pickerValues.childAge,
+      childHeight: valueMap.childHeight || pickerValues.childHeight,
+      childWeight: valueMap.childWeight || pickerValues.childWeight,
     })
+  }
+
+  const handleClickNext = async () => {
+    await updateUser({
+      ...childInfo,
+      childAge: parseInt(pickerValues.childAge.replace("세", "")),
+      childHeight: parseInt(pickerValues.childHeight.replace("cm", "")),
+      childWeight: parseInt(pickerValues.childWeight.replace("kg", "")),
+    })
+    router.push("/success?type=parent")
   }
 
   return (
@@ -80,26 +94,26 @@ const ParentStep02 = () => {
 
           <label
             htmlFor="genderM"
-            className={`${styles.lab_radio} ${childInfo.gender === "M" ? styles.selected : ""}`}>
+            className={`${styles.lab_radio} ${childInfo.childGender === "M" ? styles.selected : ""}`}>
             <input
               id="genderM"
               type="radio"
-              name="gender"
+              name="childGender"
               value="M"
-              onChange={(e) => handleChange("gender", e)}
+              onChange={(e) => handleChange("childGender", e)}
             />
             남아
             <BoyIcon className={styles.img_gender} />
           </label>
           <label
             htmlFor="genderF"
-            className={`${styles.lab_radio} ${childInfo.gender === "F" ? styles.selected : ""}`}>
+            className={`${styles.lab_radio} ${childInfo.childGender === "F" ? styles.selected : ""}`}>
             <input
               id="genderF"
               type="radio"
-              name="gender"
+              name="childGender"
               value="F"
-              onChange={(e) => handleChange("gender", e)}
+              onChange={(e) => handleChange("childGender", e)}
             />
             여아
             <GirlIcon className={styles.img_gender} />
@@ -118,8 +132,8 @@ const ParentStep02 = () => {
               height={133}
               itemHeight={44}
               wheelMode="natural">
-              <Picker.Column name="age">
-                {selections.age.map((item) => (
+              <Picker.Column name="childAge">
+                {selections.childAge.map((item) => (
                   <Picker.Item key={item} value={item}>
                     {({ selected }) => (
                       <div
@@ -146,8 +160,8 @@ const ParentStep02 = () => {
               height={133}
               itemHeight={44}
               wheelMode="natural">
-              <Picker.Column name="height">
-                {selections.height.map((item) => (
+              <Picker.Column name="childHeight">
+                {selections.childHeight.map((item) => (
                   <Picker.Item key={item} value={item}>
                     {({ selected }) => (
                       <div
@@ -174,8 +188,8 @@ const ParentStep02 = () => {
               height={133}
               itemHeight={44}
               wheelMode="natural">
-              <Picker.Column name="weight">
-                {selections.weight.map((item) => (
+              <Picker.Column name="childWeight">
+                {selections.childWeight.map((item) => (
                   <Picker.Item key={item} value={item}>
                     {({ selected }) => (
                       <div
@@ -190,12 +204,14 @@ const ParentStep02 = () => {
           </div>
         </div>
       </div>
-      <Link
-        href="/success?type=parent"
-        passHref
-        className={`btn-comm large filled rounded ${pageStyles.join__content__btn}`}>
-        다음
-      </Link>
+      <Button
+        label="다음"
+        shape="rounded"
+        size="large"
+        variant="filled"
+        classNames={pageStyles.join__content__btn}
+        onClick={handleClickNext}
+      />
     </>
   )
 }

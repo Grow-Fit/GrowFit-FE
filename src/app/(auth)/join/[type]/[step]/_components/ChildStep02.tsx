@@ -5,16 +5,12 @@ import Input from "@/components/common/input/input"
 import pageStyles from "../page.module.scss"
 import styles from "./steps.module.scss"
 
-interface Props {
-  currentStep: number
-}
-
 const INPUT_STATE_MSG = {
   error: "이미 가입된 아이디입니다.",
   success: "사용 가능한 아이디입니다.",
 }
 
-const ChildStep02 = ({ currentStep }: Props) => {
+const ChildStep02 = () => {
   return (
     <>
       <div className={styles.box__step2}>
@@ -56,7 +52,7 @@ const ChildStep02 = ({ currentStep }: Props) => {
         </fieldset>
       </div>
       <Link
-        href={`/join/child/${currentStep + 1}`}
+        href="/join/child/3"
         aria-disabled={false}
         className={`btn-comm large filled rounded ${pageStyles.join__content__btn}`}>
         다음

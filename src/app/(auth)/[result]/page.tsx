@@ -1,17 +1,20 @@
 import Success from "./_components/Success"
 
 interface Props {
-  params: {
+  params: Promise<{
     result: string // "success"
-  }
-  searchParams: {
+  }>
+  searchParams: Promise<{
     type: string // "parent" | "child"
-  }
+  }>
 }
 
-const Page = ({ params, searchParams }: Props) => {
-  if (params.result === "success") {
-    return <Success userType={searchParams.type} />
+const Page = async ({ params, searchParams }: Props) => {
+  const { result } = await params
+  const { type } = await searchParams
+
+  if (result === "success") {
+    return <Success userType={type} />
   }
 }
 

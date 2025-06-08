@@ -1,15 +1,17 @@
 "use client"
 
-import LoginParentCharacter from "@/assets/character/login/img-login-parent.svg"
-import KakaotalkIcon from "@/assets/icons/common/icon-kakaotalk.svg"
-import LoginLogo from "@/assets/logo/logo-type01.svg"
-import { useKakaoAuth } from "@/hooks/useKakaoAuth"
+import Link from "next/link"
 
+import LoginParentCharacter from "@/assets/character/login/img-login-parent.svg"
+// import KakaotalkIcon from "@/assets/icons/common/icon-kakaotalk.svg"
+import LoginLogo from "@/assets/logo/logo-type01.svg"
+
+// import { useKakaoAuth } from "@/hooks/useKakaoAuth"
 import layoutStyles from "../layout.module.scss"
 import styles from "./page.module.scss"
 
 const Page = () => {
-  const { handleKakaoLogin, isLoading } = useKakaoAuth()
+  // const { handleKakaoLogin, isLoading } = useKakaoAuth() TODO : api 수정되면 원복 예정
 
   return (
     <div className={`${layoutStyles.login__content} ${styles.login__parent} `}>
@@ -27,6 +29,7 @@ const Page = () => {
         </strong>
       </p>
       <div className={`${layoutStyles.login__content__btns}`}>
+        {/* TODO : api 수정되면 원복 예정
         <button
           type="button"
           className={`btn-comm rounded ${styles.btn_kakao_login}`}
@@ -34,7 +37,10 @@ const Page = () => {
           disabled={isLoading}>
           <KakaotalkIcon className={styles.icon_kakaotalk} />
           {isLoading ? "로그인 중..." : "카카오톡으로 시작하기"}
-        </button>
+        </button> */}
+        <Link href="/join/parent/1" className="btn-comm large filled rounded">
+          부모 로그인
+        </Link>
       </div>
     </div>
   )

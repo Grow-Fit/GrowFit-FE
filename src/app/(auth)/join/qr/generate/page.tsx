@@ -4,10 +4,14 @@ import { useState } from "react"
 import QRCode from "react-qr-code"
 import Link from "next/link"
 
+import { useParentQrGenerate } from "@/hooks/auth/useParentAuth"
+
 import styles from "./page.module.scss"
 
 const Page = () => {
   const [qrcode, setQrcode] = useState("1234")
+  const { data } = useParentQrGenerate()
+  console.log(data)
   return (
     <div className={styles.qrcode}>
       <h3 className={styles.qrcode__title}>
