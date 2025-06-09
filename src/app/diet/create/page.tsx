@@ -3,6 +3,9 @@ import BackHeader from "@/components/layout/header/BackHeader"
 import SearchBar from "@/components/common/searchbar/searchbar"
 import Link from "next/link"
 import Amount from "@/components/common/amount/amount"
+import Button from "@/components/common/button/button"
+import Portal from "@/components/common/portal/portal"
+import Modal from "@/components/common/modal/modal"
 
 const Page = () => {
   return (
@@ -62,6 +65,12 @@ const Page = () => {
           </div>
         </div>
       </div>
+      <div className={styles.create__btn}>
+        <Button size={"medium"} variant={"filled"} shape={"rounded"} label={"완료"} />
+      </div>
+      <Portal>
+        <Modal />
+      </Portal>
     </div>
   )
 }

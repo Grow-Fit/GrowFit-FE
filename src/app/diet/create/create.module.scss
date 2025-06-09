@@ -1,11 +1,11 @@
 .create {
   &__search {
     background: $gray-10;
-    padding: 26px 24px;
+    padding: 26px 16px;
   }
 
   &__list {
-    padding: 34px 24px;
+    padding: 34px 16px;
   }
 
   &__title {
@@ -106,5 +106,13 @@
     }
   }
 
-
+  &__btn {
+    background: #fff;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    padding: 16px 32px;
+    border-top: 1px solid $gray-20;
+  }
 }
