@@ -2,6 +2,7 @@ import styles from "./create.module.scss"
 import BackHeader from "@/components/layout/header/BackHeader"
 import SearchBar from "@/components/common/searchbar/searchbar"
 import Link from "next/link"
+import Amount from "@/components/common/amount/amount"
 
 const Page = () => {
   return (
@@ -24,6 +25,41 @@ const Page = () => {
             검색창에서 음식을 검색하여
             <br /> 식단에 추가해보세요.
           </p>
+        </div>
+        <div className={styles.create__set}>
+          <div className={styles["create__set-item"]}>
+            <div className={styles["create__set-top"]}>
+              <div className={styles["create__set-menu"]}>
+                반미 샌드위치 <span>326kcal</span>
+              </div>
+              <div className={styles["create__set-amount"]}>
+                <Amount />
+              </div>
+            </div>
+            <div className={styles["create__set-bottom"]}>
+              <div className={styles["create__set-info"]}>
+                <p>탄수화물</p>
+                <div className={styles["create__set-unit"]}>
+                  <p>0.6</p>
+                  <span>g</span>
+                </div>
+              </div>
+              <div className={styles["create__set-info"]}>
+                <p>단백질</p>
+                <div className={styles["create__set-unit"]}>
+                  <p>0.6</p>
+                  <span>g</span>
+                </div>
+              </div>
+              <div className={styles["create__set-info"]}>
+                <p>지방</p>
+                <div className={styles["create__set-unit"]}>
+                  <p>0.6</p>
+                  <span>g</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
