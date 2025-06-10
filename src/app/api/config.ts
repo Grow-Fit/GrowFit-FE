@@ -4,7 +4,7 @@ import { clearAuthCookies } from "@/lib/utils/cookie"
 
 // 인증이 필요한 API
 const authAPI = axios.create({
-  baseURL: "",
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
   withCredentials: true, // 쿠키 자동 전송
 })
 
@@ -17,18 +17,19 @@ authAPI.interceptors.response.use(
     return res.data
   },
   async (error) => {
-    if (error.response?.status === 401) {
-      clearAuthCookies()
+    // MEMO : 에러 확인이 안돼서 주석 처리했으나 추후 주석 처리내용 사용 예정
+    // if (error.response?.status === 401) {
+    //   clearAuthCookies()
 
-      if (typeof window !== "undefined") {
-        const currentPath = window.location.pathname
-        const isLoginPage = currentPath.includes("/login") || currentPath === "/"
+    //   if (typeof window !== "undefined") {
+    //     const currentPath = window.location.pathname
+    //     const isLoginPage = currentPath.includes("/login") || currentPath === "/"
 
-        if (!isLoginPage) {
-          window.location.href = "/login"
-        }
-      }
-    }
+    //     if (!isLoginPage) {
+    //       window.location.href = "/login"
+    //     }
+    //   }
+    // }
     return Promise.reject(error)
   }
 )
