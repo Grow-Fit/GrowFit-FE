@@ -10,8 +10,17 @@ import StickerIcon from "@/assets/icons/diet/sticker.svg"
 import AddIcon from "@/assets/icons/common/icon-add-skyblue.svg"
 import { BalloonMessage } from "@/components/common/balloonmessage/balloonmessage"
 import Link from "next/link"
+import { ArrowIconGray } from "@/components/common/icon"
+import { useState } from "react"
+import Portal from "@/components/common/portal/portal"
+import Bottomsheet from "@/components/common/buttomsheet/bottomsheet"
+import Button from "@/components/common/button/button"
 
 export default function Page() {
+  const [isOpen, setIsOpen] = useState(false)
+  const handleTimeClick = () => {
+    setIsOpen(true)
+  }
   return (
     <main className={styles.diet}>
       <DefaultHeader />
@@ -37,6 +46,10 @@ export default function Page() {
                   <AddIcon />
                 </Link>
               </div>
+              <p onClick={handleTimeClick}>
+                9:00
+                <ArrowIconGray />
+              </p>
               <DietIcon />
             </li>
             <li>
@@ -46,6 +59,10 @@ export default function Page() {
                   <AddIcon />
                 </Link>
               </div>
+              <p>
+                9:00
+                <ArrowIconGray />
+              </p>
               <DietIcon />
               <BalloonMessage />
             </li>
@@ -57,6 +74,10 @@ export default function Page() {
                   <AddIcon />
                 </Link>
               </div>
+              <p>
+                9:00
+                <ArrowIconGray />
+              </p>
               <DietIcon />
             </li>
             <li>
@@ -66,12 +87,40 @@ export default function Page() {
                   <AddIcon />
                 </Link>
               </div>
+              <p>
+                9:00
+                <ArrowIconGray />
+              </p>
               <DietIcon />
             </li>
           </ul>
         </div>
       </div>
       <Navigation />
+      <Portal>
+        <Bottomsheet title={"시간 선택"}>
+          <div className={styles.time}>
+            <div className={styles.time__box}>
+              <div className={styles["time__box-time"]}>
+                <input type={"number"} name={"time"} />
+                <p>시간</p>
+              </div>
+
+              <div className={styles["time__box-time"]}>
+                <input type={"number"} name={"minutes"} />
+                <p>분</p>
+              </div>
+              <div className={styles["time__box-ampm"]}>
+                <button className={styles.active}>오전</button>
+                <button>오후</button>
+              </div>
+            </div>
+            <div className={styles.time__btn}>
+              <Button size={"medium"} variant={"filled"} shape={"rounded"} label={"완료"} />
+            </div>
+          </div>
+        </Bottomsheet>
+      </Portal>
     </main>
   )
 }
