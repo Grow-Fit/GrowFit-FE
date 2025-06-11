@@ -1,20 +1,17 @@
 "use client"
 
-import { useRouter } from "next/router"
+import Link from "next/link"
 
 import LoginParentCharacter from "@/assets/character/login/img-login-parent.svg"
-import KakaotalkIcon from "@/assets/icons/common/icon-kakaotalk.svg"
+// import KakaotalkIcon from "@/assets/icons/common/icon-kakaotalk.svg"
 import LoginLogo from "@/assets/logo/logo-type01.svg"
 
+// import { useKakaoAuth } from "@/hooks/useKakaoAuth"
 import layoutStyles from "../layout.module.scss"
 import styles from "./page.module.scss"
 
 const Page = () => {
-  const router = useRouter()
-
-  const handleClickLogin = () => {
-    router.push("/join/parent/1")
-  }
+  // const { handleKakaoLogin, isLoading } = useKakaoAuth() TODO : api 수정되면 원복 예정
 
   return (
     <div className={`${layoutStyles.login__content} ${styles.login__parent} `}>
@@ -32,13 +29,18 @@ const Page = () => {
         </strong>
       </p>
       <div className={`${layoutStyles.login__content__btns}`}>
+        {/* TODO : api 수정되면 원복 예정
         <button
           type="button"
           className={`btn-comm rounded ${styles.btn_kakao_login}`}
-          onClick={handleClickLogin}>
+          onClick={handleKakaoLogin}
+          disabled={isLoading}>
           <KakaotalkIcon className={styles.icon_kakaotalk} />
-          카카오톡으로 시작하기
-        </button>
+          {isLoading ? "로그인 중..." : "카카오톡으로 시작하기"}
+        </button> */}
+        <Link href="/join/parent/1" className="btn-comm large filled rounded">
+          부모 로그인
+        </Link>
       </div>
     </div>
   )

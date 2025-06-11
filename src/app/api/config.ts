@@ -1,39 +1,38 @@
-import { deleteStorage, getStorage } from "@/lib/utils/storage";
-import axios from "axios";
+import axios from "axios"
 
-const axiosAuthConfig = {
+import { clearAuthCookies } from "@/lib/utils/cookie"
+
+// 인증이 필요한 API
+const authAPI = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_URL,
-};
+  withCredentials: true, // 쿠키 자동 전송
+})
 
-const authAPI = axios.create(axiosAuthConfig);
-
-authAPI.interceptors.request.use(
-  (config) => {
-    const token = getStorage("accessToken");
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
-    return config;
-  }
-);
-
+// @description 쿠키 자동 전송으로 request 설정 불필요하여 제거
 authAPI.interceptors.response.use(
   (res) => {
     if (res.data.errors) {
-      throw new Error(res.data.errors);
+      throw new Error(res.data.errors)
     }
 
-    return res.data;
+    return res.data
   },
   async (error) => {
-    if (error.response.status === 401) {
-      deleteStorage("isUser");
-      deleteStorage("userRefresh");
-      deleteStorage("userId");
-      window.location.href = "/login";
-    }
-    return Promise.reject(error);
-  }
-);
+    // MEMO : 에러 확인이 안돼서 주석 처리했으나 추후 주석 처리내용 사용 예정
+    // if (error.response?.status === 401) {
+    //   clearAuthCookies()
 
-export { authAPI };
+    //   if (typeof window !== "undefined") {
+    //     const currentPath = window.location.pathname
+    //     const isLoginPage = currentPath.includes("/login") || currentPath === "/"
+
+    //     if (!isLoginPage) {
+    //       window.location.href = "/login"
+    //     }
+    //   }
+    // }
+    return Promise.reject(error)
+  }
+)
+
+export { authAPI }

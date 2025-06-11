@@ -10,8 +10,8 @@ const nextConfig: NextConfig = {
       @use "typography" as *;
       @use "variables" as *;
     `,
-    modularizeImports: {},
   },
+  modularizeImports: {},
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,

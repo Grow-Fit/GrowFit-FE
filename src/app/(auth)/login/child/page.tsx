@@ -35,16 +35,22 @@ const Page = () => {
           label="비밀번호"
           placeholder="비밀번호 입력"
         />
-        <Button label="로그인" shape="sharp" size="large" variant="filled" />
+        <Button
+          label="로그인"
+          shape="sharp"
+          size="large"
+          variant="filled"
+          classNames={styles.login__child__btn}
+        />
       </form>
       <div className={styles.login__util}>
-        <Link href="/find/id" passHref className={styles.login__util__id}>
+        <Link href="/find/id" className={styles.login__util__id}>
           아이디 찾기
         </Link>
-        <Link href="/find/pw" passHref className={styles.login__util__pw}>
+        <Link href="/find/pw" className={styles.login__util__pw}>
           비밀번호 찾기 찾기
         </Link>
-        <Link href="/join/child/1" passHref className={styles.login__util__join}>
+        <Link href="/join/child/1" className={styles.login__util__join}>
           회원가입
         </Link>
       </div>
