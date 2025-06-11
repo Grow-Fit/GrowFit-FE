@@ -21,6 +21,9 @@ export default function Page() {
   const handleTimeClick = () => {
     setIsOpen(true)
   }
+  const closeModal = () => {
+    setIsOpen(false)
+  }
   return (
     <main className={styles.diet}>
       <DefaultHeader />
@@ -97,30 +100,32 @@ export default function Page() {
         </div>
       </div>
       <Navigation />
-      <Portal>
-        <Bottomsheet title={"시간 선택"}>
-          <div className={styles.time}>
-            <div className={styles.time__box}>
-              <div className={styles["time__box-time"]}>
-                <input type={"number"} name={"time"} />
-                <p>시간</p>
-              </div>
+      {isOpen && (
+        <Portal>
+          <Bottomsheet title={"시간 선택"} close={closeModal}>
+            <div className={styles.time}>
+              <div className={styles.time__box}>
+                <div className={styles["time__box-time"]}>
+                  <input type={"number"} name={"time"} />
+                  <p>시간</p>
+                </div>
 
-              <div className={styles["time__box-time"]}>
-                <input type={"number"} name={"minutes"} />
-                <p>분</p>
+                <div className={styles["time__box-time"]}>
+                  <input type={"number"} name={"minutes"} />
+                  <p>분</p>
+                </div>
+                <div className={styles["time__box-ampm"]}>
+                  <button className={styles.active}>오전</button>
+                  <button>오후</button>
+                </div>
               </div>
-              <div className={styles["time__box-ampm"]}>
-                <button className={styles.active}>오전</button>
-                <button>오후</button>
+              <div className={styles.time__btn}>
+                <Button size={"medium"} variant={"filled"} shape={"rounded"} label={"완료"} />
               </div>
             </div>
-            <div className={styles.time__btn}>
-              <Button size={"medium"} variant={"filled"} shape={"rounded"} label={"완료"} />
-            </div>
-          </div>
-        </Bottomsheet>
-      </Portal>
+          </Bottomsheet>
+        </Portal>
+      )}
     </main>
   )
 }
