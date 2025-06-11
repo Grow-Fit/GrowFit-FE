@@ -1,6 +1,9 @@
 import styles from "./modal.module.scss"
 
-const Modal = () => {
+const Modal = ({ setIsOpen }) => {
+  const handleClose = () => {
+    setIsOpen(false)
+  }
   return (
     <div className={styles.modal}>
       <div className={styles.modal__backdrop}></div>
@@ -10,7 +13,7 @@ const Modal = () => {
           이대로 식단업로드 할까요?
         </p>
         <div className={styles.modal__btn}>
-          <button>아니요</button>
+          <button onClick={handleClose}>아니요</button>
           <button>네</button>
         </div>
       </div>

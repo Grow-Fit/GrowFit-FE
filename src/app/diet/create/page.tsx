@@ -1,3 +1,4 @@
+"use client"
 import styles from "./create.module.scss"
 import BackHeader from "@/components/layout/header/BackHeader"
 import SearchBar from "@/components/common/searchbar/searchbar"
@@ -6,8 +7,13 @@ import Amount from "@/components/common/amount/amount"
 import Button from "@/components/common/button/button"
 import Portal from "@/components/common/portal/portal"
 import Modal from "@/components/common/modal/modal"
+import { useState } from "react"
 
 const Page = () => {
+  const [isOpen, setIsOpen] = useState(false)
+  const handleClick = () => {
+    setIsOpen(true)
+  }
   return (
     <div className={styles.create}>
       <BackHeader title={"식단만들기"} />
@@ -21,7 +27,7 @@ const Page = () => {
           <h2>
             아침 메뉴<span>0개</span>
           </h2>
-          <button>세트 저장</button>
+          <button onClick={handleClick}>세트 저장</button>
         </div>
         <div className={styles.create__box}>
           <p>
@@ -68,9 +74,11 @@ const Page = () => {
       <div className={styles.create__btn}>
         <Button size={"medium"} variant={"filled"} shape={"rounded"} label={"완료"} />
       </div>
-      <Portal>
-        <Modal />
-      </Portal>
+      {isOpen && (
+        <Portal>
+          <Modal setIsOpen={setIsOpen} />
+        </Portal>
+      )}
     </div>
   )
 }
