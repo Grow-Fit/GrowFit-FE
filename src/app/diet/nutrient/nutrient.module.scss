@@ -1,0 +1,49 @@
+.nutrient {
+  padding: 0 16px;
+
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  &__content {
+    padding-top: 22px;
+  }
+
+  &__input {
+    margin-top: 26px;
+
+    &-item {
+      margin-top: 24px;
+
+      label {
+        color: $gray-70;
+      }
+
+      input {
+        background: $gray-10;
+        border-radius: 10px;
+        width: 100%;
+        padding: 18px 16px;
+        margin-top: 12px;
+
+        &:focus {
+          outline: 1px solid #000;
+        }
+      }
+    }
+  }
+
+  .btn_wrap {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 16px;
+  }
+}

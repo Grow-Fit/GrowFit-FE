@@ -1,0 +1,20 @@
+.searchbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  border: 1px solid #D8DADB;
+  border-radius: 100px;
+  padding: 10px 12px;
+  background: $white;
+
+  > * {
+    flex-shrink: 0;
+  }
+
+  input {
+    margin-left: 10px;
+    width: 83%;
+  }
+
+}

@@ -8,12 +8,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 52px;
-  padding: 0 20px;
+  height: 60px;
+  padding: 0 16px;
   background-color: #fff;
   transform: translateX(-50%);
+
   &__icon {
   }
+
   &__title {
     font-size: 18px;
     font-weight: 700;
