@@ -14,8 +14,16 @@ import AddButton from "@/components/common/addbutton/addbutton"
 import TopSheet from "@/components/common/topsheet/topsheet"
 import DefaultHeader from "@/components/layout/header/DefaultHeader"
 import Navigation from "@/components/layout/Navigation"
+import { useGoalMainQuery } from "@/queries/goal/userGoalQuery"
+import { useEffect } from "react"
 
 const Page = () => {
+  const { data } = useGoalMainQuery()
+
+  useEffect(() => {
+    data
+  }, [])
+
   return (
     <main className={cx("goal")}>
       <DefaultHeader />
