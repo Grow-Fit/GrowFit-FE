@@ -15,22 +15,22 @@ import TopSheet from "@/components/common/topsheet/topsheet"
 import DefaultHeader from "@/components/layout/header/DefaultHeader"
 import Navigation from "@/components/layout/Navigation"
 import { useGoalMainQuery } from "@/queries/goal/userGoalQuery"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+import dayjs from "dayjs"
 
 const Page = () => {
-  const { data } = useGoalMainQuery()
+  const today = dayjs().format("YYYY-MM-DD")
+  const [clickedDate, setClickedDate] = useState(today)
 
-  useEffect(() => {
-    data
-  }, [])
-
+  console.log(clickedDate)
+  const { data } = useGoalMainQuery(clickedDate)
   return (
     <main className={cx("goal")}>
       <DefaultHeader />
       <div className={cx("goal__content")}>
         <div className={cx("goal__calendar")}>
           <TopSheet>
-            <SmallCalendar />
+            <SmallCalendar setClickedDate={setClickedDate} />
           </TopSheet>
         </div>
 
