@@ -17,19 +17,7 @@ authAPI.interceptors.response.use(
     return res.data
   },
   async (error) => {
-    // MEMO : 에러 확인이 안돼서 주석 처리했으나 추후 주석 처리내용 사용 예정
-    // if (error.response?.status === 401) {
-    //   clearAuthCookies()
-
-    //   if (typeof window !== "undefined") {
-    //     const currentPath = window.location.pathname
-    //     const isLoginPage = currentPath.includes("/login") || currentPath === "/"
-
-    //     if (!isLoginPage) {
-    //       window.location.href = "/login"
-    //     }
-    //   }
-    // }
+    console.error("API 에러 상세:", error.response?.data) // 에러 로깅 추가
     return Promise.reject(error)
   }
 )

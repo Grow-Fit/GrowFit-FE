@@ -1,3 +1,5 @@
+"use client"
+
 import BackHeader from "@/components/layout/header/BackHeader"
 
 import styles from "./layout.module.scss"

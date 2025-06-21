@@ -1,1 +1,1 @@
-export { parentLogin, parentQrGenerate, parentRegister } from "./parent"
+export { parentJoin, parentQrGenerate } from "./parent"
