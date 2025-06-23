@@ -1,5 +1,7 @@
 import { useState } from "react"
 
+import { authAPI } from "@/app/api/config"
+
 export const useKakaoAuth = () => {
   const [isLoading, setIsLoading] = useState(false)
 
@@ -33,6 +35,8 @@ export const useKakaoAuth = () => {
     document.cookie = "refreshToken=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;"
     document.cookie = "userId=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;"
     document.cookie = "isUser=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;"
+
+    authAPI.post("oauth/logout")
 
     window.location.href = "/login"
   }
