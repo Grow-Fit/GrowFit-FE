@@ -1,14 +1,14 @@
 import { authAPI } from "@/app/api/config"
 
-const goalBaseUrl = "/api/parent/"
+import { ParentJoinRequestType } from "@/types/auth"
 
-// 부모 로그인
-export const parentLogin = async () => {
-  return authAPI.get(`${goalBaseUrl}`)
-}
+const AuthBaseUrl = "/api/parent"
+
 // 부모 회원가입
-export const parentRegister = async () => {}
+export const parentJoin = async (joinInfo: ParentJoinRequestType) => {
+  return authAPI.post(`${AuthBaseUrl}/child`, joinInfo)
+}
 // 부모 qr생성
 export const parentQrGenerate = async () => {
-  return authAPI.get(`${goalBaseUrl}child/qr`)
+  return authAPI.get(`${AuthBaseUrl}/child/qr`)
 }

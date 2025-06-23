@@ -11,7 +11,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "commit": "gitmoji -c",
-    "dev:all": "concurrently \"pnpm run dev\" \"pnpm run storybook\""
+    "dev:all": "concurrently \"pnpm run dev\" \"pnpm run storybook\"",
+    "dev:domain": "next dev --hostname growfit.co.kr --port 3000  --experimental-https"
   },
   "engines": {
     "node": "^20.11.0",

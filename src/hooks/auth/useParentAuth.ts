@@ -1,7 +1,25 @@
-import { useQuery } from "@tanstack/react-query"
+import { useRouter } from "next/navigation"
 
-import { parentQrGenerate } from "@/app/api/auth"
+import { useMutation, useQuery } from "@tanstack/react-query"
 
+import { parentJoin, parentQrGenerate } from "@/app/api/auth"
+
+// 부모 회원가입
+export const useParentJoin = () => {
+  const router = useRouter()
+  return useMutation({
+    mutationKey: ["parent", "join"],
+    mutationFn: parentJoin,
+    onSuccess: () => {
+      router.push("/success?type=parent")
+    },
+    onError: (error) => {
+      console.error("회원가입 실패:", error)
+    },
+  })
+}
+
+// 아이 회원가입
 export const useParentQrGenerate = () => {
   return useQuery({
     queryKey: ["parent", "qr"],

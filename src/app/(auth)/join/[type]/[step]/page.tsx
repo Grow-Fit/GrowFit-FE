@@ -52,7 +52,7 @@ const Page = async ({ params }: Props) => {
         <em>0{currentStep}</em>
         <h3>{STEPS[currentType][currentStep - 1].title}</h3>
       </div>
-      {STEPS[currentType][currentStep - 1].component(currentStep)}
+      {STEPS[currentType][currentStep - 1].component()}
     </section>
   )
 }
