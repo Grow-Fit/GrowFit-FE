@@ -14,6 +14,7 @@ authAPI.interceptors.response.use(
     if (res.data.errors) {
       throw new Error(res.data.errors)
     }
+
     return res.data
   },
   async (error) => {

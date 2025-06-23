@@ -24,10 +24,11 @@ function generateNumberArray(begin: number, end: number, unit: string) {
 
 const ParentStep02 = () => {
   const router = useRouter()
+ 
   const { updateUser, parent } = useUserStore()
   const { mutate } = useParentJoin()
 
-  // #region State
+ 
   const [childInfo, setChildInfo] = useState({
     childName: "",
     childGender: "",
@@ -66,8 +67,9 @@ const ParentStep02 = () => {
     })
   }
 
+ 
   const handleClickJoin = async () => {
-    const updatedChildInfo = {
+    const updatedChildInfo = { 
       ...childInfo,
       childAge: parseInt(pickerValues.childAge.replace("세", "")),
       childHeight: parseInt(pickerValues.childHeight.replace("cm", "")),

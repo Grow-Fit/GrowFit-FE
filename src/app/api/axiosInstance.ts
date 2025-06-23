@@ -1,3 +1,4 @@
+// 일반 API용
 import axios from "axios"
 
 import { MAX_TIMEOUT_TIME } from "@/lib/constants/api"

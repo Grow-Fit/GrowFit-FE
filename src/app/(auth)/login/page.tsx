@@ -8,8 +8,8 @@ import { useKakaoAuth } from "@/hooks/auth/useKakaoAuth"
 import layoutStyles from "./layout.module.scss"
 import styles from "./page.module.scss"
 
-const Page = () => {
-  const { handleKakaoLogin, handleKakaoLogout, isLoading } = useKakaoAuth()
+const Page = () => { 
+  const { handleKakaoLogin, handleKakaoLogout, isLoading } = useKakaoAuth() 
 
   return (
     <div className={`${layoutStyles.login__content}`}>

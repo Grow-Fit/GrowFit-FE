@@ -2,18 +2,29 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 import CameraIcon from "@/assets/icons/common/icon-24-camera.svg"
+import Button from "@/components/common/button/button"
 import Input from "@/components/common/input/input"
+import { useUserStore } from "@/stores/userStore"
 
 import pageStyles from "../page.module.scss"
 import styles from "./steps.module.scss"
 
 const ChildStep01 = () => {
+  const router = useRouter()
+  const { updateChild } = useUserStore()
   const [qrValue, setQrValue] = useState("")
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQrValue(e.target.value)
+  }
+  const handleClickNext = () => {
+    updateChild({
+      parentQRCode: qrValue,
+    })
+    router.push("/join/child/2")
   }
   return (
     <>
@@ -34,12 +45,15 @@ const ChildStep01 = () => {
           <CameraIcon />
         </button>
       </div>
-      <Link
-        href="/join/child/2"
+      <Button
+        label="다음"
+        shape="rounded"
+        size="large"
+        variant="filled"
+        classNames={pageStyles.join__content__btn}
+        onClick={handleClickNext}
         aria-disabled={qrValue === ""}
-        className={`btn-comm large filled rounded ${pageStyles.join__content__btn}`}>
-        다음
-      </Link>
+      />
     </>
   )
 }

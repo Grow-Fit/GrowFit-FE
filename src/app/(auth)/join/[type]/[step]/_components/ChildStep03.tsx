@@ -1,8 +1,10 @@
 "use client"
+import { useState } from "react"
 import { useRouter } from "next/navigation"
 
 import Button from "@/components/common/button/button"
 import Input from "@/components/common/input/input"
+import { useUserStore } from "@/stores/userStore"
 
 import pageStyles from "../page.module.scss"
 
@@ -13,14 +15,24 @@ const INPUT_STATE_MSG = {
 
 const ChildStep03 = () => {
   const router = useRouter()
+  const { updateChild, child } = useUserStore()
+  const [nickname, setNickname] = useState("")
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNickname(e.target.value)
+  }
 
   const handleComplete = () => {
+    updateChild({
+      nickname,
+    })
     router.push("/success?type=child")
   }
+  console.log(child)
   return (
     <>
       <Input
-        id="qrCode"
+        id="childNickname"
         type="text"
         inputSize="w-full"
         variant="withLabel"
@@ -34,6 +46,8 @@ const ChildStep03 = () => {
         customBtn={{
           name: "중복확인",
         }}
+        value={nickname}
+        onChange={handleChange}
       />
       <Button
         type="submit"

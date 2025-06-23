@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
 import { useRouter } from "next/navigation"
 
 import Button from "@/components/common/button/button"
@@ -13,7 +12,7 @@ import styles from "./steps.module.scss"
 
 const ParentStep01 = () => {
   const router = useRouter()
-  const { updateUser } = useUserStore()
+  const { updateParent } = useUserStore()
   const [nickname, setNickname] = useState("")
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,7 +20,7 @@ const ParentStep01 = () => {
   }
 
   const handleClickNext = () => {
-    updateUser({
+    updateParent({
       nickname: nickname,
     })
     router.push("/join/parent/2")

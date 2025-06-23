@@ -8,10 +8,13 @@ interface Props {
   subtitle: string
   gaugeStep: GaugeStep       
   onClick?: () => void 
+  isActive?: boolean // 목표 실행중 여부
+  isEmpty?: boolean // 목표가 아예 없는지 여부
 };
 
-export default function GoalCard({ icon:Icon, title, subtitle, gaugeStep, onClick }: Props) {
+const GoalCard = ({ icon:Icon, title, subtitle, gaugeStep, onClick, isActive, isEmpty }: Props) => {
   
+  const titleColor = isActive ? "#000000" : "#D9DDF5";
 
   return (
     <div className={styles.card}>
@@ -21,7 +24,9 @@ export default function GoalCard({ icon:Icon, title, subtitle, gaugeStep, onClic
         </div>
       </div>
       <div className={styles.titleBox}>
-        <p className={styles.title}>{title}</p>
+        <p className={styles.title}
+        style={{ color: titleColor }}
+        >{title}</p>
         
         <div className={styles.gaugeWrapper}>
           <GoalGauge step={gaugeStep} className={styles.gauge} />
@@ -39,3 +44,4 @@ export default function GoalCard({ icon:Icon, title, subtitle, gaugeStep, onClic
     </div>
   )
 }
+export default GoalCard

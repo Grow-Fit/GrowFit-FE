@@ -3,17 +3,19 @@ import styles from "./GoalCardList.module.scss"
 import Img1 from "@/assets/icons/img-1.svg"
 import Img2 from "@/assets/icons/img.svg"
 
+
 const cardData = [
-  { icon: Img1, title: "오늘의 목표", subtitle: "주간 목표", gaugeStep: 5 as const},
-  { icon: Img2, title: "오늘의 칼로리", subtitle: "식단 일지", gaugeStep: 6 as const},
+  { icon: Img1, title: "오늘의 목표", subtitle: "주간 목표", gaugeStep: 5 as const, isEmpty: true,},
+  { icon: Img2, title: "1,400 kcal", subtitle: "식단 일지", gaugeStep: 6 as const, isActive: true,}
 ]
 
-export default function GoalCardList() {
+const GoalCardList = () => {
     return (
       <div className={styles.goalCards}>
         {cardData.map((card, index) => (
           <GoalCard key={index} icon={card.icon} title={card.title} subtitle={card.subtitle} gaugeStep={card.gaugeStep}  />
-        ))}
+        ))} 
       </div>
     )
-};
+}
+export default GoalCardList;

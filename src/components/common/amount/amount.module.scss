@@ -1,0 +1,23 @@
+/* amount.module.scss */
+.amount {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.button {
+  width: 24px;
+  height: 24px;
+  font-size: 18px;
+  font-weight: bold;
+  background: $gray-10;
+  cursor: pointer;
+  border-radius: 50%;
+  color: $gray-30;
+}
+
+.value {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+}

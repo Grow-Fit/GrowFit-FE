@@ -1,6 +1,6 @@
 import { create } from "zustand"
 
-type ParentLoginType = {
+type ParentRegisterType = {
   nickname: string
   childName: string
   childGender: string
@@ -8,10 +8,18 @@ type ParentLoginType = {
   childHeight: number
   childWeight: number
 }
+type ChildRegisterType = {
+  parentQRCode: string
+  childId: string
+  childPw: string
+  nickname: string
+}
 
 type userStoreType = {
-  parent: Partial<ParentLoginType>
-  updateUser: (newData: Partial<ParentLoginType>) => void
+  parent: Partial<ParentRegisterType>
+  child: Partial<ChildRegisterType>
+  updateParent: (newData: Partial<ParentRegisterType>) => void
+  updateChild: (newData: Partial<ChildRegisterType>) => void
 }
 
 export const useUserStore = create<userStoreType>((set) => ({
@@ -23,9 +31,20 @@ export const useUserStore = create<userStoreType>((set) => ({
     childHeight: 0,
     childWeight: 0,
   },
-  updateUser: (newData: Partial<ParentLoginType>) =>
+  child: {
+    parentQRCode: "",
+    childId: "",
+    childPw: "",
+    nickname: "",
+  },
+  updateParent: (newData: Partial<ParentRegisterType>) =>
     set((state) => ({
       ...state,
       parent: { ...state.parent, ...newData },
+    })),
+  updateChild: (newData: Partial<ChildRegisterType>) =>
+    set((state) => ({
+      ...state,
+      child: { ...state.child, ...newData },
     })),
 }))
