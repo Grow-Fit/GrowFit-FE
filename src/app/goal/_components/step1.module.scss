@@ -46,17 +46,23 @@
 
   &-control {
     width: 100%;
-    overflow-x: auto;
-    display: flex;
     margin-top: 24px;
-    gap: 16px;
-    padding: 14px;
+
+    > div {
+      text-align: center;
+    }
   }
 
   &-txt {
+    margin-top: 16px;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 5px;
     font-size: 14px;
+
+    p {
+      white-space: nowrap;
+    }
   }
 }

@@ -1,22 +1,24 @@
 .goal__result {
-  width: 160px;
-  height: 163px;
-  border: 5px solid #F2F2F5;
-  border-radius: 50%;
+  padding-right: 16px;
+
   p {
-    margin-top: 20px;
+    padding-top: 20px;
     text-align: center;
     font-weight: 700;
+
     span {
       color: #8D8D8D;
       font-weight: 400;
     }
   }
 }
+
 .goal__icon {
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 5px solid #F2F2F5;
+  border-radius: 50%;
 }
