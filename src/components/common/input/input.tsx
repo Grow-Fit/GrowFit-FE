@@ -25,7 +25,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   variant: "withLabel" | "withoutLabel"
   shape: "border" | "underline"
   label: React.ReactNode
-  state?: InputState
+  state?: InputState | null
   disabled?: boolean
   customBtn?: CustomBtn
 }
@@ -43,7 +43,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             {state?.type === "error" && <ErrorIconSvg />}
             {state?.type === "success" && <SuccessIconSvg />}
           </label>
-          {state?.message && <p className="lab-state">{state?.message}</p>}
+          {!!state?.message && <p className="lab-state">{state?.message}</p>}
         </div>
         <div className="inp-comm">
           <input

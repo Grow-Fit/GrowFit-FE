@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import QRCode from "react-qr-code"
 import Link from "next/link"
 
@@ -11,7 +11,13 @@ import styles from "./page.module.scss"
 const Page = () => {
   const [qrcode, setQrcode] = useState("1234")
   const { data } = useParentQrGenerate()
-  console.log(data)
+
+  useEffect(() => {
+    if (data) {
+      console.log(data)
+      // setQrcode()
+    }
+  }, [data])
   return (
     <div className={styles.qrcode}>
       <h3 className={styles.qrcode__title}>
