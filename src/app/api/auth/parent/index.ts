@@ -1,6 +1,6 @@
 import { authAPI } from "@/app/api/config"
 
-import { ParentJoinRequestType } from "@/types/auth"
+import { ParentJoinRequestType } from "@/types/parent"
 
 const AuthBaseUrl = "/api/parent"
 

@@ -19,7 +19,7 @@ export const useParentJoin = () => {
   })
 }
 
-// 아이 회원가입
+// 부모 - 아이 큐알 코드 생성
 export const useParentQrGenerate = () => {
   return useQuery({
     queryKey: ["parent", "qr"],

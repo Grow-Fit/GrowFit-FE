@@ -3,6 +3,8 @@
 import { ChangeEvent, useState } from "react"
 import { useRouter } from "next/navigation"
 
+import { useFormik } from "formik"
+
 import Button from "@/components/common/button/button"
 import Input from "@/components/common/input/input"
 import { useUserStore } from "@/stores/userStore"
@@ -23,6 +25,18 @@ const ChildStep02 = () => {
     childId: "",
     childPw: "",
   })
+
+  // #region Formik
+  const formik = useFormik({
+    initialValues: {
+      childId: "",
+      childPw: "",
+      childPwCheck: "",
+    },
+  })
+  // #endregion
+
+  // #region Event
   const handleChange = (key: string, e: ChangeEvent<HTMLInputElement>) => {
     setChildInfo((prev) => ({
       ...prev,
@@ -34,6 +48,7 @@ const ChildStep02 = () => {
     updateChild({ ...childInfo })
     router.push("/join/child/3")
   }
+  //#endregion
   return (
     <>
       <form className={styles.box__step2}>
