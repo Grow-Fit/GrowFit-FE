@@ -8,4 +8,5 @@ export type ChildInfoType = {
   child_height: number
   child_weight: number
 }
+
 export type ParentJoinRequestType = NicknameType & ChildInfoType
