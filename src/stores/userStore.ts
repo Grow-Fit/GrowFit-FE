@@ -1,13 +1,7 @@
 import { create } from "zustand"
 
-type ParentRegisterType = {
-  nickname: string
-  childName: string
-  childGender: string
-  childAge: number
-  childHeight: number
-  childWeight: number
-}
+import { ParentJoinRequestType } from "@/types/auth"
+
 type ChildRegisterType = {
   parentQRCode: string
   childId: string
@@ -16,20 +10,20 @@ type ChildRegisterType = {
 }
 
 type userStoreType = {
-  parent: Partial<ParentRegisterType>
+  parent: Partial<ParentJoinRequestType>
   child: Partial<ChildRegisterType>
-  updateParent: (newData: Partial<ParentRegisterType>) => void
+  updateParent: (newData: Partial<ParentJoinRequestType>) => void
   updateChild: (newData: Partial<ChildRegisterType>) => void
 }
 
 export const useUserStore = create<userStoreType>((set) => ({
   parent: {
     nickname: "",
-    childName: "",
-    childGender: "",
-    childAge: 0,
-    childHeight: 0,
-    childWeight: 0,
+    child_name: "",
+    child_gender: "",
+    child_age: 0,
+    child_height: 0,
+    child_weight: 0,
   },
   child: {
     parentQRCode: "",
@@ -37,7 +31,7 @@ export const useUserStore = create<userStoreType>((set) => ({
     childPw: "",
     nickname: "",
   },
-  updateParent: (newData: Partial<ParentRegisterType>) =>
+  updateParent: (newData: Partial<ParentJoinRequestType>) =>
     set((state) => ({
       ...state,
       parent: { ...state.parent, ...newData },

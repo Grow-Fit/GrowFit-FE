@@ -15,6 +15,10 @@
   &__info {
     padding-top: 0.8rem;
     margin: auto 0;
+    svg {
+      display: block;
+      margin: 0 auto;
+    }
     &__txt {
       display: block;
       margin-top: 1rem;

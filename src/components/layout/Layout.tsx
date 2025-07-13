@@ -6,11 +6,11 @@ import styles from "./Layout.module.scss"
 
 const cx = classNames.bind(styles)
 
-const Layout = ({children}:React.ReactNode) => {
-  return (
-    <div className={cx("layout")}>
-      {children}
-    </div>
-  )
+interface LayoutProps {
+  children: React.ReactNode
 }
-export default Layout;
+
+const Layout = ({ children }: LayoutProps) => {
+  return <div className={cx("layout")}>{children}</div>
+}
+export default Layout
