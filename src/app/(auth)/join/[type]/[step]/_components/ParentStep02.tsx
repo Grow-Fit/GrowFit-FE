@@ -3,6 +3,7 @@
 import Picker from "react-mobile-picker"
 
 import { useFormik } from "formik"
+import * as Yup from "yup"
 
 import BoyIcon from "@/assets/character/comm/img-boy.svg"
 import GirlIcon from "@/assets/character/comm/img-girl.svg"
@@ -36,6 +37,27 @@ const ParentStep02 = () => {
   }
   // #endregion
 
+  // #region 유효성 검증
+  const validationSchema = Yup.object({
+    child_name: Yup.string()
+      .required("아이 이름은 필수입니다")
+      .matches(/^[가-힣a-zA-Z\s]+$/, "아이 이름은 한글과 영문만 입력 가능합니다")
+      .min(2, "이름은 최소 2자 이상이어야 합니다")
+      .max(20, "이름은 최대 20자까지 입력 가능합니다"),
+
+    child_gender: Yup.string()
+      .required("성별을 선택해주세요")
+      .oneOf(["MALE", "FEMALE"], "올바른 성별을 선택해주세요"),
+
+    child_age: Yup.number().required("나이를 선택해주세요"),
+
+    child_height: Yup.number().required("키를 선택해주세요"),
+
+    child_weight: Yup.number().required("몸무게를 선택해주세요"),
+  })
+
+  // #endregion
+
   // #region  Formik
   const formik = useFormik({
     initialValues: {
@@ -45,19 +67,7 @@ const ParentStep02 = () => {
       child_height: 120,
       child_weight: 20,
     },
-    validate: (values) => {
-      const errors: Partial<ChildInfoType> = {}
-
-      if (!values.child_name.trim()) {
-        errors.child_name = "아이 이름은 필수입니다"
-      }
-
-      if (!values.child_gender) {
-        errors.child_gender = "성별을 선택해주세요"
-      }
-
-      return errors
-    },
+    validationSchema,
     onSubmit: async (values: ChildInfoType) => {
       const updatedChildInfo = {
         ...values,
@@ -115,7 +125,7 @@ const ParentStep02 = () => {
           onBlur={formik.handleBlur}
           value={formik.values.child_name}
           state={
-            formik.errors.child_name
+            formik.touched.child_name && formik.errors.child_name
               ? {
                   type: "error",
                   message: formik.errors.child_name,
@@ -128,7 +138,7 @@ const ParentStep02 = () => {
         <fieldset className={`input-comm ${formik.errors.child_gender ? "error" : ""}`}>
           <div className="lab-comm">
             <legend>성별</legend>
-            {!!formik.errors.child_gender && (
+            {formik.touched.child_gender && formik.errors.child_gender && (
               <>
                 <ErrorIconSvg />
                 <p className="lab-state">{formik.errors.child_gender}</p>
@@ -171,7 +181,9 @@ const ParentStep02 = () => {
         <div className="input-comm">
           <div className="lab-comm">
             <label htmlFor="childAge">나이</label>
-            {!!formik.errors.child_age && <p className="lab-state">{formik.errors.child_age}</p>}
+            {formik.touched.child_age && formik.errors.child_age && (
+              <p className="lab-state">{formik.errors.child_age}</p>
+            )}
           </div>
           <div className={styles.item_picker}>
             <Picker
@@ -201,7 +213,7 @@ const ParentStep02 = () => {
         <div className="input-comm">
           <div className="lab-comm">
             <label htmlFor="childHeight">키</label>
-            {!!formik.errors.child_height && (
+            {formik.touched.child_height && formik.errors.child_height && (
               <p className="lab-state">{formik.errors.child_height}</p>
             )}
           </div>
@@ -233,7 +245,7 @@ const ParentStep02 = () => {
         <div className="input-comm">
           <div className="lab-comm">
             <label htmlFor="childWeight">몸무게</label>
-            {!!formik.errors.child_weight && (
+            {formik.touched.child_weight && formik.errors.child_weight && (
               <p className="lab-state">{formik.errors.child_weight}</p>
             )}
           </div>
