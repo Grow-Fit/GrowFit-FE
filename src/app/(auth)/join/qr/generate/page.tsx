@@ -9,13 +9,12 @@ import { useParentQrGenerate } from "@/hooks/auth/useParentAuth"
 import styles from "./page.module.scss"
 
 const Page = () => {
-  const [qrcode, setQrcode] = useState("1234")
+  const [qrcode, setQrcode] = useState("")
   const { data } = useParentQrGenerate()
 
   useEffect(() => {
     if (data) {
-      console.log(data)
-      // setQrcode()
+      setQrcode(data.data.code)
     }
   }, [data])
   return (
@@ -25,7 +24,7 @@ const Page = () => {
         스캔할 수 있도록 도와주세요.
       </h3>
       <div className={styles.qrcode__info} style={{ background: "white", padding: "16px" }}>
-        <QRCode value={qrcode} size={220} />
+        <QRCode value={qrcode} size={211} />
         <span
           className={styles.qrcode__info__txt}
           onClick={() => navigator.clipboard.writeText(qrcode)}>
