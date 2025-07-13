@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import ErrorIcon from "@/assets/character/comm/img-error-lg.svg"
+import ErrorIcon from "@/assets/character/comm/img-error.svg"
 
 import LayoutStyles from "../layout.module.scss"
 
@@ -9,7 +9,7 @@ interface Props {
 }
 
 const RENDER_INFO = {
-  child: {
+  qr: {
     title: "QR인증에 실패했어요!",
     desc: "코드 번호를 다시 확인해주시거나,\n 밝은 곳에서 촬영해주세요.",
     btns: [
@@ -20,7 +20,7 @@ const RENDER_INFO = {
       },
     ],
   },
-  parent: {
+  join: {
     title: "회원가입에 실패했어요!",
     desc: "",
     btns: [

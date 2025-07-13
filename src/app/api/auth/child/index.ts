@@ -1,6 +1,12 @@
 import { authAPI } from "@/app/api/config"
 
-import { ChildInfoByQRCodeRequest, ChildInfoByQRCodeResponse } from "@/types/child"
+import {
+  ChildInfoByQRCodeRequest,
+  ChildInfoByQRCodeResponse,
+  ChildJoinBodyType,
+  ChildJoinParamsType,
+  ChildJoinResponse,
+} from "@/types/child"
 import { BaseAPIResponse } from "@/types/response"
 
 const AuthBaseUrl = "/api/child"
@@ -14,4 +20,15 @@ export const getChildInfoByQRCode = async (
   return authAPI.get(`${AuthBaseUrl}/register/code`, {
     params,
   })
+}
+
+// 3단계 : 아이 정보로 회원가입
+export const postChildJoin = async ({
+  params,
+  body,
+}: {
+  params: ChildJoinParamsType
+  body: ChildJoinBodyType
+}): Promise<BaseAPIResponse<ChildJoinResponse>> => {
+  return authAPI.post(`${AuthBaseUrl}/register/${params.child_id}/credentials`, body)
 }
