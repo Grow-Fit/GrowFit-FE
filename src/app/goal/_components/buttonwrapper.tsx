@@ -1,20 +1,24 @@
 "use client"
 import styles from "./buttonwrapper.module.scss"
 import Button from "@/components/common/button/button"
+import { useRouter } from "next/navigation"
 
 type Props = {
   step: 1 | 2 | 3
   onNext: () => void
-  onPrev: () => void
+  onMutate: () => void
 }
 
-const ButtonWrapper = ({ step, onNext, onPrev }: Props) => {
+const ButtonWrapper = ({ step, onNext, onMutate }: Props) => {
+  const router = useRouter()
   const handleClick = () => {
-    if (step < 3) {
+    if (step < 2) {
       onNext()
-    } else {
-      // 완료 동작
-      alert("목표 설정이 완료되었습니다!")
+    } else if (step === 2) {
+      onMutate()
+      onNext()
+    } else if (step === 3) {
+      router.push("/goal/detail")
     }
   }
   return (
@@ -23,7 +27,7 @@ const ButtonWrapper = ({ step, onNext, onPrev }: Props) => {
         size="large"
         variant="filled"
         shape="rounded"
-        label={step < 3 ? "다음" : "완료"}
+        label={step < 3 ? "다음" : "목표보드로 이동하기"}
         onClick={handleClick}
       />
     </div>

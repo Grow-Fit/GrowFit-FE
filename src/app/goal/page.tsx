@@ -29,7 +29,7 @@ const Page = () => {
       <div className={cx("goal__content")}>
         <div className={cx("goal__calendar")}>
           <TopSheet>
-            <SmallCalendar setClickedDate={setClickedDate} />
+            <SmallCalendar clickedDate={clickedDate} setClickedDate={setClickedDate} />
           </TopSheet>
         </div>
 
@@ -49,16 +49,18 @@ const Page = () => {
         </div>
 
         <div className={cx("goal__box")}>
-          {/* /goals/detail > 상세, /goals/create > 수정 */}
-          <Link href={`/goal/create`}>
+          <Link href={`${data?.data?.goals.length > 0 ? "/goal/detail" : "/goal/create"}`}>
             <h2>진행중인 목표</h2>
-            <GaugeDonut />
-            <div className={cx("goal__btn")}>
-              <div className={cx("goal__btn-add")}>
-                <AddButton disabled={false} label={"추가하기"} onClick={() => {}} />
-                <p>목표 만들기</p>
+            {data?.data?.goals.length > 0 ? (
+              <GaugeDonut goalLength={data?.data?.goals.length} />
+            ) : (
+              <div className={cx("goal__btn")}>
+                <div className={cx("goal__btn-add")}>
+                  <AddButton disabled={false} label={"추가하기"} onClick={() => {}} />
+                  <p>목표 만들기</p>
+                </div>
               </div>
-            </div>
+            )}
           </Link>
         </div>
       </div>

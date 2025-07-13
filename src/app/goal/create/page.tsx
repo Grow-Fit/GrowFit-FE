@@ -19,23 +19,38 @@ const Page = () => {
     icon: "",
   })
 
+  const transformData = (rawData) => {
+    const goals = Object.entries(rawData)
+      .filter(([key]) => !["startDate", "endDate", "certificationCount"].includes(key))
+      .map(([_, value], index) => ({
+        name: value.name,
+        iconId: index + 1,
+      }))
+
+    return {
+      startDate: rawData.startDate,
+      endDate: rawData.endDate,
+      certificationCount: rawData.certificationCount,
+      goals,
+    }
+  }
+
+  const requestData = transformData(data)
+
   const handleNext = () => {
     setStep((prev) => (prev < 3 ? ((prev + 1) as 1 | 2 | 3) : prev))
   }
-  const handlePrev = () => {
-    setStep((prev) => (prev > 1 ? ((prev - 1) as 1 | 2 | 3) : prev))
-  }
+  const { mutate } = useGoalCreate(requestData)
 
-  const { mutate } = useGoalCreate(data)
   return (
     <main>
       <BackHeader title={"목표설정"} />
 
       {step === 1 && <Step1 data={data} setData={setData} />}
-      {step === 2 && <Step2 />}
-      {step === 3 && <Complete />}
+      {step === 2 && <Step2 data={data} setData={setData} />}
+      {step === 3 && <Complete data={data} />}
 
-      <ButtonWrapper step={step} onNext={handleNext} onPrev={handlePrev} />
+      <ButtonWrapper step={step} onNext={handleNext} onMutate={mutate} />
     </main>
   )
 }

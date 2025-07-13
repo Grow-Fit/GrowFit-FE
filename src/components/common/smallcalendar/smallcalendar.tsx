@@ -14,7 +14,7 @@ dayjs.locale("ko")
 
 const cx = classNames.bind(styles)
 
-const SmallCalendar = ({ setClickedDate }) => {
+const SmallCalendar = ({ clickedDate, setClickedDate }) => {
   const swiperRef = useRef<any>(null)
   const centerDate = dayjs()
   const [dates, setDates] = useState(() => generateDates(centerDate, 30))
@@ -65,14 +65,25 @@ const SmallCalendar = ({ setClickedDate }) => {
         onSlideChange={handleSlideChange}
         slidesPerView={7}
         centeredSlides
-        spaceBetween={10}>
+        spaceBetween={10}
+        sx={{
+          padding: "0 10px",
+        }}>
         {dates.map((day) => (
           <SwiperSlide key={day.key}>
             <div
               className={cx("calendar-item")}
-              onClick={() => setClickedDate(`${currentCenterDate?.format("YYYY-MM")}-${day.date}`)}>
+              onClick={() => {
+                const dayString = String(day.date).padStart(2, "0")
+                setClickedDate(`${currentCenterDate?.format("YYYY-MM")}-${dayString}`)
+              }}>
               <p>{day.label}</p>
-              <p className={cx({ today: day.isToday })}>{day.date}</p>
+              <p
+                className={cx({
+                  clickedDate: clickedDate === day.fullDate.format("YYYY-MM-DD"),
+                })}>
+                {day.date}
+              </p>
             </div>
           </SwiperSlide>
         ))}

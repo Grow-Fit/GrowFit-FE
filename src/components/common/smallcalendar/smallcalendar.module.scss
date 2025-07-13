@@ -2,7 +2,7 @@
   background-color: #fff;
   border-radius: 0 0 32px 32px;
   text-align: center;
-  padding: 24px 0;
+  padding: 24px 10px;
 
   &-header {
     h2 {
@@ -30,14 +30,15 @@
         content: "";
         position: absolute;
         top: -2px;
-        left: 0;
+        left: 50%;
+        transform: translateX(-50%);
         z-index: -1;
         border-radius: 50%;
         width: 46px;
         height: 46px;
       }
 
-      &.today::after {
+      &.clickedDate::after {
         background: #F1F3FF;
       }
     }

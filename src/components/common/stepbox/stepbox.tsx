@@ -1,30 +1,21 @@
-import classNames from "classnames/bind";
-import styles from "./stepbox.module.scss";
-const cx = classNames.bind(styles);
-const StepBox = () => {
+import classNames from "classnames/bind"
+import styles from "./stepbox.module.scss"
+
+const cx = classNames.bind(styles)
+const StepBox = ({ goalList, openModal }) => {
   return (
     <div className={cx("step")}>
-      <div className={cx("step__wrap")}>
-        <div className={cx("step__wrap-circle")}></div>
-        <div className={cx("step__wrap-item")}>
-          <h3>20분동안 걷기</h3>
-          <button type="button">시작</button>
+      {goalList.map((item) => (
+        <div className={cx("step__wrap")}>
+          <div className={cx("step__wrap-circle")}></div>
+          <div className={cx("step__wrap-item")}>
+            <h3>{item.name}</h3>
+            <button type="button" onClick={() => openModal(item.goalId)}>
+              시작
+            </button>
+          </div>
         </div>
-      </div>
-      <div className={cx("step__wrap")}>
-        <div className={cx("step__wrap-circle")}></div>
-        <div className={cx("step__wrap-item")}>
-          <h3>20분동안 걷기</h3>
-          <button type="button">시작</button>
-        </div>
-      </div>
-      <div className={cx("step__wrap")}>
-        <div className={cx("step__wrap-circle")}></div>
-        <div className={cx("step__wrap-item")}>
-          <h3>20분동안 걷기</h3>
-          <button type="button">시작</button>
-        </div>
-      </div>
+      ))}
     </div>
   )
 }

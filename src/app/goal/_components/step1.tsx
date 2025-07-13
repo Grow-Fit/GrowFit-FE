@@ -94,7 +94,9 @@ const Step1 = ({ data, setData }) => {
                 const isSelected = selectedGoals.some((g) => g.name === goal.label)
                 return (
                   <SwiperSlide key={goal.id}>
-                    <Icon />
+                    <div className={cx("goal__icon")}>
+                      <Icon />
+                    </div>
                     <div className={cx("goal__register-txt")}>
                       <AddButton
                         disabled={isSelected}

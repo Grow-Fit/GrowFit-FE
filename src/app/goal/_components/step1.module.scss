@@ -10,6 +10,18 @@
       padding-left: 31px;
     }
   }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 3px solid #F2F2F5;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto;
+  }
 }
 
 .goal__result {
