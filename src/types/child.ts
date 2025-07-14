@@ -1,24 +1,32 @@
+// 1. 아이 로그인
+export interface ChildLoginRequest {
+  childId: string
+  childPassword: string
+  nickname: string // MEMO : 불필요로하므로 삭제되어야 함
+}
+
+// 2. 아이 회원가입
+// [요청] 부모에서 생성된 큐알코드로 아이 아이디값 조회
 export interface ChildInfoByQRCodeRequest {
   code: string
 }
-
+// [응답] 부모에서 생성된 큐알코드로 아이 아이디값 조회
 export interface ChildInfoByQRCodeResponse {
   child_id: number
   child_name: string
   child_login_id: string
 }
-
-export interface ChildJoinParamsType {
+// [요청] 아이 회원가입시 - 파라미터(쿼리스트링)
+export interface ChildJoinParams {
   child_id: number
 }
-
-export type ChildJoinBodyType = {
+// [요청] 아이 회원가입시 - body
+export interface ChildJoinBody {
   childId: string
   childPassword: string
-  nickname: string
 }
-
-export type ChildJoinResponse = {
+// [응답] 아이 회원가입
+export interface ChildJoinResponse {
   id: number
   code: string
   child_name: string

@@ -3,8 +3,8 @@ import { authAPI } from "@/app/api/config"
 import {
   ChildInfoByQRCodeRequest,
   ChildInfoByQRCodeResponse,
-  ChildJoinBodyType,
-  ChildJoinParamsType,
+  ChildJoinBody,
+  ChildJoinParams,
   ChildJoinResponse,
 } from "@/types/child"
 import { BaseAPIResponse } from "@/types/response"
@@ -27,8 +27,8 @@ export const postChildJoin = async ({
   params,
   body,
 }: {
-  params: ChildJoinParamsType
-  body: ChildJoinBodyType
+  params: ChildJoinParams
+  body: ChildJoinBody
 }): Promise<BaseAPIResponse<ChildJoinResponse>> => {
   return authAPI.post(`${AuthBaseUrl}/register/${params.child_id}/credentials`, body)
 }

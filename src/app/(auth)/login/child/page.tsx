@@ -1,4 +1,9 @@
+"use client"
+
 import Link from "next/link"
+
+import { useFormik } from "formik"
+import * as Yup from "yup"
 
 import LoginStartCharacter from "@/assets/character/login/img-login-start.svg"
 import LoginLogo from "@/assets/logo/logo-type01.svg"
@@ -9,6 +14,16 @@ import layoutStyles from "../layout.module.scss"
 import styles from "./page.module.scss"
 
 const Page = () => {
+  const validationSchema = Yup.object({})
+
+  const formik = useFormik({
+    initialValues: {
+      childId: "",
+      childPw: "",
+    },
+    validationSchema,
+    onSubmit: () => {},
+  })
   return (
     <div className={`${layoutStyles.login__content} ${styles.login__child}`}>
       <LoginLogo width={125} height={32} />
@@ -16,8 +31,9 @@ const Page = () => {
         로그인하고 <br />
         건강한 습관을 이어가요!
       </p>
-      <form action="" className="form-content">
+      <form className="form-content" onSubmit={formik.handleSubmit}>
         <Input
+          name="childId"
           id="childId"
           type="text"
           inputSize="w-full"
@@ -25,8 +41,11 @@ const Page = () => {
           shape="border"
           label="아이디"
           placeholder="아이디 입력"
+          onChange={formik.handleChange}
+          value={formik.values.childId}
         />
         <Input
+          name="childPw"
           id="childPw"
           type="text"
           inputSize="w-full"
@@ -34,8 +53,11 @@ const Page = () => {
           shape="border"
           label="비밀번호"
           placeholder="비밀번호 입력"
+          onChange={formik.handleChange}
+          value={formik.values.childPw}
         />
         <Button
+          type="submit"
           label="로그인"
           shape="sharp"
           size="large"

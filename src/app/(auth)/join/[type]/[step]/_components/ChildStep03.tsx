@@ -1,27 +1,19 @@
 "use client"
-import { useState } from "react"
-import { useRouter } from "next/navigation"
 
 import { useFormik } from "formik"
 import * as Yup from "yup"
 
 import Button from "@/components/common/button/button"
 import Input from "@/components/common/input/input"
-import { useJoinChild } from "@/hooks/auth/useChildAuth"
+import { useChildJoin } from "@/hooks/auth/useAuth"
 import { useUserStore } from "@/stores/userStore"
 
 import pageStyles from "../page.module.scss"
 
-const INPUT_STATE_MSG = {
-  error: "이미 가입된 아이디입니다.",
-  success: "사용 가능한 아이디입니다.",
-}
-
 const ChildStep03 = () => {
-  const router = useRouter()
   const { child } = useUserStore()
 
-  const { mutate } = useJoinChild()
+  const { mutate } = useChildJoin()
 
   // #region 유효성 검증
   const validationSchema = Yup.object({
@@ -48,7 +40,6 @@ const ChildStep03 = () => {
           body: {
             childId: child?.childId || "",
             childPassword: child?.childPw || "",
-            nickname: values.childNickname || "",
           },
         })
       }
@@ -58,6 +49,7 @@ const ChildStep03 = () => {
   return (
     <>
       <Input
+        name="childNickname"
         id="childNickname"
         type="text"
         inputSize="w-full"

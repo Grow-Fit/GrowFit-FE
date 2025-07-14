@@ -12,11 +12,6 @@ import { useUserStore } from "@/stores/userStore"
 import pageStyles from "../page.module.scss"
 import styles from "./steps.module.scss"
 
-const INPUT_STATE_MSG = {
-  error: "이미 가입된 아이디입니다.",
-  success: "사용 가능한 아이디입니다.",
-}
-
 const ChildStep02 = () => {
   const router = useRouter()
   const { updateChild } = useUserStore()
@@ -67,6 +62,7 @@ const ChildStep02 = () => {
     <>
       <form className={styles.box__step2} onSubmit={formik.handleSubmit}>
         <Input
+          name="childId"
           id="childId"
           type="text"
           inputSize="w-full"
@@ -91,6 +87,7 @@ const ChildStep02 = () => {
         />
         <fieldset>
           <Input
+            name="childPw"
             id="childPw"
             type="password"
             inputSize="w-full"
@@ -111,6 +108,7 @@ const ChildStep02 = () => {
             }
           />
           <Input
+            name="childPwCheck"
             id="childPwCheck"
             type="password"
             inputSize="w-full"

@@ -10,7 +10,7 @@ import GirlIcon from "@/assets/character/comm/img-girl.svg"
 import ErrorIconSvg from "@/assets/icons/common/icon-error.svg"
 import Button from "@/components/common/button/button"
 import Input from "@/components/common/input/input"
-import { useParentJoin } from "@/hooks/auth/useParentAuth"
+import { useParentJoin } from "@/hooks/auth/useAuth"
 import { useUserStore } from "@/stores/userStore"
 
 import { ChildInfoType } from "@/types/parent"
