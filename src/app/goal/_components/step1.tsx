@@ -23,18 +23,20 @@ import { useEffect, useRef, useState } from "react"
 
 const Step1 = ({ data, setData }) => {
   const swiperRef = useRef()
-  const goalList = [
-    { id: 1, icon: Goal1, label: "하루 물 6컵" },
-    { id: 2, icon: Goal2, label: "야채 먹기" },
-    { id: 3, icon: Goal3, label: "삼시세끼 채소" },
-    { id: 4, icon: Goal4, label: "가족과 운동" },
-    { id: 5, icon: Goal5, label: "저녁 30분 운동" },
-    { id: 6, icon: Goal6, label: "패스트 푸드 끊기" },
-    { id: 7, icon: Goal7, label: "근력 운동" },
-    { id: 8, icon: Goal8, label: "하루 물 6컵" },
+  const initialGoalList = [
+    { id: 1, icon: Goal1, name: "하루 물 6컵" },
+    { id: 2, icon: Goal2, name: "야채 먹기" },
+    { id: 3, icon: Goal3, name: "삼시세끼 채소" },
+    { id: 4, icon: Goal4, name: "가족과 운동" },
+    { id: 5, icon: Goal5, name: "저녁 30분 운동" },
+    { id: 6, icon: Goal6, name: "패스트 푸드 끊기" },
+    { id: 7, icon: Goal7, name: "근력 운동" },
+    { id: 8, icon: Goal8, name: "간식 안 먹기" },
   ]
-  const [selectedGoals, setSelectedGoals] = useState<{ icon: any; name: string }[]>([])
-
+  const [goalList, setGoalList] = useState(initialGoalList)
+  const [selectedGoals, setSelectedGoals] = useState<
+    { icon: any; name: string; editable: boolean }[]
+  >([])
   const handleClickGoal = (id: number, icon: any, label: string) => {
     if (selectedGoals.length >= 10) return alert("최대 10개의 목표까지 추가할 수 있어요")
 
@@ -43,12 +45,23 @@ const Step1 = ({ data, setData }) => {
     if (alreadyExists) return alert("이미 추가된 목표예요")
 
     setSelectedGoals((prev) => {
-      const updated = [...prev, { icon, name: label }]
+      const updated = [...prev, { icon, name: label, editable: false }]
       setTimeout(() => {
         swiperRef.current?.slideTo(updated.length - 1)
-      }, 100) // 약간 delay 줘야 렌더링 이후 슬라이드됨
+      }, 100)
       return updated
     })
+  }
+
+  const handleAddGoal = () => {
+    const newGoal = {
+      id: goalList.length + 1,
+      icon: DefaultIcon,
+      name: "목표입력",
+      editable: true,
+    }
+
+    setGoalList((prev) => [...prev, newGoal])
   }
 
   useEffect(() => {
@@ -86,12 +99,13 @@ const Step1 = ({ data, setData }) => {
           <div className={cx("goal__register")}>
             <h3>
               <strong>그로우핏 추천 목표</strong>
-              <p>직접 설정하기</p>
+              <p onClick={handleAddGoal}>직접 설정하기</p>
             </h3>
             <Swiper slidesPerView={3} className={cx("goal__register-control")}>
-              {goalList.map((goal) => {
+              {goalList.map((goal, index) => {
                 const Icon = goal.icon
-                const isSelected = selectedGoals.some((g) => g.name === goal.label)
+                const isSelected = selectedGoals.some((g) => g.name === goal.name)
+
                 return (
                   <SwiperSlide key={goal.id}>
                     <div className={cx("goal__icon")}>
@@ -100,10 +114,27 @@ const Step1 = ({ data, setData }) => {
                     <div className={cx("goal__register-txt")}>
                       <AddButton
                         disabled={isSelected}
-                        label={goal.label}
-                        onClick={() => handleClickGoal(goal.id, goal.icon, goal.label)}
+                        label={goal.name}
+                        onClick={() => handleClickGoal(goal.id, goal.icon, goal.name)}
                       />
-                      <p>{goal.label}</p>
+                      {goal.editable ? (
+                        <input
+                          type="text"
+                          value={goal.name}
+                          onChange={(e) => {
+                            const newName = e.target.value
+                            setGoalList((prev) => {
+                              const updated = [...prev]
+                              updated[index].name = newName
+                              return updated
+                            })
+                          }}
+                          placeholder="입력하세요"
+                          maxLength={20}
+                        />
+                      ) : (
+                        <p>{goal.name}</p>
+                      )}
                     </div>
                   </SwiperSlide>
                 )

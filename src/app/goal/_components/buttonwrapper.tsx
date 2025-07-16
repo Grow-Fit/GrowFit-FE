@@ -2,6 +2,7 @@
 import styles from "./buttonwrapper.module.scss"
 import Button from "@/components/common/button/button"
 import { useRouter } from "next/navigation"
+import dayjs from "dayjs"
 
 type Props = {
   step: 1 | 2 | 3
@@ -11,6 +12,7 @@ type Props = {
 
 const ButtonWrapper = ({ step, onNext, onMutate }: Props) => {
   const router = useRouter()
+  const today = dayjs().format("YYYY-MM-DD")
   const handleClick = () => {
     if (step < 2) {
       onNext()
@@ -18,7 +20,7 @@ const ButtonWrapper = ({ step, onNext, onMutate }: Props) => {
       onMutate()
       onNext()
     } else if (step === 3) {
-      router.push("/goal/detail")
+      router.push(`/goal/detail?date=${today}`)
     }
   }
   return (
