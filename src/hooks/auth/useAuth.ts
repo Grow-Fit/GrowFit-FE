@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation"
 import { useMutation } from "@tanstack/react-query"
 
 import { parentJoin, postChildJoin } from "@/app/api/auth"
+import { postChildLogin } from "@/app/api/auth/login"
 
 // 부모 회원가입
 export const useParentJoin = () => {
@@ -10,7 +11,10 @@ export const useParentJoin = () => {
   return useMutation({
     mutationKey: ["parent", "join"],
     mutationFn: parentJoin,
-    onSuccess: () => {
+    onSuccess: (data) => {
+      if (data.status === 200) {
+        localStorage.setItem("userType", "parent")
+      }
       router.push("/success?type=parent")
     },
     onError: (error) => {
@@ -42,15 +46,17 @@ export const useChildLogin = () => {
   const router = useRouter()
   return useMutation({
     mutationKey: ["child", "login"],
-    mutationFn: postChildJoin,
+    mutationFn: postChildLogin,
     onSuccess: (data) => {
       if (data.data) {
-        router.push("/success?type=child")
+        router.push("/")
+
+        localStorage.setItem("userType", "child")
       }
     },
     onError: (error) => {
       router.push("/error?type=join")
-      console.error("회원가입 실패:", error)
+      console.error("로그인 실패:", error)
     },
   })
 }

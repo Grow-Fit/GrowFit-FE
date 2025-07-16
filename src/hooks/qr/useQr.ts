@@ -33,7 +33,7 @@ export const useGetChildInfoByQr = () => {
     },
     onError: (error) => {
       router.push("/error?type=qr")
-      console.error("회원가입 실패:", error)
+      console.error("qr api 실패:", error)
     },
   })
 }

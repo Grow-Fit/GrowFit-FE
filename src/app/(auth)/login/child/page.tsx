@@ -9,6 +9,7 @@ import LoginStartCharacter from "@/assets/character/login/img-login-start.svg"
 import LoginLogo from "@/assets/logo/logo-type01.svg"
 import Button from "@/components/common/button/button"
 import Input from "@/components/common/input/input"
+import { useChildLogin } from "@/hooks/auth/useAuth"
 
 import layoutStyles from "../layout.module.scss"
 import styles from "./page.module.scss"
@@ -16,13 +17,22 @@ import styles from "./page.module.scss"
 const Page = () => {
   const validationSchema = Yup.object({})
 
+  const { mutate } = useChildLogin()
+
   const formik = useFormik({
     initialValues: {
       childId: "",
       childPw: "",
     },
     validationSchema,
-    onSubmit: () => {},
+    onSubmit: (values) => {
+      if (values) {
+        mutate({
+          childId: values.childId,
+          childPassword: values.childPw,
+        })
+      }
+    },
   })
   return (
     <div className={`${layoutStyles.login__content} ${styles.login__child}`}>

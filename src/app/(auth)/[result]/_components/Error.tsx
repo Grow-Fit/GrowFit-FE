@@ -31,6 +31,17 @@ const RENDER_INFO = {
       },
     ],
   },
+  login: {
+    title: "로그인에 실패했어요!",
+    desc: "",
+    btns: [
+      {
+        label: "돌아가기",
+        link: "/login/child",
+        classNames: "btn-comm large filled rounded",
+      },
+    ],
+  },
 }
 
 const Error = ({ userType }: Props) => {

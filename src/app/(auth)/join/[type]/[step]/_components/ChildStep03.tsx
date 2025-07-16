@@ -40,6 +40,7 @@ const ChildStep03 = () => {
           body: {
             childId: child?.childId || "",
             childPassword: child?.childPw || "",
+            nickname: values?.childNickname || "",
           },
         })
       }

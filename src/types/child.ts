@@ -2,7 +2,6 @@
 export interface ChildLoginRequest {
   childId: string
   childPassword: string
-  nickname: string // MEMO : 불필요로하므로 삭제되어야 함
 }
 
 // 2. 아이 회원가입
@@ -24,6 +23,7 @@ export interface ChildJoinParams {
 export interface ChildJoinBody {
   childId: string
   childPassword: string
+  nickname: string
 }
 // [응답] 아이 회원가입
 export interface ChildJoinResponse {
