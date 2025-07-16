@@ -4,8 +4,31 @@
   background: #fff;
 }
 
+.letter__mission {
+  margin-top: 60px;
+  padding-top: 30px;
+  text-align: center;
+
+  p {
+    color: $gray-70;
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  h2 {
+    margin-top: 8px;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 700;
+  }
+
+  > div {
+    margin-top: 80px;
+  }
+}
+
 .letter__from {
-  padding: 0 34px;
+  padding: 80px 34px 0;
 
   &-content {
     margin-top: 45px;
@@ -69,5 +92,11 @@
 }
 
 .btn {
-  padding: 0 50px;
+  background: #fff;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  padding: 16px 32px;
+  border-top: 1px solid #D8DADB;
 }

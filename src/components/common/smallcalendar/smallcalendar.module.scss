@@ -2,21 +2,44 @@
   background-color: #fff;
   border-radius: 0 0 32px 32px;
   text-align: center;
+  padding: 24px 10px;
+
+  &-header {
+    h2 {
+      padding-top: 26px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 27px;
+    }
+  }
 
   &-item {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 24px 30px;
+    flex-direction: column;
     font-weight: 700;
+    padding-bottom: 10px;
 
-    li {
+    p {
+      position: relative;
+      margin-top: 5px;
+      padding: 10px;
       font-size: 20px;
-      text-align: center;
 
-      p {
-        margin-top: 5px;
-        padding: 10px;
+      &:nth-of-type(2)::after {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+        border-radius: 50%;
+        width: 46px;
+        height: 46px;
+      }
+
+      &.clickedDate::after {
+        background: #F1F3FF;
       }
     }
   }

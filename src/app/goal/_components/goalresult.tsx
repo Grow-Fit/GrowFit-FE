@@ -1,12 +1,15 @@
 import styles from "./goalresult.module.scss"
-import DefaultIcon from "@/assets/icons/goals/icon-default.svg";
-const GoalResult = () => {
+
+const GoalResult = ({ data }) => {
+  const Icon = data?.icon
   return (
     <div className={styles.goal__result}>
       <div className={styles.goal__icon}>
-        <DefaultIcon/>
+        <Icon />
       </div>
-      <p><span>01</span> 하루 물 6컵</p>
+      <p>
+        <span>{String(data?.number || 1).padStart(2, "0")}</span> {data?.name || "목표 추가"}
+      </p>
     </div>
   )
 }

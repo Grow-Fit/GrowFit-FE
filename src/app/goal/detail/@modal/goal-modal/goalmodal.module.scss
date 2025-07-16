@@ -1,24 +1,42 @@
+.calendar {
+  > div {
+    padding: 0 10px;
+
+    > div:first-of-type {
+      display: none;
+    }
+  }
+}
+
 .upload {
   padding-top: 20px;
   border-top: 1px solid #D9D9D9;
 }
+
 .uploadtitle {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 30px;
+
   h3 {
     font-size: 20px;
     font-weight: 700;
   }
+
   p {
     color: $gray-80;
     font-size: 18px;
   }
 }
 
+.smallcalendar_calendar-header {
+  //display: none;
+}
+
 .uploadimage {
   padding: 20px 30px;
+
   span {
     display: flex;
     align-items: center;
@@ -29,6 +47,7 @@
     color: #727793;
     border-radius: 6px;
   }
+
   label {
     display: inline-block;
     width: 240px;
@@ -36,6 +55,7 @@
     background-size: cover;
     border-radius: 6px;
   }
+
   input {
     display: none;
   }
