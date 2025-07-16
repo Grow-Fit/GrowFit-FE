@@ -1,6 +1,12 @@
-import { AxiosResponse } from 'axios'
+import { AxiosResponse } from "axios"
 
-import { GetBearListType } from './bear'
+import { GetBearListType } from "./bear"
+
+export interface BaseAPIResponse<T> {
+  success: boolean
+  data: T
+  message?: string
+}
 
 interface BaseResponse extends AxiosResponse {
   code: number

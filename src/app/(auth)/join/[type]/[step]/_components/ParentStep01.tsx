@@ -1,7 +1,9 @@
 "use client"
 
-import { useState } from "react"
 import { useRouter } from "next/navigation"
+
+import { useFormik } from "formik"
+import * as Yup from "yup"
 
 import Button from "@/components/common/button/button"
 import Input from "@/components/common/input/input"
@@ -13,56 +15,30 @@ import styles from "./steps.module.scss"
 const ParentStep01 = () => {
   const router = useRouter()
   const { updateParent } = useUserStore()
-  const [nickname, setNickname] = useState("")
-  const [error, setError] = useState("")
 
   // 닉네임 유효성 검증 함수
-  const validateNickname = (value: string) => {
-    // 빈 값 체크
-    if (!value.trim()) {
-      return "닉네임을 입력해주세요"
-    }
+  const validationSchema = Yup.object({
+    parentNickname: Yup.string()
+      .required("닉네임을 입력해주세요")
+      .matches(/^[가-힣a-zA-Z0-9_-]+$/, "닉네임은 한글, 영문, 숫자, _, - 만 사용 가능합니다")
+      .min(2, "닉네임은 최소 2자 이상이어야 합니다")
+      .max(20, "닉네임은 최대 20자까지 입력 가능합니다"),
+  })
 
-    // 길이 체크
-    if (value.trim().length < 2) {
-      return "닉네임은 최소 2자 이상이어야 합니다"
-    }
-
-    if (value.trim().length > 20) {
-      return "닉네임은 최대 20자까지 입력 가능합니다"
-    }
-
-    // 한글 + 영문 + 숫자 + 언더스코어 + 하이픈만 허용
-    const nicknameRegex = /^[가-힣a-zA-Z0-9_-]+$/
-    if (!nicknameRegex.test(value.trim())) {
-      return "닉네임은 한글, 영문, 숫자, _, - 만 사용 가능합니다"
-    }
-
-    return ""
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value
-    setNickname(value)
-
-    // 실시간 검증 (선택사항)
-    const validationError = validateNickname(value)
-    setError(validationError)
-  }
-
-  const handleClickNext = () => {
-    const validationError = validateNickname(nickname)
-
-    if (validationError) {
-      setError(validationError)
-      return
-    }
-
-    updateParent({
-      nickname: nickname.trim(),
-    })
-    router.push("/join/parent/2")
-  }
+  // #region Formik
+  const formik = useFormik({
+    initialValues: {
+      parentNickname: "",
+    },
+    validationSchema,
+    onSubmit: (values) => {
+      updateParent({
+        nickname: values.parentNickname.trim(),
+      })
+      router.push("/join/parent/2")
+    },
+  })
+  // #endregion
   return (
     <>
       <div className={styles.box__step1}>
@@ -74,26 +50,28 @@ const ParentStep01 = () => {
           shape="border"
           label="닉네임"
           placeholder="닉네임 입력"
-          onChange={handleChange}
-          value={nickname}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.parentNickname}
           state={
-            error
+            formik.touched.parentNickname && formik.errors.parentNickname
               ? {
                   type: "error",
-                  message: error,
+                  message: formik.errors.parentNickname,
                 }
               : null
           }
         />
       </div>
       <Button
+        type="button"
         label="다음"
         shape="rounded"
         size="large"
         variant="filled"
         classNames={pageStyles.join__content__btn}
-        onClick={handleClickNext}
-        aria-disabled={!!error}
+        onClick={formik.handleSubmit}
+        aria-disabled={!!formik.touched.parentNickname && !!formik.errors.parentNickname}
       />
     </>
   )

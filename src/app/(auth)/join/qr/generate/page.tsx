@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import QRCode from "react-qr-code"
 import Link from "next/link"
 
-import { useParentQrGenerate } from "@/hooks/auth/useParentAuth"
+import { useParentQrGenerate } from "@/hooks/qr/useQr"
 
 import styles from "./page.module.scss"
 

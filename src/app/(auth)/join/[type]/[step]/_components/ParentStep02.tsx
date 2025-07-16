@@ -10,10 +10,10 @@ import GirlIcon from "@/assets/character/comm/img-girl.svg"
 import ErrorIconSvg from "@/assets/icons/common/icon-error.svg"
 import Button from "@/components/common/button/button"
 import Input from "@/components/common/input/input"
-import { useParentJoin } from "@/hooks/auth/useParentAuth"
+import { useParentJoin } from "@/hooks/auth/useAuth"
 import { useUserStore } from "@/stores/userStore"
 
-import { ChildInfoType } from "@/types/auth"
+import { ChildInfoType } from "@/types/parent"
 
 import pageStyles from "../page.module.scss"
 import styles from "./steps.module.scss"
@@ -29,6 +29,7 @@ function generateNumberArray(begin: number, end: number) {
 const ParentStep02 = () => {
   const { updateParent, parent } = useUserStore()
   const { mutate } = useParentJoin()
+
   // #region pickerValues
   const selections = {
     child_age: generateNumberArray(8, 19),

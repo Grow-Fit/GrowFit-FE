@@ -1,9 +1,10 @@
 import { create } from "zustand"
 
-import { ParentJoinRequestType } from "@/types/auth"
+import { ParentJoinRequestType } from "@/types/parent"
 
 type ChildRegisterType = {
   parentQRCode: string
+  child_id: number
   childId: string
   childPw: string
   nickname: string
@@ -26,7 +27,7 @@ export const useUserStore = create<userStoreType>((set) => ({
     child_weight: 0,
   },
   child: {
-    parentQRCode: "",
+    child_id: 0, // api 요청시 사용되는 아이 아이디값
     childId: "",
     childPw: "",
     nickname: "",

@@ -1,30 +1,26 @@
 "use client"
 
 import { useState } from "react"
-import Link from "next/link"
-import { useRouter } from "next/navigation"
 
 import CameraIcon from "@/assets/icons/common/icon-24-camera.svg"
 import Button from "@/components/common/button/button"
 import Input from "@/components/common/input/input"
-import { useUserStore } from "@/stores/userStore"
+import { useGetChildInfoByQr } from "@/hooks/qr/useQr"
 
 import pageStyles from "../page.module.scss"
 import styles from "./steps.module.scss"
 
 const ChildStep01 = () => {
-  const router = useRouter()
-  const { updateChild } = useUserStore()
   const [qrValue, setQrValue] = useState("")
+  const { mutate } = useGetChildInfoByQr()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQrValue(e.target.value)
   }
   const handleClickNext = () => {
-    updateChild({
-      parentQRCode: qrValue,
+    mutate({
+      code: qrValue,
     })
-    router.push("/join/child/2")
   }
   return (
     <>

@@ -1,1 +1,2 @@
-export { parentJoin, parentQrGenerate } from "./parent"
+export { getChildInfoByQRCode, postChildJoin } from "./join/child"
+export { parentJoin, parentQrGenerate } from "./join/parent"

@@ -1,3 +1,4 @@
+import Error from "./_components/Error"
 import Success from "./_components/Success"
 
 interface Props {
@@ -15,6 +16,8 @@ const Page = async ({ params, searchParams }: Props) => {
 
   if (result === "success") {
     return <Success userType={type} />
+  } else {
+    return <Error userType={type} />
   }
 }
 
