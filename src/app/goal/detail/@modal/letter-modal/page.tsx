@@ -33,11 +33,12 @@ const LetterModal = () => {
               <ProfileIcon />
               <h3>To. 미니준</h3>
               <p>
-                <textarea
-                  value={letterContent}
-                  onChange={(e) => setLetterContent(e.target.value)}
-                  placeholder="편지 내용을 입력하세요"
-                />
+                블라블라블라블라블라
+                {/*<textarea*/}
+                {/*  value={letterContent}*/}
+                {/*  onChange={(e) => setLetterContent(e.target.value)}*/}
+                {/*  placeholder="편지 내용을 입력하세요"*/}
+                {/*/>*/}
               </p>
             </div>
             <h3>From. 엄마가</h3>

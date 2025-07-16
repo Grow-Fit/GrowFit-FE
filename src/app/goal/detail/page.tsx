@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import dayjs from "dayjs"
 import styles from "./detail.module.scss"
@@ -17,6 +17,9 @@ const Page = () => {
   const date = searchParams.get("date") // "2025-07-05"
   const [clickedDate, setClickedDate] = useState(date)
   const { data } = useGoalMainQuery(clickedDate)
+  const [weeklyGoalId, setWeeklyGoalId] = useState()
+
+  console.log(weeklyGoalId)
 
   const formatStartDate = dayjs(data?.data?.startDate).format("M월 D일")
   const formatEndDate = dayjs(data?.data?.endDate).format("M월 D일")
@@ -26,9 +29,13 @@ const Page = () => {
   const openLetterModal = () => {
     const goalId = data?.data?.weeklyGoalId
     if (goalId) {
-      router.push(`/goal/detail/letter-modal?goalId=${data?.data?.weeklyGoalId}`)
+      router.push(`/goal/letter?weeklyGoalId=${weeklyGoalId}`)
     }
   }
+
+  useEffect(() => {
+    setWeeklyGoalId(data?.data.weeklyGoalId)
+  }, [data])
   return (
     <main className={styles.goal}>
       <DefaultHeader />
