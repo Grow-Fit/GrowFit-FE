@@ -16,7 +16,7 @@ const cx = classNames.bind(styles)
 
 const SmallCalendar = ({ clickedDate, setClickedDate }) => {
   const swiperRef = useRef<any>(null)
-  const centerDate = dayjs()
+  const centerDate = clickedDate ? dayjs(clickedDate) : dayjs()
   const [dates, setDates] = useState(() => generateDates(centerDate, 30))
   const [currentCenterDate, setCurrentCenterDate] = useState<dayjs.Dayjs | null>(null)
 
@@ -45,10 +45,15 @@ const SmallCalendar = ({ clickedDate, setClickedDate }) => {
   }
 
   useEffect(() => {
-    if (todayIndex !== -1) {
-      setCurrentCenterDate(dates[todayIndex].fullDate)
+    if (!clickedDate || dates.length === 0) return
+
+    const clickedIndex = dates.findIndex((d) => d.fullDate.format("YYYY-MM-DD") === clickedDate)
+
+    if (clickedIndex !== -1 && swiperRef.current) {
+      swiperRef.current.slideTo(clickedIndex, 0)
+      setCurrentCenterDate(dates[clickedIndex].fullDate)
     }
-  }, [])
+  }, [clickedDate, dates])
 
   return (
     <div className={cx("calendar")}>
@@ -60,7 +65,6 @@ const SmallCalendar = ({ clickedDate, setClickedDate }) => {
       <Swiper
         onSwiper={(swiper) => {
           swiperRef.current = swiper
-          setTimeout(() => swiper.slideTo(todayIndex, 0), 0)
         }}
         onSlideChange={handleSlideChange}
         slidesPerView={7}

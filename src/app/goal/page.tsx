@@ -49,7 +49,8 @@ const Page = () => {
         </div>
 
         <div className={cx("goal__box")}>
-          <Link href={`${data?.data?.goals.length > 0 ? "/goal/detail" : "/goal/create"}`}>
+          <Link
+            href={`${data?.data?.goals.length > 0 ? `/goal/detail?date=${clickedDate}` : "/goal/create"}`}>
             <h2>진행중인 목표</h2>
             {data?.data?.goals.length > 0 ? (
               <GaugeDonut goalLength={data?.data?.goals.length} />

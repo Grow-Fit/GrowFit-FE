@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 import dayjs from "dayjs"
 import styles from "./detail.module.scss"
 import Character1 from "@/assets/character/step1.svg"
@@ -13,8 +13,9 @@ import { useGoalMainQuery } from "@/queries/goal/userGoalQuery"
 
 const Page = () => {
   const router = useRouter()
-  const today = dayjs().format("YYYY-MM-DD")
-  const [clickedDate, setClickedDate] = useState(today)
+  const searchParams = useSearchParams()
+  const date = searchParams.get("date") // "2025-07-05"
+  const [clickedDate, setClickedDate] = useState(date)
   const { data } = useGoalMainQuery(clickedDate)
 
   const formatStartDate = dayjs(data?.data?.startDate).format("M월 D일")
