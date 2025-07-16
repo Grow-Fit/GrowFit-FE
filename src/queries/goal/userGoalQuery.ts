@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query"
-import { createGoal, getGoalMainInfo, postCertifyGoal, postLetter } from "@/app/api/goal"
+import { createGoal, getGoalMainInfo, postCertifyGoal } from "@/app/api/goal"
 
 export const useGoalMainQuery = (clickedDate) => {
   return useQuery({
@@ -26,12 +26,5 @@ export const useGoalCertifyQuery = (goalId: number) => {
   return useMutation({
     mutationKey: ["goalcertify", goalId],
     mutationFn: (request) => postCertifyGoal(goalId, request),
-  })
-}
-
-export const useGoalLetter = (goalId: number) => {
-  return useMutation({
-    mutationKey: ["goalletter", goalId],
-    mutationFn: (request) => postLetter(goalId, request),
   })
 }

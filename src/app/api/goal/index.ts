@@ -15,7 +15,3 @@ export const getGoalDetailInfo = (date: string) => {
 export const postCertifyGoal = (goalId: number, request) => {
   return authAPI.post(`/api/goal/${goalId}/certify`, request)
 }
-
-export const postLetter = (goalId, request) => {
-  return authAPI.post(`/api/letter/${goalId}`, request)
-}

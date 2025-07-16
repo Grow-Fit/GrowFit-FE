@@ -29,7 +29,8 @@ const Page = () => {
   const openLetterModal = () => {
     const goalId = data?.data?.weeklyGoalId
     if (goalId) {
-      router.push(`/goal/letter?weeklyGoalId=${weeklyGoalId}`)
+      // router.push(`/goal/letter?weeklyGoalId=${weeklyGoalId}`)
+      router.push(`/goal/letter/arrived?weeklyGoalId=${weeklyGoalId}`)
     }
   }
 
