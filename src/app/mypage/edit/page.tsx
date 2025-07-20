@@ -2,28 +2,31 @@
 import styles from "./edit.module.scss"
 import BackHeader from "@/components/layout/header/BackHeader"
 import Button from "@/components/common/button/button"
+import { ProfileIconBig } from "@/components/common/icon"
+import React, { useState } from "react"
+import ToastMsg from "@/components/common/toastmsg/toastmsg"
 
 const Page = () => {
+  const [showToast, setShowToast] = useState(false)
+
+  const handleComplete = () => {
+    setShowToast(true)
+  }
   return (
     <>
-      <BackHeader title={"정보수정"} />
+      <BackHeader title={"프로필 수정"} />
       <div className={styles.edit}>
+        <div className={styles.edit__profile}>
+          <ProfileIconBig />
+        </div>
         <div className={styles.edit__form}>
           <div>
-            <h3>이름</h3>
-            <input type="text" value={"민준"} />
+            <h3>사용자 이름</h3>
+            <input name={"name"} type="text" value={"이현주"} />
           </div>
           <div>
-            <h3>이메일</h3>
-            <input type="text" value={"hyunjoo@naver.com"} />
-          </div>
-          <div>
-            <h3>전화번호</h3>
-            <input type="text" value={"010-1234-5678"} />
-          </div>
-          <div>
-            <h3>등록된 QR코드</h3>
-            <input type="text" value={"code 229814"} />
+            <h3>닉네임</h3>
+            <input name={"nickname"} type="text" value={"민준맘"} />
           </div>
         </div>
 
@@ -33,11 +36,13 @@ const Page = () => {
             variant={"filled"}
             shape={"rounded"}
             label={"완료"}
-            onClick={() => console.log("완료")}>
+            onClick={handleComplete}>
             완료
           </Button>
         </div>
       </div>
+
+      {showToast && <ToastMsg message="프로필이 업데이트 되었습니다!" />}
     </>
   )
 }

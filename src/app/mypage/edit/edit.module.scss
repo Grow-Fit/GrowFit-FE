@@ -1,26 +1,44 @@
 .edit {
   padding: 0 16px;
 
+  &__profile {
+    margin: 0 auto;
+    text-align: center;
+
+    svg {
+      width: 96px !important;
+      height: 96px !important;
+    }
+  }
+
   &__form {
     display: flex;
     flex-direction: column;
-    gap: 72px;
+    gap: 34px;
+    margin-top: 40px;
 
     h3 {
-      color: #8D8D8D;
+      color: #111111;
+      font-weight: 700;
+      font-size: 18px;
     }
 
     input {
-      margin-top: 8px;
-      font-weight: 700;
+      margin-top: 16px;
+      border: 1px solid #D8DADB;
+      padding: 15px 16px;
+      border-radius: 6px;
+      width: 100%;
     }
   }
 }
 
 .complete-btn {
-  padding: 0 30px;
-  position: absolute;
+  background: #fff;
+  position: fixed;
   width: 100%;
-  bottom: 0;
   left: 0;
+  bottom: 0;
+  padding: 16px 32px;
+  border-top: 1px solid #D8DADB;
 }

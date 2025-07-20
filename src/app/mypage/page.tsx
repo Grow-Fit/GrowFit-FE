@@ -17,7 +17,8 @@ const Page = () => {
               <ProfileIcon />
               <p>현주님 안녕하세요!</p>
             </div>
-            <ArrowIcon />
+            {/*<ArrowIcon />*/}
+            <Link href={`/mypage/edit`}>프로필 수정</Link>
           </div>
           <div className={styles.mypage__myinfo}>
             <div>
