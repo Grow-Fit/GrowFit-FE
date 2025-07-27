@@ -3,13 +3,13 @@ import Link from "next/link"
 
 import LoginStartCharacter from "@/assets/character/login/img-login-start.svg"
 import LoginLogo from "@/assets/logo/logo-type01.svg"
-import { useKakaoAuth } from "@/hooks/auth/useKakaoAuth"
 
+// import { useKakaoAuth } from "@/hooks/auth/useKakaoAuth"
 import layoutStyles from "./layout.module.scss"
 import styles from "./page.module.scss"
 
-const Page = () => { 
-  const { handleKakaoLogin, handleKakaoLogout, isLoading } = useKakaoAuth() 
+const Page = () => {
+  // const { handleKakaoLogin, handleKakaoLogout, isLoading } = useKakaoAuth()
 
   return (
     <div className={`${layoutStyles.login__content}`}>
@@ -21,7 +21,7 @@ const Page = () => {
       <LoginStartCharacter width={220} height={220} className={`${styles.start__img}`} />
       <div className={`${layoutStyles.login__content__btns}`}>
         {/* TODO : api 수정되면 제거예정 */}
-        <button
+        {/* <button
           style={{ backgroundColor: "yellow" }}
           type="button"
           className={`btn-comm rounded ${styles.btn_kakao_login}`}
@@ -35,7 +35,7 @@ const Page = () => {
           className={`btn-comm rounded ${styles.btn_kakao_login}`}
           onClick={handleKakaoLogout}>
           로그아웃
-        </button>
+        </button> */}
         <Link href="/login/parent" className="btn-comm large filled rounded">
           부모 로그인
         </Link>
