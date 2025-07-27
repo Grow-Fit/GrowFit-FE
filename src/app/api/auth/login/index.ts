@@ -6,5 +6,5 @@ const AuthBaseUrl = "/api"
 
 // 아이 로그인
 export const postChildLogin = async (loginInfo: ChildLoginRequest) => {
-  return authAPI.post(`${AuthBaseUrl}/child`, loginInfo)
+  return authAPI.post(`${AuthBaseUrl}/child/login`, loginInfo)
 }
