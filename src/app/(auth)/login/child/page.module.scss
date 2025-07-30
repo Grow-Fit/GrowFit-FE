@@ -17,6 +17,11 @@
   &__btn {
     margin-top: 1.4rem;
   }
+  &__error {
+    margin-top: 1.6rem;
+    color: $peach-pink-60;
+    white-space: pre-line;
+  }
 }
 
 .login__util {

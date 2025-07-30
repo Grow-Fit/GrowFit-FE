@@ -82,4 +82,18 @@
   }
 }
 
+.inp-comm-btn {
+  cursor: pointer;
+}
+
+.inp-timer {
+  min-width: 9rem;
+  padding: 1rem;
+  border-radius: 0.6rem;
+  border: 1px solid $sky-blue-60;
+  text-align: center;
+  line-height: 2.2rem;
+  color: $sky-blue-60;
+}
+
 // radio

@@ -1,6 +1,8 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 
 import { useFormik } from "formik"
 import * as Yup from "yup"
@@ -17,7 +19,11 @@ import styles from "./page.module.scss"
 const Page = () => {
   const validationSchema = Yup.object({})
 
+  const router = useRouter()
+
   const { mutate } = useChildLogin()
+
+  const [error, setError] = useState("")
 
   const formik = useFormik({
     initialValues: {
@@ -27,10 +33,28 @@ const Page = () => {
     validationSchema,
     onSubmit: (values) => {
       if (values) {
-        mutate({
-          childId: values.childId,
-          childPassword: values.childPw,
-        })
+        setError("")
+        mutate(
+          {
+            childId: values.childId,
+            childPassword: values.childPw,
+          },
+          {
+            onSuccess: (data) => {
+              console.log("로그인 성공!", data)
+              if (data.data) {
+                router.push("/")
+
+                localStorage.setItem("userType", "child")
+              }
+            },
+            onError: (error) => {
+              console.log("로그인 실패!", error)
+
+              setError("로그인에 실패했습니다. \n아이디와 비밀번호를 확인해주세요.")
+            },
+          }
+        )
       }
     },
   })
@@ -57,7 +81,7 @@ const Page = () => {
         <Input
           name="childPw"
           id="childPw"
-          type="text"
+          type="password"
           inputSize="w-full"
           variant="withoutLabel"
           shape="border"
@@ -67,13 +91,13 @@ const Page = () => {
           value={formik.values.childPw}
         />
         <Button
-          type="submit"
           label="로그인"
           shape="sharp"
           size="large"
           variant="filled"
           classNames={styles.login__child__btn}
         />
+        {error !== "" && <p className={styles.login__child__error}>{error}</p>}
       </form>
       <div className={styles.login__util}>
         <Link href="/find/id" className={styles.login__util__id}>

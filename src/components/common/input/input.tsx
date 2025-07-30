@@ -1,6 +1,6 @@
 "use client"
 
-import { forwardRef } from "react"
+import { forwardRef, useEffect, useState } from "react"
 
 import classNames from "classnames"
 
@@ -28,13 +28,51 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   state?: InputState | null
   disabled?: boolean
   customBtn?: CustomBtn
+  timer?: number
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
   (
-    { type, inputSize, variant, shape, label, disabled, onChange, state, customBtn, ...props },
+    {
+      type,
+      inputSize,
+      variant,
+      shape,
+      label,
+      disabled,
+      onChange,
+      state,
+      customBtn,
+      timer,
+      ...props
+    },
     ref
   ) => {
+    const [time, setTime] = useState(0)
+
+    const handleTimerFormat = (num: number) => {
+      const minute = Math.floor(num / 60)
+      const second = num % 60
+
+      const formatMinute = minute < 10 ? `0${minute}` : minute
+      const formatSecond = second < 10 ? `0${second}` : second
+
+      return `${formatMinute}:${formatSecond}`
+    }
+
+    useEffect(() => {
+      if (!timer) return
+
+      setTime(timer)
+
+      const timerFunc = setInterval(() => {
+        setTime((prev) => {
+          if (prev > 0) return prev - 1
+          else return 0
+        })
+      }, 1000)
+      return () => clearInterval(timerFunc)
+    }, [timer])
     return (
       <div className={cx("input-comm", variant, state?.type)}>
         <div className="lab-comm">
@@ -56,10 +94,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
             {...props}
           />
           {customBtn && (
-            <button type="button" className="inp-comm-btn body-40" {...customBtn}>
+            <button
+              type="button"
+              className={cx("inp-comm-btn", "body-40", customBtn.className)}
+              {...customBtn}>
               {customBtn.name}
             </button>
           )}
+          {timer && <span className={cx("inp-timer")}>{handleTimerFormat(time)}</span>}
         </div>
       </div>
     )

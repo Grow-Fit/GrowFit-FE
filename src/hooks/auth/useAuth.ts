@@ -43,20 +43,8 @@ export const useChildJoin = () => {
 
 // 아이 로그인
 export const useChildLogin = () => {
-  const router = useRouter()
   return useMutation({
     mutationKey: ["child", "login"],
     mutationFn: postChildLogin,
-    onSuccess: (data) => {
-      if (data.data) {
-        router.push("/")
-
-        localStorage.setItem("userType", "child")
-      }
-    },
-    onError: (error) => {
-      router.push("/error?type=join")
-      console.error("로그인 실패:", error)
-    },
   })
 }

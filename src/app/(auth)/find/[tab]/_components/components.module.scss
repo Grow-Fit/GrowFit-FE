@@ -1,0 +1,46 @@
+.title {
+  font-size: 1.8rem;
+  line-height: 2.6rem;
+}
+
+.desc {
+  font-size: 1.5rem;
+  margin: 1rem 0 3.2rem;
+}
+
+.btn {
+  &__next {
+    margin-top: auto;
+  }
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0 1.6rem;
+  &__title {
+    display: block;
+    text-align: center;
+    &__bold {
+      text-align: left;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+  }
+  &__info {
+    margin-top: 3.6rem;
+    padding: 3.6rem 1.6rem;
+    border-radius: 0.6rem;
+    border: 0.1rem solid $gray-20;
+    dl {
+      display: flex;
+      & + dl {
+        margin-top: 2.6rem;
+      }
+    }
+  }
+  &__desc {
+    margin: 1.6rem 0 3.2rem;
+  }
+}
