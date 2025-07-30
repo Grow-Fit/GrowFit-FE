@@ -1,0 +1,24 @@
+.manage {
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 32px;
+
+    h3 {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    p {
+      color: $gray-70;
+      text-align: right;
+    }
+  }
+}

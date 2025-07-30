@@ -1,12 +1,15 @@
 "use client"
 import styles from "./page.module.scss"
-import { ArrowIcon, ProfileIcon, GoOutIcon } from "@/components/common/icon"
+import { ArrowIcon, ProfileIcon } from "@/components/common/icon"
 import Link from "next/link"
 import DefaultHeader from "@/components/layout/header/DefaultHeader"
 import React from "react"
 import Navigation from "@/components/layout/Navigation"
+import { useChildInfoQuery, useParentInfoQuery } from "@/queries/mypage/useMypageQuery"
 
 const Page = () => {
+  const { data: parentData } = useParentInfoQuery()
+  const { data: childData } = useChildInfoQuery()
   return (
     <>
       <DefaultHeader />
@@ -40,16 +43,11 @@ const Page = () => {
         </div>
         <ul className={styles.mypage__list}>
           <li>
-            <Link href={"/mypage/edit"}>정보수정</Link>
+            <Link href={"/mypage/manage"}>계정관리</Link>
             <ArrowIcon />
           </li>
           <li>
-            <p>계정탈퇴</p>
-            <ArrowIcon />
-          </li>
-          <li>
-            <p>정보수정</p>
-            <GoOutIcon />
+            <p>로그아웃</p>
           </li>
         </ul>
       </div>
