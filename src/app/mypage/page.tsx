@@ -6,10 +6,17 @@ import DefaultHeader from "@/components/layout/header/DefaultHeader"
 import React from "react"
 import Navigation from "@/components/layout/Navigation"
 import { useChildInfoQuery, useParentInfoQuery } from "@/queries/mypage/useMypageQuery"
+import { useUserType } from "@/hooks/user/useUserType"
 
 const Page = () => {
+  const userType = useUserType()
   const { data: parentData } = useParentInfoQuery()
   const { data: childData } = useChildInfoQuery()
+  const isParent = userType === "parent"
+  const isChild = userType === "child"
+  const parentInfo = parentData?.data
+  const childInfo = childData?.data
+
   return (
     <>
       <DefaultHeader />
@@ -18,7 +25,10 @@ const Page = () => {
           <div className={styles.mypage__myname}>
             <div>
               <ProfileIcon />
-              <p>현주님 안녕하세요!</p>
+              <p>
+                {`${isParent ? parentInfo.nickname : isChild ? childInfo.child_name : "-"}`}님
+                안녕하세요!
+              </p>
             </div>
             {/*<ArrowIcon />*/}
             <Link href={`/mypage/edit`}>프로필 수정</Link>
@@ -28,13 +38,26 @@ const Page = () => {
               <ProfileIcon />
               <div>
                 <p>
-                  <strong>김민준</strong>
-                  <span>11세</span>
-                  <span>남</span>
+                  <strong>
+                    {`${isParent ? parentInfo.child.child_name : isChild ? childInfo.child_name : "-"}`}
+                  </strong>
+                  <span>
+                    {`${isParent ? parentInfo.child.child_age : isChild ? childInfo.child_age : "-"}`}
+                    세
+                  </span>
+                  <span>
+                    {`${isParent ? parentInfo.child.child_gender : isChild ? childInfo.child_gender : "-"}`}
+                  </span>
                 </p>
                 <p>
-                  <span>144cm</span>
-                  <span>60KG</span>
+                  <span>
+                    {`${isParent ? parentInfo.child.child_BodyInfo.height : isChild ? childInfo.child_BodyInfo.height : "-"}`}
+                    cm
+                  </span>
+                  <span>
+                    {`${isParent ? parentInfo.child.child_BodyInfo.weight : isChild ? childInfo.child_BodyInfo.weight : "-"}`}
+                    KG
+                  </span>
                 </p>
               </div>
             </div>
