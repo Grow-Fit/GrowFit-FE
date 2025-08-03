@@ -37,7 +37,7 @@ const Page = () => {
               </p>
             </div>
             {/*<ArrowIcon />*/}
-            <Link href={`/mypage/edit`}>프로필 수정</Link>
+            {isParent && <Link href={`/mypage/edit`}>프로필 수정</Link>}
           </div>
           <div className={styles.mypage__myinfo}>
             <div>
@@ -67,7 +67,7 @@ const Page = () => {
                 </p>
               </div>
             </div>
-            <Link href={"/mypage/edit"}>정보수정</Link>
+            {isChild && <Link href={"/mypage/manage"}>정보수정</Link>}
           </div>
         </div>
         <ul className={styles.mypage__list}>

@@ -4,10 +4,15 @@ import BackHeader from "@/components/layout/header/BackHeader"
 import React from "react"
 import { ArrowIcon } from "@/components/common/icon"
 import { useRouter } from "next/navigation"
-import { useParentInfoQuery } from "@/queries/mypage/useMypageQuery"
+import { useChildInfoQuery, useParentInfoQuery } from "@/queries/mypage/useMypageQuery"
+import { useUserType } from "@/hooks/user/useUserType"
 
 const Page = () => {
   const router = useRouter()
+  const userType = useUserType()
+  const isChild = userType === "child"
+  const { data: childData } = useChildInfoQuery(isChild)
+  const childInfo = childData?.data
 
   return (
     <>

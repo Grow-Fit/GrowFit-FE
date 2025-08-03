@@ -18,10 +18,11 @@ export const useChildInfoQuery = (enabled: boolean) => {
   })
 }
 
-export const useParentInfoMutation = () => {
+export const useParentInfoMutation = (onSuccess) => {
   return useMutation({
     mutationKey: ["parent_edit"],
     mutationFn: (request) => editParentApi(request),
+    onSuccess: onSuccess,
   })
 }
 
