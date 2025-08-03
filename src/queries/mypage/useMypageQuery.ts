@@ -2,17 +2,19 @@ import { useMutation, useQuery } from "@tanstack/react-query"
 import { getGoalMainInfo, postCertifyGoal } from "@/app/api/goal"
 import { editChildApi, editParentApi, getChildApi, getParentApi } from "@/app/api/mypage"
 
-export const useParentInfoQuery = () => {
+export const useParentInfoQuery = (enabled: boolean) => {
   return useQuery({
     queryKey: ["parent_info"],
     queryFn: () => getParentApi(),
+    enabled,
   })
 }
 
-export const useChildInfoQuery = () => {
+export const useChildInfoQuery = (enabled: boolean) => {
   return useQuery({
     queryKey: ["child_info"],
     queryFn: () => getChildApi(),
+    enabled,
   })
 }
 

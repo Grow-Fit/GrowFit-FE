@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 export function useUserType() {
-  const [userType, setUserType] = useState<string | undefined>()
+  const [userType, setUserType] = useState<string | null>(null)
 
   useEffect(() => {
     const stored = localStorage.getItem("userType")

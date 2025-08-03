@@ -7,15 +7,21 @@ import React from "react"
 import Navigation from "@/components/layout/Navigation"
 import { useChildInfoQuery, useParentInfoQuery } from "@/queries/mypage/useMypageQuery"
 import { useUserType } from "@/hooks/user/useUserType"
+import { useKakaoAuth } from "@/hooks/auth/useKakaoAuth"
 
 const Page = () => {
   const userType = useUserType()
-  const { data: parentData } = useParentInfoQuery()
-  const { data: childData } = useChildInfoQuery()
+  const { handleKakaoLogout } = useKakaoAuth()
   const isParent = userType === "parent"
   const isChild = userType === "child"
+  const { data: parentData } = useParentInfoQuery(isParent)
+  const { data: childData } = useChildInfoQuery(isChild)
   const parentInfo = parentData?.data
   const childInfo = childData?.data
+
+  if (!userType || (isParent && !parentData) || (isChild && !childData)) {
+    return <div>로딩 중...</div>
+  }
 
   return (
     <>
@@ -70,7 +76,7 @@ const Page = () => {
             <ArrowIcon />
           </li>
           <li>
-            <p>로그아웃</p>
+            <p onClick={handleKakaoLogout}>로그아웃</p>
           </li>
         </ul>
       </div>
