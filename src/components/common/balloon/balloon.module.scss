@@ -1,0 +1,20 @@
+.balloon {
+  background: #fff;
+  border: 1px solid #1a1a1a;
+  padding: 8px 12px;
+  border-radius: 16px;
+  font-size: 14px;
+  position: relative;
+  margin-bottom: 30px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px 6px 0 6px;
+    border-style: solid;
+    border-color: #1a1a1a transparent transparent transparent;
+  }
+}
