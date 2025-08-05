@@ -1,0 +1,116 @@
+.container {
+    padding: 20px;
+    background: #fff;
+    min-height: 100vh;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .timeAndKcal {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+    color: #888;
+  }
+  
+  .kcal {
+    font-weight: bold;
+    color: #1a1a1a;
+  }
+  
+  .imageWrap {
+    position: relative;
+    margin: 16px 0;
+    text-align: center;
+  }
+  
+  .image {
+    width: 100%;
+    border-radius: 12px;
+  }
+  
+  .balloon {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border: 1px solid #1a1a1a;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+  }
+  
+  .foodChips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 8px 0;
+    justify-content: center;
+  }
+  
+  .foodChip {
+    border: 1px solid #ccc;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: #f0f0f0;
+  }
+  
+  .addBtn {
+    background: none;
+    border: none;
+    color: #1a1a1a;
+    font-weight: bold;
+    margin-top: 12px;
+  }
+  
+  .summary {
+    margin-top: 24px;
+    text-align: center;
+  
+    .calorieRow {
+      font-size: 14px;
+      margin-bottom: 12px;
+  
+      .kcalBox {
+        font-weight: bold;
+        margin-left: 12px;
+      }
+    }
+  
+    .nutrition {
+      display: flex;
+      justify-content: space-around;
+  
+      div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+  
+        strong {
+          font-size: 16px;
+        }
+  
+        span {
+          font-size: 12px;
+          color: #999;
+        }
+      }
+    }
+  }
+  
+  .completeBtn {
+    width: 100%;
+    margin-top: 24px;
+    padding: 12px;
+    border-radius: 30px;
+    background: #ccc;
+    font-weight: bold;
+  }
+  

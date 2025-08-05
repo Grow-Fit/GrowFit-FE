@@ -1,7 +1,7 @@
 import GoalCard from "./GoalCard"
 import styles from "./GoalCardList.module.scss"
 import Img1 from "@/assets/icons/img-1.svg"
-import Img2 from "@/assets/icons/img.svg"
+import Img2 from "@/assets/icons/today_calorie.svg"
 
 
 const cardData = [

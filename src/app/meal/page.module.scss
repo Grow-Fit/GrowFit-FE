@@ -1,0 +1,38 @@
+
+  
+  /* 캘린더 */
+  .diet_calendar {
+    margin-top: 16px;
+  }
+  
+  /* 식단 요약 */
+  .summarySection {
+    margin-top: 24px;
+    padding: 15px;
+    padding-bottom: 32px;
+  }
+  
+  .summaryTitleWrap {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  
+  .summaryTitle {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  .kcalCount {
+    font-size: 14px;
+    color: #888;
+    padding-left: 10px;
+  }
+  
+  /* 식단 카드 */
+  .mealsSection {
+    display: flex;
+    flex-direction: column;
+    //gap: 16px;
+  }
+  
